@@ -14,7 +14,7 @@
         <c:choose>
             <c:when test="${!null}">
                 <li>
-                    <a href="admin.htm"><i class="fa fa-user fa-fw"></i>  </a>
+                    <a href="admin.htm">Login</a>
                 </li>
             </c:when>
             <c:otherwise>
@@ -35,7 +35,7 @@
                     <li><a href="news.htm" class="text-capitalize">News</a></li>
                     <li><a href="locations.htm" class="text-capitalize">Locations</a></li>
                     <li><a href="about.htm" class="text-capitalize">About</a></li>
-                    <li><a class="dropdown-button text-capitalize" href="#!" data-activates="dropdown1"><i class="fa fa-chevron-down small"></i></a></li>
+                    <li><a class="dropdown-button text-capitalize" href="#!" data-activates="dropdown1">Admin <i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>  
             </div>
         </div>
