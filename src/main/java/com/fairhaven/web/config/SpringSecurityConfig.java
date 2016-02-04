@@ -19,6 +19,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -56,15 +58,15 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
         http.exceptionHandling()
                 .accessDeniedPage("/login.htm?error=access_denied");
-        http.csrf();
         http.rememberMe()
                 .tokenValiditySeconds(1209600)
-                .
-                .rememberMeParameter("cookie");
+                .rememberMeParameter("cookie")
+                .tokenRepository(persistentTokenRepository());
         http.logout()
                 .logoutUrl("/logout.htm")
                 .deleteCookies("JSESSIONID")
                 .logoutSuccessUrl("/admin.htm");
+        http.csrf();
 
     }
 
@@ -79,5 +81,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     public Md5PasswordEncoder getMd5PasswordEncoder() {
         Md5PasswordEncoder passwordEncoder = new Md5PasswordEncoder();
         return passwordEncoder;
+    }
+
+    @Bean(name = "persistentTokenRepository")
+    public PersistentTokenRepository persistentTokenRepository() {
+        JdbcTokenRepositoryImpl tokenRepositoryImpl = new JdbcTokenRepositoryImpl();
+        tokenRepositoryImpl.setDataSource(dataSource);
+        return tokenRepositoryImpl;
     }
 }
