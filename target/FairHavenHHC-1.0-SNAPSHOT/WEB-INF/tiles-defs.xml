@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>   
+    <definition name="mainLayout" template="/Resources/Layout/main_layout.jsp">
+        <put-attribute name="title"  value="Fairhaven | Home" />
+        <put-attribute name="header" value="/Resources/Layout/header.jsp" />
+        <put-attribute name="content" value=""/>
+        <put-attribute name="footer" value="/Resources/Layout/footer.jsp" />  
+    </definition>
+
+    <definition name="com.fairhaven.index" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | Home" />
+        <put-attribute name="content"   value="/Pages/index.jsp" />
+    </definition>
+    
+    
+    <definition name="com.fairhaven.about" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | About" />
+        <put-attribute name="content"   value="/Pages/about.jsp" />
+    </definition>
+    
+    <definition name="com.fairhaven.news" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | News" />
+        <put-attribute name="content"   value="/Pages/news.jsp" />
+    </definition>
+    
+    <definition name="com.fairhaven.services" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | Services" />
+        <put-attribute name="content"   value="/Pages/services.jsp" />
+    </definition>
+    
+     <definition name="com.fairhaven.locations" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | Locations" />
+        <put-attribute name="content"   value="/Pages/locations.jsp" />
+    </definition>
+    
+    
+    
+    
+    <!-- ADMIN PAGES-->
+     <definition name="com.fairhaven.admin.home" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | Admin" />
+        <put-attribute name="content"   value="/Pages/admin.jsp" />
+    </definition>
+    
+    <definition name="com.fairhaven.admin.login" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | Login" />
+        <put-attribute name="content"   value="/Pages/login.jsp" />
+    </definition>
+    
+    
+</tiles-definitions>   
