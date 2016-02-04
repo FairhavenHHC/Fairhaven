@@ -59,6 +59,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf();
         http.rememberMe()
                 .tokenValiditySeconds(1209600)
+                .
                 .rememberMeParameter("cookie");
         http.logout()
                 .logoutUrl("/logout.htm")

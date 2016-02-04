@@ -36,5 +36,13 @@ public class LoginController {
         mav.addObject("login", login);
         return mav;
     }
+    
+    @RequestMapping(path = "/logout.htm", method = RequestMethod.GET)
+    public ModelAndView lgout() {
+        ModelAndView mav = new ModelAndView("com.fairhaven.admin.login");
+        LoginFormBackingBean login = new LoginFormBackingBean();
+        mav.addObject("login", login);
+        return mav;
+    }
 
 }
