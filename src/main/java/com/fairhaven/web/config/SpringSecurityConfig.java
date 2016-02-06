@@ -19,6 +19,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -48,28 +50,31 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin.htm")
                 .hasRole("ADMIN");
         http.formLogin()
-                .loginProcessingUrl("/j_spring_security_check")
+                .loginProcessingUrl("/security_check")
                 .failureUrl("/login.htm?error=wrong_credentials")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .loginPage("/login.htm")
-                .permitAll();
+                .defaultSuccessUrl("/index.htm");
         http.exceptionHandling()
                 .accessDeniedPage("/login.htm?error=access_denied");
-        http.csrf();
         http.rememberMe()
                 .tokenValiditySeconds(1209600)
-                .rememberMeParameter("cookie");
+                .rememberMeParameter("cookie")
+                .rememberMeCookieName("remember-me-token")
+                .tokenRepository(persistentTokenRepository());
         http.logout()
                 .logoutUrl("/logout.htm")
                 .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("/admin.htm");
+                .invalidateHttpSession(true)
+                .clearAuthentication(true);
+        http.csrf();
 
     }
 
     @Bean(name = "bcryptEncoder")
     public BCryptPasswordEncoder getBcryptPasswordEncoder() {
-        Integer strength = Integer.parseInt(env.getProperty("security.password.encryption_strength"));
+        Integer strength = Integer.parseInt(env .getProperty("security.password.encryption_strength"));
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(strength);
         return passwordEncoder;
     }
@@ -78,5 +83,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     public Md5PasswordEncoder getMd5PasswordEncoder() {
         Md5PasswordEncoder passwordEncoder = new Md5PasswordEncoder();
         return passwordEncoder;
+    }
+
+    @Bean(name = "persistentTokenRepository")
+    public PersistentTokenRepository persistentTokenRepository() {
+        JdbcTokenRepositoryImpl tokenRepositoryImpl = new JdbcTokenRepositoryImpl();
+        tokenRepositoryImpl.setDataSource(dataSource);
+        return tokenRepositoryImpl;
     }
 }

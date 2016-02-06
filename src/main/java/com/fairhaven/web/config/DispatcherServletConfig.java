@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
@@ -131,6 +132,20 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         commonsMultipartResolver.setDefaultEncoding("utf-8");
         commonsMultipartResolver.setMaxUploadSize(env.getProperty("upload.max_upload_size", Long.class));
         return commonsMultipartResolver;
+    }
+    
+    @Bean(name = "messageSource")
+    public ResourceBundleMessageSource getMessageSource() {
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setBasenames("/messages/messages", "/messages/exceptions");
+        return messageSource;
+    }
+
+    @Bean(name ="validatorSource")
+    public ResourceBundleMessageSource getValidatorMessageSource() {
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setBasenames("/mesages/validation/validation_messages");
+        return messageSource;
     }
 
 }

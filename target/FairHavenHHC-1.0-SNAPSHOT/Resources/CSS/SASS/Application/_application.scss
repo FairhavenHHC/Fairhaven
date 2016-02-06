@@ -34,6 +34,12 @@ main {
     text-transform: uppercase;
 }
 
+.nav-wrapper li>a{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
 .header-section{
     min-height: 450px;
 }
@@ -72,3 +78,4 @@ main {
     border: 2px dashed #ba68c8;
     background: white;
     padding: 20px 20px; }
+

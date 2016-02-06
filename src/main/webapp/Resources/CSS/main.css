@@ -42,6 +42,10 @@ main {
 .text-capitalize {
   text-transform: uppercase; }
 
+.nav-wrapper li > a {
+  text-transform: uppercase;
+  font-weight: bold; }
+
 .header-section {
   min-height: 450px; }
 

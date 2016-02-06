@@ -48,13 +48,14 @@
             <tiles:insertAttribute name="footer" />
         </footer>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link href='https://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'/>
+
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="Resources/Scripts/materialize.min.js"></script>
         <script type="text/javascript" src="Resources/Scripts/main.js"></script>
         <script type="text/javascript" src="Resources/Scripts/jquery-mask-plugin-min.js"></script>
         <script type="text/javascript" src="Resources/Scripts/input-mask.js"></script>
+
     </body>
 </html>

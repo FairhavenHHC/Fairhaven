@@ -96,7 +96,7 @@
                 <p>
                     Lorem Ipsum is simply dummy text of the printing and 
                     typesetting industry. Lorem Ipsum has been the industry's 
-                    standard dummy text ever since the 1500s, when an unknown 
+                    standard dummy text <a href="?lang=es">ever since the 1500s</a>, when an unknown 
                     printer took a galley of type and scrambled it to make a 
                     type specimen book
                 </p>
