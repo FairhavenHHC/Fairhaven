@@ -73,10 +73,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMeCookieName("remember-me-token")
                 .tokenRepository(persistentTokenRepository());
         http.logout()
-                .logoutUrl("/logout.htm")
-                .deleteCookies("JSESSIONID")
-                .invalidateHttpSession(true)
-                .clearAuthentication(true);
+                .logoutUrl("/logout.htm");
         http.csrf();
 
     }

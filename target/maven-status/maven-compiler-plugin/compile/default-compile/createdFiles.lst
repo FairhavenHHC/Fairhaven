@@ -4,6 +4,7 @@ com\fairhaven\db\entities\Groups.class
 com\fairhaven\utils\encryption\Encoding.class
 com\fairhaven\web\controllers\IndexController.class
 com\fairhaven\web\controllers\LocationController.class
+com\fairhaven\web\controllers\MembersController.class
 com\fairhaven\web\controllers\NewsController.class
 com\fairhaven\web\controllers\AboutController.class
 com\fairhaven\utils\encryption\GenericEncrypter.class
