@@ -25,6 +25,10 @@ public class LocationController {
 
     private static final Logger logger = Logger.getLogger(LocationController.class.getName());
     
+    /**
+     *
+     * @return
+     */
     @RequestMapping(path = "/locations.htm", method = RequestMethod.GET)
     public ModelAndView news(){
         return new ModelAndView("com.fairhaven.locations");

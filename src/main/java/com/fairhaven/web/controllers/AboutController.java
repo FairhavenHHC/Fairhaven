@@ -25,6 +25,10 @@ public class AboutController {
 
     private static final Logger logger = Logger.getLogger(AboutController.class.getName());
     
+    /**
+     *
+     * @return
+     */
     @RequestMapping(path = "/about.htm", method = RequestMethod.GET)
     public ModelAndView news(){
         return new ModelAndView("com.fairhaven.about");

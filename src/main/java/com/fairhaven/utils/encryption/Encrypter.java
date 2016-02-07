@@ -12,8 +12,31 @@ package com.fairhaven.utils.encryption;
  */
 public interface Encrypter{
     
+    /**
+     *
+     * @param stringToEncrypt
+     * @return
+     * @throws Exception
+     */
     public String encryptString(String stringToEncrypt) throws Exception;
+
+    /**
+     *
+     * @param stringToEncrypt
+     * @param encryptionAlgorithm
+     * @return
+     * @throws Exception
+     */
     public String encryptString(String stringToEncrypt, Algorithm encryptionAlgorithm)throws Exception;
+
+    /**
+     *
+     * @param stringToEncrypt
+     * @param encryptionAlgorithm
+     * @param encoding
+     * @return
+     * @throws Exception
+     */
     public String encryptString(String stringToEncrypt, Algorithm encryptionAlgorithm, Encoding encoding)throws Exception;
     
 }

@@ -55,6 +55,12 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
      public void configureViewResolvers(ViewResolverRegistry registry){
      registry.tiles();
      }*/
+
+    /**
+     *
+     * @return
+     */
+    
     @Bean
     public UrlBasedViewResolver getUrlBasedViewResolver() {
         UrlBasedViewResolver resolver = new UrlBasedViewResolver();
@@ -62,6 +68,10 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         return resolver;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean
     public TilesConfigurer getTilesConfigurer() {
         TilesConfigurer configurer = new TilesConfigurer();
@@ -69,6 +79,10 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         return configurer;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean
     public CookieLocaleResolver getLocalResolver() {
         CookieLocaleResolver cookieResolver = new CookieLocaleResolver();
@@ -104,6 +118,11 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         return validator;
     }
 
+    /**
+     *
+     * @param sessionFactory
+     * @return
+     */
     @Autowired
     @Bean(name = "openSessionInViewInterceptor")
     public OpenSessionInViewInterceptor getOsvInterceptor(SessionFactory sessionFactory) {
@@ -112,6 +131,10 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         return osvInterceptorBean;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean(name = "localeChangeInterceptor")
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
@@ -121,11 +144,19 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         return localeChangeInterceptor;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean(name = "localeResolver")
     public LocaleResolver getLocaleResolver() {
         return new SessionLocaleResolver();
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean(name = "multipartResolver")
     public CommonsMultipartResolver commonsMultipartResolver() {
         CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
@@ -134,6 +165,10 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         return commonsMultipartResolver;
     }
     
+    /**
+     *
+     * @return
+     */
     @Bean(name = "messageSource")
     public ResourceBundleMessageSource getMessageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
@@ -141,6 +176,10 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         return messageSource;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean(name ="validatorSource")
     public ResourceBundleMessageSource getValidatorMessageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();

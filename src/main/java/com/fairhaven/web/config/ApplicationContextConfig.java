@@ -40,6 +40,10 @@ public class ApplicationContextConfig {
     @Resource
     private Environment env;
 
+    /**
+     *
+     * @return
+     */
     @Bean(name = "dataSource")
     public DataSource getDataSource() {
         DriverManagerDataSource datasource = new DriverManagerDataSource();
@@ -50,6 +54,11 @@ public class ApplicationContextConfig {
         return datasource;
     }
 
+    /**
+     *
+     * @param datasource
+     * @return
+     */
     @Bean(name = "sessionFactory")
     @Autowired
     public LocalSessionFactoryBean sessionFactory(DataSource datasource) {
@@ -74,6 +83,11 @@ public class ApplicationContextConfig {
         return sessionFactory;
     }
 
+    /**
+     *
+     * @param sessionFactory
+     * @return
+     */
     @Bean
     @Autowired
     public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
@@ -83,6 +97,10 @@ public class ApplicationContextConfig {
         return txManager;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();

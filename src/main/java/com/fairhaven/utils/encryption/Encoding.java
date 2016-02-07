@@ -12,7 +12,14 @@ package com.fairhaven.utils.encryption;
  */
 public enum Encoding {
     
+    /**
+     *
+     */
     UTF8("UTF-8"),
+
+    /**
+     *
+     */
     UTF16("UTF-16");
 
     private final String encoding;
@@ -21,7 +28,11 @@ public enum Encoding {
         this.encoding = encoding;
     }
 
-     public String getEncoding() {
+    /**
+     *
+     * @return
+     */
+    public String getEncoding() {
         return this.encoding;
     }
 }

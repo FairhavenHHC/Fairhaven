@@ -1,0 +1,6 @@
+com.fairhaven.db.entities
+com.fairhaven.utils.encryption
+com.fairhaven.web.config
+com.fairhaven.web.controllers
+com.fairhaven.web.forms
+com.fairhaven.web.interceptors
