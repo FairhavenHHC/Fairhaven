@@ -49,7 +49,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m6">
-                <a href="services.htm"><h3 class=""><i class="fa fa-puzzle-piece light-green-text"></i> Services</h3></a>
+                <a href="services.htm"><h3 class="grey-text text-darken-1"><i class="fa fa-puzzle-piece light-green-text"></i> Services</h3></a>
                 <p>
                     We provide a wide array of services individualized to meet 
                     your specific needs. See how we compare.
@@ -92,7 +92,7 @@
         </div>
         <div class="row">
             <div class="col s12 m3">
-                <a href="about.htm"><h3 class=""><i class="fa fa-info light-blue-text"></i> About us</h3></a>
+                <a href="about.htm"><h3 class="grey-text text-darken-1"><i class="fa fa-info light-blue-text"></i> About us</h3></a>
                 <p>
                     Lorem Ipsum is simply dummy text of the printing and 
                     typesetting industry. Lorem Ipsum has been the industry's 
@@ -107,7 +107,7 @@
             <div class="col s12 m6">
                 <div class="row">
                     <div class="col s12 m12">
-                        <a href="locations.htm"><h3 class=""><i class="fa fa-map-signs orange-text text-darken-3"></i> We're just around the corner</h3></a>
+                        <a href="locations.htm"><h3 class="grey-text text-darken-1"><i class="fa fa-map-signs orange-text text-darken-3"></i> We're just around the corner</h3></a>
                         <p>
                             We currently server the entire Orange county region. <a href="#"><i class="fa fa-map-marker"></i> Map us</a>
                         </p>

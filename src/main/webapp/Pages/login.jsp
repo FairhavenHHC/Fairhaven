@@ -12,8 +12,8 @@
             <div class="row">
                 <div class="col m12 s12">
                     <div class="error">
-                        <p class="center-align red-text">
-                            <strong><i class="fa fa-exclamation"></i> <fmt:message key="login.error"/></strong>
+                        <p class="center-align red-text ">
+                            <strong><fmt:message key="login.error"/></strong>
                         </p>
                     </div>
                 </div>
