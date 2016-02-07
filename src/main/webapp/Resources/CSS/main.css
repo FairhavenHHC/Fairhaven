@@ -35,6 +35,12 @@ body {
 main {
   flex: 1 0 auto; }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fafafa inset; }
+
+input:focus -webkit-autofil {
+  -webkit-box-shadow: 0 0 0px 1000px #fafafa inset; }
+
 .header-image {
   background: url(../Images/main-optimized.jpg) repeat 0 -300px;
   min-height: 500px; }

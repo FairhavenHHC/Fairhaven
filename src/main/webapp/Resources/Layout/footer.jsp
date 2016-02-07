@@ -30,7 +30,7 @@
         <div class="col m2">
             <h6 class="white-text">Connect</h6>
             <ul>
-                <li><a href="http://www.facebook.com/fairhavenhhc"><i class="fa fa-facebook fa-fw blue-text text-darken-3"></i> Facebook</a></li>
+                <li><a href="http://www.facebook.com/fairhavenhhc"><i class="fa fa-facebook fa-fw blue-text text-darken-4"></i> Facebook</a></li>
                 <li><a href="http://www.twitter.com/fairhavenhhc"><i class="fa fa-twitter fa-fw light-blue-text"></i> Twitter</a></li>
                 <li><a href="http://plus.google.com/"><i class="fa fa-google-plus fa-fw red-text"></i> Google Plus</a></li>
             </ul>
