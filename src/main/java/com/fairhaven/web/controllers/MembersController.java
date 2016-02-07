@@ -17,13 +17,14 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Sam
  */
 @Controller
-public class AdminController {
+@RequestMapping(path = "/members")
+public class MembersController {
 
-    private static final Logger logger = Logger.getLogger(AdminController.class.getName());
+    private static final Logger logger = Logger.getLogger(MembersController.class.getName());
 
-    @RequestMapping(path = "/admin.htm", method = RequestMethod.GET)
-    public ModelAndView admin() {
-        ModelAndView mav = new ModelAndView("com.fairhaven.admin.home");
+    @RequestMapping(path = "/profile.htm", method = RequestMethod.GET)
+    public ModelAndView profile() {
+        ModelAndView mav = new ModelAndView("com.fairhaven.memebers.profile");
         return mav;
     }
 

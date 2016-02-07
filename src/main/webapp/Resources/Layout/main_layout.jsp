@@ -9,7 +9,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<c:set var="context_path" value="${pageContext.request.contextPath}" />
+<c:set var="context" value="${pageContext.request.contextPath}" scope="session"/>
 
 <html>
     <head>
@@ -24,7 +24,7 @@
         <title><tiles:getAsString name="title" /></title>
 
         <!-- Bootstrap core CSS -->
-        <link href="Resources/CSS/base.css" rel="stylesheet">
+        <link href="${context}/Resources/CSS/base.css" rel="stylesheet">
 
 
         <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -52,10 +52,10 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'/>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="Resources/Scripts/materialize.min.js"></script>
-        <script type="text/javascript" src="Resources/Scripts/main.js"></script>
-        <script type="text/javascript" src="Resources/Scripts/jquery-mask-plugin-min.js"></script>
-        <script type="text/javascript" src="Resources/Scripts/input-mask.js"></script>
+        <script type="text/javascript" src="${context}/Resources/Scripts/materialize.min.js"></script>
+        <script type="text/javascript" src="${context}/Resources/Scripts/main.js"></script>
+        <script type="text/javascript" src="${context}/Resources/Scripts/jquery-mask-plugin-min.js"></script>
+        <script type="text/javascript" src="${context}/Resources/Scripts/input-mask.js"></script>
 
     </body>
 </html>

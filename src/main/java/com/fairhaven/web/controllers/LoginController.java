@@ -30,7 +30,7 @@ public class LoginController {
 
     @RequestMapping(path = "/login.htm", method = RequestMethod.GET)
     public ModelAndView login(@RequestParam(name = "error", required = false) String error, Locale locale) {
-        ModelAndView mav = new ModelAndView("com.fairhaven.admin.login");
+        ModelAndView mav = new ModelAndView("com.fairhaven.memebers.login");
         LoginFormBackingBean login = new LoginFormBackingBean();
         login.setCookie(true);
         mav.addObject("login", login);
@@ -50,6 +50,6 @@ public class LoginController {
         request.logout();
         rememberMeCookie.setMaxAge(0);
         response.addCookie(rememberMeCookie);
-        return new ModelAndView("redirect:/admin.htm");
+        return new ModelAndView("redirect:/members/profile.htm");
     }
 }

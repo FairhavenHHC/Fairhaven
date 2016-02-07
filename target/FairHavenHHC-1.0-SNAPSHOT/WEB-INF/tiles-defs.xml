@@ -39,12 +39,12 @@
     
     
     <!-- ADMIN PAGES-->
-     <definition name="com.fairhaven.admin.home" extends="mainLayout">
-        <put-attribute name="title"  value="Fairhaven | Admin" />
-        <put-attribute name="content"   value="/Pages/admin.jsp" />
+     <definition name="com.fairhaven.memebers.profile" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | Member Profile" />
+        <put-attribute name="content"   value="/Pages/Members/profile.jsp" />
     </definition>
     
-    <definition name="com.fairhaven.admin.login" extends="mainLayout">
+    <definition name="com.fairhaven.memebers.login" extends="mainLayout">
         <put-attribute name="title"  value="Fairhaven | Login" />
         <put-attribute name="content"   value="/Pages/login.jsp" />
     </definition>

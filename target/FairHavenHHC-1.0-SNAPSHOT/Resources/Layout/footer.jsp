@@ -12,33 +12,35 @@
         </div>
         <div class="col m2">
             <h6 class="white-text">Our services</h6>
-             <ul>
-                 <li><a href="#">This is a test</a></li>
+            <ul>
+                <li><a href="#">This is a test</a></li>
                 <li><a href="#">Some link</a></li>
                 <li><a href="#">More services</a></li>
                 <li><a href="#">This is a test</a></li>
             </ul>
         </div>
         <div class="col m2">
-             <h6 class="white-text">Our mission</h6>
-             <ul>
-                 <li><a href="#">Some link</a></li>
-                <li><a href="#">More mission statements</a></li>
-             </ul>
+            <h6 class="white-text">About us</h6>
+            <ul>
+                <li><a href="#">Our story</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Find a location</a></li>
+            </ul>
         </div>
-         <div class="col m2">
-              <h6 class="white-text">About</h6>
-              <ul>
-                  <li><a href="#">Contact us</a></li>
-                  <li><a href="#">Find a location</a></li>
-              </ul>
+        <div class="col m2">
+            <h6 class="white-text">Connect</h6>
+            <ul>
+                <li><a href="#"><i class="fa fa-facebook fa-fw blue-text"></i> Facebook</a></li>
+                <li><a href="#"><i class="fa fa-twitter fa-fw light-blue-text"></i> Twitter</a></li>
+                <li><a href="#"><i class="fa fa-google-plus fa-fw red-text"></i> Google Plus</a></li>
+            </ul>
         </div>
         <div class="col m4">
             <h6 class="black-text"><i class="fa fa-info blue-text"></i> Non discrimination disclosure</h6>
             <small>
-               FairHaven home Health Care operates under a strict policy
-               of non-discrimination towards any of our clients based on age,
-               race, religion, color, sex national origin, handicap or sexual orientation.
+                FairHaven home Health Care operates under a strict policy
+                of non-discrimination towards any of our clients based on age,
+                race, religion, color, sex national origin, handicap or sexual orientation.
             </small>
         </div>
     </div>

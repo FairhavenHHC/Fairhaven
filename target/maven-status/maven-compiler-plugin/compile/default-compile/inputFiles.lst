@@ -6,7 +6,6 @@ D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\web\config\WebIni
 D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\web\forms\LoginFormBackingBean.java
 D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\web\config\SecurityWebAppInitializer.java
 D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\web\config\DispatcherServletConfig.java
-D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\web\controllers\AdminController.java
 D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\db\entities\Users.java
 D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\utils\encryption\Encoding.java
 D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\web\config\ApplicationContextConfig.java
@@ -14,6 +13,7 @@ D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\web\controllers\L
 D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\utils\encryption\GenericEncrypter.java
 D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\web\controllers\NewsController.java
 D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\utils\encryption\Algorithm.java
+D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\web\controllers\MembersController.java
 D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\utils\encryption\Encrypter.java
 D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\web\config\SpringSecurityConfig.java
 D:\Documents\Projects\FairHavenHHC\src\main\java\com\fairhaven\web\interceptors\LoggingInterceptor.java
