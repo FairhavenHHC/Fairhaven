@@ -8,31 +8,33 @@
 <div id="footer" class="container">
     <div class="row">
         <div class="col m2">
-            <h5  class="white-text"><strong>FairHaven HHC</strong></h5>
+            <h6><strong>FairHaven HHC &copy;</strong></h6>
         </div>
         <div class="col m2">
-             <p class="orange-text text-lighten-3"><strong>Our services</strong></p>
+            <h6 class="white-text">Our services</h6>
              <ul>
-                <li><a href="#" class="white-text">This is a test</a></li>
-                <li><a href="#" class="white-text">Some link</a></li>
-                <li><a href="#" class="white-text">More services</a></li>
-                <li><a href="#" class="white-text">This is a test</a></li>
-                <li><a href="#" class="white-text">Some link</a></li>
-                <li><a href="#" class="white-text">More services</a></li>
+                 <li><a href="#">This is a test</a></li>
+                <li><a href="#">Some link</a></li>
+                <li><a href="#">More services</a></li>
+                <li><a href="#">This is a test</a></li>
             </ul>
         </div>
         <div class="col m2">
-            <p class="orange-text text-lighten-3"><strong>Our mission</strong></p>
+             <h6 class="white-text">Our mission</h6>
+             <ul>
+                 <li><a href="#">Some link</a></li>
+                <li><a href="#">More mission statements</a></li>
+             </ul>
         </div>
          <div class="col m2">
-              <p class="orange-text text-lighten-3"><strong>About us</strong></p>
+              <h6 class="white-text">About</h6>
               <ul>
-                  <li class="white-text">Contact us</li>
-                  <li class="white-text">Find a location</li>
+                  <li><a href="#">Contact us</a></li>
+                  <li><a href="#">Find a location</a></li>
               </ul>
         </div>
         <div class="col m4">
-            <h5 class="thin">Non discrimination disclosure</h5>
+            <h6 class="black-text"><i class="fa fa-info blue-text"></i> Non discrimination disclosure</h6>
             <small>
                FairHaven home Health Care operates under a strict policy
                of non-discrimination towards any of our clients based on age,
@@ -45,7 +47,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <h6 class="center-align black-text">Fairhaven HHC 2015 &copy</h6> 
+                <h6 class="center-align black-text"><strong>FairHaven HHC &copy;</strong></h6>
             </div>
         </div>
     </div>
