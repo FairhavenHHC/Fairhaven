@@ -11,6 +11,10 @@ import org.springframework.core.annotation.Order;
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 //import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 
+/**
+ *
+ * @author Sam
+ */
 @Order(2)
 public class SecurityWebAppInitializer extends AbstractSecurityWebApplicationInitializer {
 

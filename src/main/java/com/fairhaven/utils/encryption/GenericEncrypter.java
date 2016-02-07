@@ -17,14 +17,30 @@ import org.apache.log4j.Logger;
 public class GenericEncrypter implements Encrypter {
 
     private static final Logger logger = Logger.getLogger(GenericEncrypter.class.getName());
+
+    /**
+     *
+     */
     protected final Algorithm ALGORITHM;
+
+    /**
+     *
+     */
     protected final Encoding ENCODING;
 
+    /**
+     *
+     */
     public GenericEncrypter() {
         this.ALGORITHM = Algorithm.MD5;
         this.ENCODING = Encoding.UTF8;
     }
 
+    /**
+     *
+     * @param algorithm
+     * @param encoding
+     */
     public GenericEncrypter(Algorithm algorithm, Encoding encoding) {
         if (encoding != null && algorithm != null) {
             this.ALGORITHM = algorithm;
@@ -34,16 +50,37 @@ public class GenericEncrypter implements Encrypter {
         }
     }
 
+    /**
+     *
+     * @param stringToEncrypt
+     * @return
+     * @throws Exception
+     */
     @Override
     public String encryptString(String stringToEncrypt) throws Exception {
         return this.encryptString(stringToEncrypt, ALGORITHM, ENCODING);
     }
 
+    /**
+     *
+     * @param stringToEncrypt
+     * @param encryptionAlgorithm
+     * @return
+     * @throws Exception
+     */
     @Override
     public String encryptString(String stringToEncrypt, Algorithm encryptionAlgorithm) throws Exception {
         return this.encryptString(stringToEncrypt, encryptionAlgorithm, ENCODING);
     }
 
+    /**
+     *
+     * @param stringToEncrypt
+     * @param encryptionAlgorithm
+     * @param encoding
+     * @return
+     * @throws Exception
+     */
     @Override
     public String encryptString(String stringToEncrypt, Algorithm encryptionAlgorithm, Encoding encoding) throws Exception {
         if (encryptionAlgorithm != null && encoding != null && stringToEncrypt != null && !stringToEncrypt.isEmpty()) {

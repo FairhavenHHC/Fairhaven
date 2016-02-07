@@ -25,6 +25,10 @@ public class NewsController {
 
     private static final Logger logger = Logger.getLogger(NewsController.class.getName());
     
+    /**
+     *
+     * @return
+     */
     @RequestMapping(path = "/news.htm", method = RequestMethod.GET)
     public ModelAndView news(){
         return new ModelAndView("com.fairhaven.news");

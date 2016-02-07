@@ -23,7 +23,7 @@
 
         <title><tiles:getAsString name="title" /></title>
 
-        <!-- Bootstrap core CSS -->
+        <!-- Main CSS file to import dependencies -->
         <link href="${context}/Resources/CSS/base.css" rel="stylesheet">
 
 

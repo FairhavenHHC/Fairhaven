@@ -26,6 +26,10 @@ public class ServicesController {
 
     private static final Logger logger = Logger.getLogger(ServicesController.class.getName());
     
+    /**
+     *
+     * @return
+     */
     @RequestMapping(path = "/services.htm", method = RequestMethod.GET)
     public ModelAndView news(){
         return new ModelAndView("com.fairhaven.services");
