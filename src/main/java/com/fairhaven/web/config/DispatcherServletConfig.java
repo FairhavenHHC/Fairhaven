@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
@@ -106,10 +107,11 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**")
-                .addResourceLocations("/resources/");
+        registry.addResourceHandler("/resources/**", "/members/resources/**")
+                .addResourceLocations("/Resources/");
         registry.addResourceHandler("/images/**")
                 .addResourceLocations("/Resources/Images/");
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 
     @Override
@@ -186,5 +188,7 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         messageSource.setBasenames("/mesages/validation/validation_messages");
         return messageSource;
     }
+    
+    
 
 }

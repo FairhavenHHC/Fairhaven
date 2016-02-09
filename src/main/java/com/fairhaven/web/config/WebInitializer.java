@@ -21,7 +21,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"*.htm"};
+        return new String[]{"/"};
     }
 
     @Override
@@ -29,4 +29,5 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
         return new Class[]{ApplicationContextConfig.class};
     }  
 
+    
 }

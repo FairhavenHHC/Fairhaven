@@ -87,7 +87,7 @@
                 </table>
             </div>
             <div class="col s12 m6">
-                <p><image src="Resources/Images/services-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff" /></p>
+                <p><image src="${context}/images/services-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff" /></p>
             </div>
         </div>
         <div class="row">
@@ -102,7 +102,7 @@
                 </p>
             </div>
             <div class="col s12 m3">
-                <p><image src="Resources/Images/about-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff;"/></p>
+                <p><image src="images/about-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff;"/></p>
             </div>
             <div class="col s12 m6">
                 <div class="row">

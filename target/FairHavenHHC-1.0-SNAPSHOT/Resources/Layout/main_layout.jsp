@@ -24,7 +24,7 @@
         <title><tiles:getAsString name="title" /></title>
 
         <!-- Main CSS file to import dependencies -->
-        <link href="${context}/Resources/CSS/base.css" rel="stylesheet">
+        <link href="${context}/resources/CSS/base.css" rel="stylesheet">
 
 
         <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -52,10 +52,10 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'/>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="${context}/Resources/Scripts/materialize.min.js"></script>
-        <script type="text/javascript" src="${context}/Resources/Scripts/main.js"></script>
-        <script type="text/javascript" src="${context}/Resources/Scripts/jquery-mask-plugin-min.js"></script>
-        <script type="text/javascript" src="${context}/Resources/Scripts/input-mask.js"></script>
+        <script type="text/javascript" src="${context}/resources/Scripts/materialize.min.js"></script>
+        <script type="text/javascript" src="${context}/resources/Scripts/main.js"></script>
+        <script type="text/javascript" src="${context}/resources/Scripts/jquery-mask-plugin-min.js"></script>
+        <script type="text/javascript" src="${context}/resources/Scripts/input-mask.js"></script>
 
     </body>
 </html>

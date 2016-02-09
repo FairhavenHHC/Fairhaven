@@ -45,5 +45,12 @@
                 </form:form>
             </div>
         </div>
+                
+        <div class="row">
+            <div class="col m4 offset-m4">
+                 <div class="divider"></div> 
+                <p class="right-align"><a href="${context}/reset.htm">Forgot your password?</a></p>
+            </div>
+        </div>
     </div>
 </div>
