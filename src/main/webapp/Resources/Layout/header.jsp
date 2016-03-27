@@ -12,7 +12,6 @@
                 <ul id="nav-mobile" class="hide-on-med-and-down left">
                     <li><a href="${context}/index.htm" class="text-capitalize bolden">Home</a></li>
                     <li><a href="${context}/services/" class="text-capitalize">Services</a></li>  
-                    <li><a href="${context}/news/" class="text-capitalize">News</a></li>
                     <li><a href="${context}/locations/" class="text-capitalize">Locations</a></li>
                     <li><a href="${context}/about/" class="text-capitalize">About</a></li>
                 </ul>
