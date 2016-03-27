@@ -22,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class IndexController {
 
     private static final Logger logger = Logger.getLogger(IndexController.class.getName());
+    
+    
 
     @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
     public ModelAndView index(Locale locale, HttpServletRequest request) {

@@ -21,11 +21,12 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
+@RequestMapping(path = "/locations")
 public class LocationController {
 
     private static final Logger logger = Logger.getLogger(LocationController.class.getName());
     
-    @RequestMapping(path = "/locations.htm", method = RequestMethod.GET)
+    @RequestMapping(path = "/", method = RequestMethod.GET)
     public ModelAndView news(){
         return new ModelAndView("com.fairhaven.locations");
     }

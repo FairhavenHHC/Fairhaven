@@ -50,6 +50,6 @@ public class LoginController {
         request.logout();
         rememberMeCookie.setMaxAge(0);
         response.addCookie(rememberMeCookie);
-        return new ModelAndView("redirect:/members/profile.htm");
+        return new ModelAndView("redirect:/members/");
     }
 }

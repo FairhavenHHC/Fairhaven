@@ -7,6 +7,7 @@ package com.fairhaven.web.config;
 
 // Import log4j class
 import com.fairhaven.web.interceptors.LoggingInterceptor;
+import com.fairhaven.web.interceptors.SessionVariablesInterceptor;
 import java.util.Locale;
 import javax.annotation.Resource;
 import org.apache.log4j.Logger;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor;
@@ -47,6 +49,8 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
     private LoggingInterceptor loggingInterceptor;
     @Resource
     private OpenSessionInViewInterceptor osvInterceptor;
+    @Resource
+    private SessionVariablesInterceptor sessionVariablesInterceptor;
 
     @Resource
     private Environment env;
@@ -85,6 +89,9 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         registry.addWebRequestInterceptor(osvInterceptor)
                 .addPathPatterns("/**")
                 .excludePathPatterns("/resources/**");
+        registry.addInterceptor(sessionVariablesInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/resources/**");
         registry.addInterceptor(this.localeChangeInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns("/resources/**");
@@ -92,8 +99,10 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**")
-                .addResourceLocations("/resources/");
+        registry.addResourceHandler("/css/**")
+                .addResourceLocations("/Resources/CSS/");
+        registry.addResourceHandler("/scripts/**")
+                .addResourceLocations("/Resources/Scripts/");
         registry.addResourceHandler("/images/**")
                 .addResourceLocations("/Resources/Images/");
     }
@@ -116,8 +125,6 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
         localeChangeInterceptor.setParamName("lang");
-        Exception ex = new Exception();
-
         return localeChangeInterceptor;
     }
 
@@ -135,9 +142,10 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
     }
     
     @Bean(name = "messageSource")
-    public ResourceBundleMessageSource getMessageSource() {
-        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasenames("/messages/messages", "/messages/exceptions");
+    public ReloadableResourceBundleMessageSource getMessageSource() {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasenames("classpath:messages/messages", "classpath:messages/exceptions");
+        messageSource.setCacheSeconds(1);
         return messageSource;
     }
 

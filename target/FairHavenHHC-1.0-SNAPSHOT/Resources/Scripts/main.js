@@ -5,7 +5,7 @@
  */
 
 $(document).ready(function () {
-    
+
     $(".dropdown-button").dropdown({
         belowOrigin: true // Displays dropdown below the button
     });
@@ -77,6 +77,12 @@ $(document).ready(function () {
         $('.scrollspy').scrollSpy();
     }
 
+    $("#more_services").click(function (e) {
+        e.preventDefault();
+        $(".additional_services").slideToggle('slow', 'swing');
+        $("i", this).toggleClass("fa-chevron-up fa-chevron-down");
+    });
 
+    $(".hidden_rows").hide();
 });
 

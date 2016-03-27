@@ -11,10 +11,10 @@
                 <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="hide-on-med-and-down left">
                     <li><a href="${context}/index.htm" class="text-capitalize bolden">Home</a></li>
-                    <li><a href="${context}/services.htm" class="text-capitalize">Services</a></li>  
-                    <li><a href="${context}/news.htm" class="text-capitalize">News</a></li>
-                    <li><a href="${context}/locations.htm" class="text-capitalize">Locations</a></li>
-                    <li><a href="${context}/about.htm" class="text-capitalize">About</a></li>
+                    <li><a href="${context}/services/" class="text-capitalize">Services</a></li>  
+                    <li><a href="${context}/news/" class="text-capitalize">News</a></li>
+                    <li><a href="${context}/locations/" class="text-capitalize">Locations</a></li>
+                    <li><a href="${context}/about/" class="text-capitalize">About</a></li>
                 </ul>
                 <!--<ul  class="right">
                     <li><a class="dropdown-button text-capitalize" href="#!" data-activates="dropdown1">Admin <i class="material-icons right">arrow_drop_down</i></a></li>
@@ -26,7 +26,7 @@
                                 <a href="${context}/logout.htm" class="text-capitalize"><strong>Logout</strong></a>
                             </c:when>
                             <c:otherwise>
-                                <a href="${context}/members/profile.htm" class="text-capitalize"><strong>Member login</strong></a>
+                                <a href="${context}/members/" class="text-capitalize"><strong>Member login</strong></a>
                             </c:otherwise>
                         </c:choose>
                     </li>

@@ -13,10 +13,24 @@
         <div class="col m2">
             <h6 class="white-text">Our services</h6>
             <ul>
-                <li><a href="#">This is a test</a></li>
-                <li><a href="#">Some link</a></li>
-                <li><a href="#">More services</a></li>
-                <li><a href="#">This is a test</a></li>
+                <c:choose>
+                    <c:when test="${!empty(services) && fn:length(services)> 0}">
+                        <c:forEach var="service" items="${services}">
+                            <c:if test="${service.offered}">
+                                <li>
+                                    <a href="${context}/services/${service.id}">
+                                        <c:out value="${service.name}" />
+                                    </a>
+                                </li>
+                            </c:if>
+                        </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                        <li>
+                            <fmt:message key="${footer.menu.services.none}" />
+                        </li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
         </div>
         <div class="col m2">
