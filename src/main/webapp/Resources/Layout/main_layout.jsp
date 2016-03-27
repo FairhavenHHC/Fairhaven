@@ -19,12 +19,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="shortcut icon" href="Resources/Images/favicon.ico">
+        <link rel="shortcut icon" href="${context}/images/favicon.ico">
 
         <title><tiles:getAsString name="title" /></title>
 
+<<<<<<< HEAD
         <!-- Main CSS file to import dependencies -->
         <link href="${context}/resources/CSS/base.css" rel="stylesheet">
+=======
+        <!-- Bootstrap core CSS -->
+        <link href="${context}/css/base.css" rel="stylesheet">
+>>>>>>> login
 
 
         <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -52,10 +57,17 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'/>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<<<<<<< HEAD
         <script type="text/javascript" src="${context}/resources/Scripts/materialize.min.js"></script>
         <script type="text/javascript" src="${context}/resources/Scripts/main.js"></script>
         <script type="text/javascript" src="${context}/resources/Scripts/jquery-mask-plugin-min.js"></script>
         <script type="text/javascript" src="${context}/resources/Scripts/input-mask.js"></script>
+=======
+        <script type="text/javascript" src="${context}/scripts/materialize.min.js"></script>
+        <script type="text/javascript" src="${context}/scripts/main.js"></script>
+        <script type="text/javascript" src="${context}/scripts/jquery-mask-plugin-min.js"></script>
+        <script type="text/javascript" src="${context}/scripts/input-mask.js"></script>
+>>>>>>> login
 
     </body>
 </html>

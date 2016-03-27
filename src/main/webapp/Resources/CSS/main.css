@@ -30,7 +30,7 @@ body {
   min-height: 100vh;
   flex-direction: column;
   background-color: #fff;
-  background: url(../Images/cream_dust.png) repeat 0 0; }
+  background: url(../images/cream_dust.png) repeat 0 0; }
 
 main {
   flex: 1 0 auto; }
@@ -42,8 +42,8 @@ input:focus -webkit-autofil {
   -webkit-box-shadow: 0 0 0px 1000px #fafafa inset; }
 
 .header-image {
-  background: url(../Images/main-optimized.jpg) repeat 0 -300px;
-  min-height: 500px; }
+  background: url(../images/main-optimized.jpg) no-repeat 45% 25%;
+  min-height: 50%; }
 
 .text-capitalize {
   text-transform: uppercase; }
@@ -81,3 +81,9 @@ footer li > a, .footer-copyright {
   border: 2px dashed #ba68c8;
   background: white;
   padding: 20px 20px; }
+<<<<<<< HEAD
+=======
+
+.bottom-div {
+  margin-bottom: -20px; }
+>>>>>>> login

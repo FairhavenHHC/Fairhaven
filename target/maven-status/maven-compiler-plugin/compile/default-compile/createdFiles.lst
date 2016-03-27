@@ -1,13 +1,28 @@
 com\fairhaven\db\entities\Users.class
+com\fairhaven\web\interceptors\SessionVariablesInterceptor.class
 com\fairhaven\db\entities\Groups_.class
 com\fairhaven\db\entities\Groups.class
 com\fairhaven\utils\encryption\Encoding.class
+com\fairhaven\db\dao\hibernate\HibernateGroupsDAO.class
 com\fairhaven\web\controllers\IndexController.class
 com\fairhaven\web\controllers\LocationController.class
 com\fairhaven\web\controllers\MembersController.class
+<<<<<<< HEAD
+=======
+com\fairhaven\db\dao\GenericDAO.class
+com\fairhaven\db\dao\UsersDAO.class
+>>>>>>> login
 com\fairhaven\web\controllers\NewsController.class
+com\fairhaven\db\dao\hibernate\HibernateServicesDAO.class
+com\fairhaven\db\entities\Services.class
+com\fairhaven\db\entities\Services_.class
 com\fairhaven\web\controllers\AboutController.class
+com\fairhaven\db\dao\ServicesDAO.class
+com\fairhaven\db\dao\DAOFactory.class
+com\fairhaven\db\dao\GroupsDAO.class
+com\fairhaven\db\dao\hibernate\HibernateUsersDAO.class
 com\fairhaven\utils\encryption\GenericEncrypter.class
+com\fairhaven\db\dao\hibernate\HibernateDAOFactory.class
 com\fairhaven\web\forms\LoginFormBackingBean.class
 com\fairhaven\web\config\DispatcherServletConfig.class
 com\fairhaven\utils\encryption\Encrypter.class
@@ -20,4 +35,5 @@ com\fairhaven\web\controllers\LoginController.class
 com\fairhaven\db\entities\Users_.class
 com\fairhaven\web\interceptors\LoggingInterceptor.class
 com\fairhaven\web\config\ApplicationContextConfig$1.class
+com\fairhaven\db\dao\hibernate\GenericHibernateDAO.class
 com\fairhaven\utils\encryption\Algorithm.class

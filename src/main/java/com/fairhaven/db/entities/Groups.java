@@ -42,6 +42,7 @@ import org.apache.log4j.Logger;
     @NamedQuery(name = "Groups.findByName", query = "SELECT g FROM Groups g WHERE g.name = :name"),
     @NamedQuery(name = "Groups.findByDescription", query = "SELECT g FROM Groups g WHERE g.description = :description")})
 public class Groups implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,12 +56,12 @@ public class Groups implements Serializable {
     private String name;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 1000)
+    @Size(min = 1, max = 255)
     @Column(name = "description")
     private String description;
-    @JoinTable(name = "users_groups", joinColumns = {
-        @JoinColumn(name = "group_id", referencedColumnName = "id")}, inverseJoinColumns = {
-        @JoinColumn(name = "user", referencedColumnName = "username")})
+    @JoinTable(name = "user_groups", joinColumns = {
+        @JoinColumn(name = "role_id", referencedColumnName = "id")}, inverseJoinColumns = {
+        @JoinColumn(name = "username", referencedColumnName = "username")})
     @ManyToMany
     private Collection<Users> usersCollection;
 

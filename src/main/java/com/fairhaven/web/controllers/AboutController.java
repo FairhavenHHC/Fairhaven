@@ -21,15 +21,20 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
+@RequestMapping("/about")
 public class AboutController {
 
     private static final Logger logger = Logger.getLogger(AboutController.class.getName());
     
+<<<<<<< HEAD
     /**
      *
      * @return
      */
     @RequestMapping(path = "/about.htm", method = RequestMethod.GET)
+=======
+    @RequestMapping(path = "/", method = RequestMethod.GET)
+>>>>>>> login
     public ModelAndView news(){
         return new ModelAndView("com.fairhaven.about");
     }

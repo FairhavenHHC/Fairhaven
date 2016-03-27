@@ -66,6 +66,12 @@ public class LoginController {
             HttpServletResponse response,
             RedirectAttributes model) throws ServletException {
         request.logout();
+<<<<<<< HEAD
         return new ModelAndView("redirect:/members/profile.htm");
+=======
+        rememberMeCookie.setMaxAge(0);
+        response.addCookie(rememberMeCookie);
+        return new ModelAndView("redirect:/members/");
+>>>>>>> login
     }
 }
