@@ -6,6 +6,7 @@
 package com.fairhaven.web.controllers;
 
 // Import log4j class
+import com.fairhaven.db.entities.Services;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,8 +31,9 @@ public class ServicesController {
     }
     
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-    public ModelAndView servicesIndex(@PathVariable("id") Integer id) {
+    public ModelAndView servicesIndex(@PathVariable("id") Services service) {
         ModelAndView mav = new ModelAndView("com.fairhaven.services");
+        mav.addObject("service", service);
         return mav;
     }
 

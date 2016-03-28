@@ -6,6 +6,7 @@
 package com.fairhaven.web.config;
 
 // Import log4j class
+import com.fairhaven.web.converters.StringToServiceConverter;
 import com.fairhaven.web.interceptors.LoggingInterceptor;
 import com.fairhaven.web.interceptors.SessionVariablesInterceptor;
 import java.util.Locale;
@@ -19,6 +20,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -51,6 +53,8 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
     private OpenSessionInViewInterceptor osvInterceptor;
     @Resource
     private SessionVariablesInterceptor sessionVariablesInterceptor;
+    @Resource
+    private StringToServiceConverter serviceConverter;
 
     @Resource
     private Environment env;
@@ -140,7 +144,7 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         commonsMultipartResolver.setMaxUploadSize(env.getProperty("upload.max_upload_size", Long.class));
         return commonsMultipartResolver;
     }
-    
+
     @Bean(name = "messageSource")
     public ReloadableResourceBundleMessageSource getMessageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
@@ -149,11 +153,16 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         return messageSource;
     }
 
-    @Bean(name ="validatorSource")
+    @Bean(name = "validatorSource")
     public ResourceBundleMessageSource getValidatorMessageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.setBasenames("/mesages/validation/validation_messages");
         return messageSource;
+    }
+
+    @Override
+    public void addFormatters(FormatterRegistry formatterRegistry) {
+        formatterRegistry.addConverter(serviceConverter);
     }
 
 }

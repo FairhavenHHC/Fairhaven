@@ -43,7 +43,7 @@ input:focus -webkit-autofil {
 
 .header-image {
   background: url(../images/main-optimized.jpg) no-repeat 45% 25%;
-  min-height: 50%; }
+  min-height: 500px; }
 
 .text-capitalize {
   text-transform: uppercase; }

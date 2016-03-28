@@ -33,7 +33,7 @@
 
 
 
-<div class="section header-image ">
+<div class="section header-image hide-on-med-and-down">
     <div class="row container">
         <div class="col s12 m12" >
 
@@ -127,7 +127,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m3">
-                <a href="about.htm"><h3 class=""><i class="fa fa-info light-blue-text"></i> <fmt:message key="home.section.about.heading" /></h3></a>
+                <a href="/about"><h3 class=""><i class="fa fa-info light-blue-text"></i> <fmt:message key="home.section.about.heading" /></h3></a>
                 <p>
                     <fmt:message key="home.section.about.text1" />
                 </p>
