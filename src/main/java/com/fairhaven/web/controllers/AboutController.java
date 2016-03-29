@@ -7,7 +7,9 @@ package com.fairhaven.web.controllers;
 
 // Import log4j class
 import com.fairhaven.db.dao.DAOFactory;
+import com.fairhaven.db.entities.Faq;
 import com.fairhaven.web.forms.MessageFormbackingBean;
+import java.util.Collection;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 import org.apache.log4j.Logger;
@@ -38,6 +40,9 @@ public class AboutController {
         } else {
             mav.addObject("message", new MessageFormbackingBean());
         }
+        
+        Collection<Faq> faqs = this.daof.getFaqDAO().findAll();
+        mav.addObject("faqs", faqs);
         return mav;
     }
 

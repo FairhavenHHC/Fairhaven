@@ -82,6 +82,13 @@ $(document).ready(function () {
         $(".additional_services").slideToggle('slow', 'swing');
         $("i", this).toggleClass("fa-chevron-up fa-chevron-down");
     });
+    
+    $(".collapsible-header").click(function (e) {
+        e.preventDefault();
+         $("i", this).toggleClass("fa-chevron-right fa-chevron-down");
+    });
+    
+    chevron-toggle
 
     $(".hidden_rows").hide();
 });

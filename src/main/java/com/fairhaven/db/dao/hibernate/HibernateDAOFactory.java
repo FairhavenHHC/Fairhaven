@@ -10,6 +10,7 @@ package com.fairhaven.db.dao.hibernate;
 
 // Import log4j class
 import com.fairhaven.db.dao.DAOFactory;
+import com.fairhaven.db.dao.FaqDAO;
 import com.fairhaven.db.dao.GroupsDAO;
 import com.fairhaven.db.dao.ServicesDAO;
 import com.fairhaven.db.dao.UsersDAO;
@@ -33,6 +34,8 @@ public class HibernateDAOFactory implements DAOFactory {
     private GroupsDAO groupsDAO;
     @Resource
     private UsersDAO usersDAO;
+    @Resource
+    private FaqDAO faqDAO;
 
     @Override
     public UsersDAO getUsersDAO() {
@@ -47,6 +50,11 @@ public class HibernateDAOFactory implements DAOFactory {
     @Override
     public ServicesDAO getServicesDAO() {
         return this.serviceDAO;
+    }
+
+    @Override
+    public FaqDAO getFaqDAO() {
+        return faqDAO;
     }
 
 }
