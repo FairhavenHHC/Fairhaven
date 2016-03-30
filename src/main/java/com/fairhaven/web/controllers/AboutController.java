@@ -7,14 +7,13 @@ package com.fairhaven.web.controllers;
 
 // Import log4j class
 import com.fairhaven.db.dao.DAOFactory;
-import com.fairhaven.db.entities.Faq;
 import com.fairhaven.web.forms.MessageFormbackingBean;
-import java.util.Collection;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,23 +37,24 @@ public class AboutController {
         if (message != null) {
             mav.addObject("message", message);
         } else {
-            mav.addObject("message", new MessageFormbackingBean());
+            MessageFormbackingBean newMessage = new MessageFormbackingBean();
+            newMessage.setNewsletter(true);
+            mav.addObject("message", newMessage);
         }
         
-        Collection<Faq> faqs = this.daof.getFaqDAO().findAll();
-        mav.addObject("faqs", faqs);
         return mav;
     }
 
     @RequestMapping(path = "/", method = RequestMethod.POST)
-    public ModelAndView about(@Valid MessageFormbackingBean message, BindingResult validationResults) {
-        ModelAndView mav;
+    public ModelAndView about(@ModelAttribute("message") @Valid MessageFormbackingBean message, BindingResult validationResults) {
+         ModelAndView mav = new ModelAndView("com.fairhaven.about");
 
-        if (validationResults.hasErrors()) {
-            mav = this.about(message);
-        } else {
+        if (!validationResults.hasErrors()) {
             mav = this.about(null);
+        }else{
+            mav.addObject("message", message);
         }
+        
         return mav;
     }
 

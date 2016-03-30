@@ -49,73 +49,57 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m6">
-                <div class="row">
-                    <div class="col s12">
-                        <h3 class="thin">Send us a message</h3>
-                        <form:form action="${context}/about/" method="post" commandName="message">
-                            <div class="row">
-                                <div class="input-field col s6">
-                                    <form:input path="firstName" />
-                                    <form:label path="firstName">First Name</form:label>
-                                    <form:errors path="firstName" />
-                                </div>
-                                <div class="input-field col s6">
-                                    <form:input path="lastName" />
-                                    <form:label path="lastName">Last Name</form:label>
-                                    <form:errors path="lastName" />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s6">
-                                    <form:input path="email" />
-                                    <form:label path="email">Email Address</form:label>
-                                    <form:errors path="email" />
-                                </div>
-                                <div class="input-field col s6">
-                                    <form:select path="service" >
-                                        <form:option label="Pick a service" value="" />
-                                        <form:options items="${services}" itemValue="id" itemLabel="name" />
-                                    </form:select>
-                                    <form:errors path="service" />
-                                </div>
-                            </div> 
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <form:textarea path="message"  rows="10" cssClass="materialize-textarea"/>
-                                    <form:label path="message">Message</form:label>
-                                    <form:errors path="message" />
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12 right-align">
-                                    <button class="btn" value="Submit" type="submit">Submit</button>
-                                </div>
-                            </div> 
-                        </form:form>
+                <h3 class="thin">Send us a message</h3>
+                <form:form action="${context}/about/" method="post" commandName="message">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <form:input path="firstName" />
+                            <form:label path="firstName"><fmt:message key="form.message.first.label" /></form:label>
+                            <form:errors path="firstName" cssClass="error"/>
+                        </div>
+                        <div class="input-field col s6">
+                            <form:input path="lastName" />
+                            <form:label path="lastName"><fmt:message key="form.message.last.label" /></form:label>
+                            <form:errors path="lastName" cssClass="error"/>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col s12">
-                        <h3 class="thin">Frequently asked questions</h3>
-                        <c:choose>
-                            <c:when test="${!empty(faqs)}">
-                                <ul class="collapsible z-depth-0" data-collapsible="accordion">
-                                    <c:forEach var="faq" items="${faqs}">
-                                        <li>
-                                            <div class="collapsible-header"><i class="fa fa-chevron-right chevron-toggle"></i> <c:out value="${faq.question}" /></div>
-                                            <div class="collapsible-body white"><p><c:out value="${faq.answer}" /></p></div>
-                                        </li>
-                                    </c:forEach>
-                                </ul>   
-                            </c:when>
-                            <c:otherwise>
-                                <p>
-                                    <fmt:message key="about.faq.no_faq_text" />
-                                </p>
-                            </c:otherwise>
-                        </c:choose>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <form:input path="email" />
+                            <form:label path="email"><fmt:message key="form.message.email.label" /></form:label>
+                            <form:errors path="email" cssClass="error"/>
+                        </div>
+                        <div class="input-field col s6">
+                            <form:select path="service" >
+                                <fmt:message key="form.message.service.default" var="serviceDefault"/>
+                                <form:option label="${serviceDefault}" value=""/>
+                                <form:options items="${services}" itemValue="id" itemLabel="name" />
+                            </form:select>
+                            <form:errors path="service" cssClass="error"/>
+                        </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <fmt:message key="form.message.newsletter.label" var="newsletterMessage"/>
+                            <form:checkbox path="newsletter" label="${newsletterMessage}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <form:textarea path="message"  rows="10" cssClass="materialize-textarea" length="250" />
+                            <form:label path="message"><fmt:message key="form.message.message.label" /></form:label>
+                            <form:errors path="message" cssClass="error"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 right-align">
+                            <button class="btn" value="Submit" type="submit"><fmt:message key="form.button.submit" /></button>
+                        </div>
+                    </div> 
+                </form:form>
+            </div>
+            <div class="col s12 m6">
+                <h3 class="thin right-align">Careers</h3>
             </div>
         </div>
     </div>

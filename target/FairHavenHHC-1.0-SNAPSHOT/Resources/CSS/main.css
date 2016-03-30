@@ -84,3 +84,6 @@ footer li > a, .footer-copyright {
 
 .bottom-div {
   margin-bottom: -20px; }
+
+.error {
+  color: red; }

@@ -6,6 +6,7 @@
 package com.fairhaven.web.config;
 
 // Import log4j class
+import com.fairhaven.web.converters.ServiceToStringConverter;
 import com.fairhaven.web.converters.StringToServiceConverter;
 import com.fairhaven.web.interceptors.LoggingInterceptor;
 import com.fairhaven.web.interceptors.SessionVariablesInterceptor;
@@ -18,7 +19,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor;
@@ -55,6 +55,8 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
     private SessionVariablesInterceptor sessionVariablesInterceptor;
     @Resource
     private StringToServiceConverter serviceConverter;
+    @Resource
+    private ServiceToStringConverter serviceToStringConverter;
 
     @Resource
     private Environment env;
@@ -111,12 +113,6 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
                 .addResourceLocations("/Resources/Images/");
     }
 
-    @Override
-    public LocalValidatorFactoryBean getValidator() {
-        LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
-        return validator;
-    }
-
     @Autowired
     @Bean(name = "openSessionInViewInterceptor")
     public OpenSessionInViewInterceptor getOsvInterceptor(SessionFactory sessionFactory) {
@@ -148,21 +144,29 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
     @Bean(name = "messageSource")
     public ReloadableResourceBundleMessageSource getMessageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasenames("classpath:messages/messages", "classpath:messages/exceptions");
+        messageSource.setBasenames("classpath:messages/messages", "classpath:messages/exceptions", "classpath:messages/forms");
         messageSource.setCacheSeconds(1);
         return messageSource;
     }
 
     @Bean(name = "validatorSource")
-    public ResourceBundleMessageSource getValidatorMessageSource() {
-        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasenames("/mesages/validation/validation_messages");
+    public ReloadableResourceBundleMessageSource getValidatorMessageSource() {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasenames("classpath:messages/validation/validation_messages");
         return messageSource;
+    }
+    
+    @Override
+    public LocalValidatorFactoryBean getValidator() {
+        LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+        validator.setValidationMessageSource(this.getValidatorMessageSource());
+        return validator;
     }
 
     @Override
     public void addFormatters(FormatterRegistry formatterRegistry) {
         formatterRegistry.addConverter(serviceConverter);
+        formatterRegistry.addConverter(serviceToStringConverter);
     }
 
 }

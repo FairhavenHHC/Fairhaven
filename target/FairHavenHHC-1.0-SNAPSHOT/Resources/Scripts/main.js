@@ -80,7 +80,7 @@ $(document).ready(function () {
     $("#more_services").click(function (e) {
         e.preventDefault();
         $(".additional_services").slideToggle('slow', 'swing');
-        $("i", this).toggleClass("fa-chevron-up fa-chevron-down");
+        $("i", this).toggleClass("fa-plus fa-minus");
     });
     
     $(".collapsible-header").click(function (e) {
@@ -88,8 +88,6 @@ $(document).ready(function () {
          $("i", this).toggleClass("fa-chevron-right fa-chevron-down");
     });
     
-    chevron-toggle
-
     $(".hidden_rows").hide();
 });
 

@@ -61,7 +61,7 @@
                 <p>
                     <fmt:message key="home.section.mission" />
                 </p>
-                <table class="striped bordered" width="100%" border="0" cellspacing="0" cellpadding="0">
+                <table class="striped bordered">
                     <thead>
                         <tr>
                             <th><fmt:message key="home.table.services.heading" /></th>
@@ -111,7 +111,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td class="right-align" colspan="3"><a href="" id="more_services"> <i class="fa fa-chevron-down"></i></a></td>
+                            <td class="right-align" colspan="3"><a href="" id="more_services"> <i class="fa fa-plus"></i></a></td>
                         </tr>
                     </tfoot>
                 </table>

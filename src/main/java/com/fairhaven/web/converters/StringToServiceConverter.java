@@ -31,10 +31,10 @@ public class StringToServiceConverter implements Converter<String, Services> {
         
         Services service;
         
-        if(serviceId != null){
+        if(serviceId != null && serviceId !=""){
              service = daof.getServicesDAO().findById(Integer.parseInt(serviceId), true);
         }else{
-            throw new NullPointerException("The service id cannot be null");
+            service = null;
         }
         
         return service;
