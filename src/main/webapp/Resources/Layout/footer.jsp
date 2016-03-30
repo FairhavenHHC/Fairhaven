@@ -7,7 +7,7 @@
 
 <div id="footer" class="container">
     <div class="row">
-        <div class="col m2">
+        <div class="col l2 hide-on-med-and-down">
             <h6><strong>FairHaven HHC &copy;</strong></h6>
         </div>
         <div class="col m2">

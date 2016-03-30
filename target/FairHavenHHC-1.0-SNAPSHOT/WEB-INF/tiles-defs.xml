@@ -45,4 +45,15 @@
     </definition>
     
     
+    <!-- ERROR PAGES-->
+     <definition name="com.fairhaven.404" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | 404 Error" />
+        <put-attribute name="content"   value="/Pages/Errors/404.jsp" />
+    </definition>
+    
+    <definition name="com.fairhaven500" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | 500 Error" />
+        <put-attribute name="content"   value="/Pages/Erros/500.jsp" />
+    </definition>
+    
 </tiles-definitions>   

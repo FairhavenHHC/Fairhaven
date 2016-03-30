@@ -9,16 +9,19 @@
             <div>
                 <!--<a href="index.htm" class="brand-logo center text-capitalize">Fairhaven HHC</a>-->
                 <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="hide-on-med-and-down left">
+                <ul id="nav-mobile" class="hide-on-med-and-down right">
                     <li><a href="${context}/index.htm" class="text-capitalize bolden">Home</a></li>
                     <li><a href="${context}/services/" class="text-capitalize">Services</a></li>  
                     <li><a href="${context}/locations/" class="text-capitalize">Locations</a></li>
                     <li><a href="${context}/about/" class="text-capitalize">About</a></li>
                 </ul>
-                <!--<ul  class="right">
-                    <li><a class="dropdown-button text-capitalize" href="#!" data-activates="dropdown1">Admin <i class="material-icons right">arrow_drop_down</i></a></li>
-                </ul>-->
-                <ul class="right">
+                <ul class="side-nav" id="mobile-menu">
+                    <li><a href="${context}/index.htm" class="text-capitalize bolden">Home</a></li>
+                    <li><a href="${context}/services/" class="text-capitalize">Services</a></li>  
+                    <li><a href="${context}/locations/" class="text-capitalize">Locations</a></li>
+                    <li><a href="${context}/about/" class="text-capitalize">About</a></li>
+                </ul>
+                <!--<ul class="right">
                     <li>
                         <c:choose>
                             <c:when test="${not empty pageContext.request.userPrincipal}">  
@@ -29,7 +32,7 @@
                             </c:otherwise>
                         </c:choose>
                     </li>
-                </ul>
+                </ul>-->
             </div>
         </div>
     </nav>

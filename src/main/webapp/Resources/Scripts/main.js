@@ -80,9 +80,14 @@ $(document).ready(function () {
     $("#more_services").click(function (e) {
         e.preventDefault();
         $(".additional_services").slideToggle('slow', 'swing');
-        $("i", this).toggleClass("fa-chevron-up fa-chevron-down");
+        $("i", this).toggleClass("fa-plus fa-minus");
     });
-
+    
+    $(".collapsible-header").click(function (e) {
+        e.preventDefault();
+         $("i", this).toggleClass("fa-chevron-right fa-chevron-down");
+    });
+    
     $(".hidden_rows").hide();
 });
 

@@ -33,7 +33,7 @@
 
 
 
-<div class="section header-image ">
+<div class="section header-image hide-on-med-and-down">
     <div class="row container">
         <div class="col s12 m12" >
 
@@ -61,7 +61,7 @@
                 <p>
                     <fmt:message key="home.section.mission" />
                 </p>
-                <table class="striped bordered" width="100%" border="0" cellspacing="0" cellpadding="0">
+                <table class="striped bordered">
                     <thead>
                         <tr>
                             <th><fmt:message key="home.table.services.heading" /></th>
@@ -111,7 +111,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td class="right-align" colspan="3"><a href="" id="more_services"> <i class="fa fa-chevron-down"></i></a></td>
+                            <td class="right-align" colspan="3"><a href="" id="more_services"> <i class="fa fa-plus"></i></a></td>
                         </tr>
                     </tfoot>
                 </table>
@@ -127,7 +127,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m3">
-                <a href="about.htm"><h3 class=""><i class="fa fa-info light-blue-text"></i> <fmt:message key="home.section.about.heading" /></h3></a>
+                <a href="/about"><h3 class=""><i class="fa fa-info light-blue-text"></i> <fmt:message key="home.section.about.heading" /></h3></a>
                 <p>
                     <fmt:message key="home.section.about.text1" />
                 </p>

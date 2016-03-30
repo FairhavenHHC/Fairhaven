@@ -14,4 +14,5 @@ public interface DAOFactory {
     public UsersDAO getUsersDAO();
     public GroupsDAO getGroupsDAO();
     public ServicesDAO getServicesDAO();
+    public FaqDAO getFaqDAO();
 }
