@@ -25,6 +25,12 @@ public class IndexController {
     
     
 
+    /**
+     *
+     * @param locale
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
     public ModelAndView index(Locale locale, HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("com.fairhaven.index");

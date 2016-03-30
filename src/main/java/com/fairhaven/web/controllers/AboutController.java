@@ -27,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class AboutController {
 
     private static final Logger logger = Logger.getLogger(AboutController.class.getName());
+<<<<<<< HEAD
 
     @Resource
     private DAOFactory daof;
@@ -56,6 +57,20 @@ public class AboutController {
         }
         
         return mav;
+=======
+    
+<<<<<<< HEAD
+    /**
+     *
+     * @return
+     */
+    @RequestMapping(path = "/about.htm", method = RequestMethod.GET)
+=======
+    @RequestMapping(path = "/", method = RequestMethod.GET)
+>>>>>>> login
+    public ModelAndView news(){
+        return new ModelAndView("com.fairhaven.about");
+>>>>>>> c4c55a6de9ef3c9716c8d750a5b4d5d57a1445b2
     }
 
 }

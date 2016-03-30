@@ -8,7 +8,7 @@ package com.fairhaven.web.controllers;
 // Import log4j class
 import com.fairhaven.web.forms.LoginFormBackingBean;
 import java.util.Locale;
-import javax.servlet.http.Cookie;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
@@ -28,6 +28,15 @@ public class LoginController {
 
     private static final Logger logger = Logger.getLogger(LoginController.class.getName());
 
+    /**
+     *
+     * @param error Error parameter from the login function if the page is
+     * redirected due to a problem while logging in e.g. wrong credentials
+     * @param locale The local the error message needs to be displayed in, auto
+     * injected by Spring
+     * @return Returns a model and view of the login page with localized error
+     * messages included in the model if present
+     */
     @RequestMapping(path = "/login.htm", method = RequestMethod.GET)
     public ModelAndView login(@RequestParam(name = "error", required = false) String error, Locale locale) {
         ModelAndView mav = new ModelAndView("com.fairhaven.memebers.login");
@@ -42,14 +51,27 @@ public class LoginController {
         return mav;
     }
 
+    /**
+     *
+     * @param request The {@link HttpServletRequest} object injected by Spring
+     * @param response {@link HttpServletRequest} object injected by Spring
+     * @param model Map of request attributes to be presented to the view
+     * @return Returns a model and view of the login page if the logout was
+     * successful
+     * @throws ServletException {@link ServletException} that may occur during
+     * HttpServletRequest's <code>request.logout()</code> request call
+     */
     @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
     public ModelAndView logout(HttpServletRequest request,
             HttpServletResponse response,
-            RedirectAttributes model) throws Exception {
-        Cookie rememberMeCookie = new Cookie("remember-me-token", null);
+            RedirectAttributes model) throws ServletException {
         request.logout();
+<<<<<<< HEAD
+        return new ModelAndView("redirect:/members/profile.htm");
+=======
         rememberMeCookie.setMaxAge(0);
         response.addCookie(rememberMeCookie);
         return new ModelAndView("redirect:/members/");
+>>>>>>> login
     }
 }

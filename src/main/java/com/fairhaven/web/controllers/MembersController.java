@@ -22,7 +22,15 @@ public class MembersController {
 
     private static final Logger logger = Logger.getLogger(MembersController.class.getName());
 
+<<<<<<< HEAD
+    /**
+     *
+     * @return
+     */
+    @RequestMapping(path = "/profile.htm", method = RequestMethod.GET)
+=======
     @RequestMapping(path = "/", method = RequestMethod.GET)
+>>>>>>> login
     public ModelAndView profile() {
         ModelAndView mav = new ModelAndView("com.fairhaven.memebers.profile");
         return mav;

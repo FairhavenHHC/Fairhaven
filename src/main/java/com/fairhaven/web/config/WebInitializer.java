@@ -8,6 +8,10 @@ package com.fairhaven.web.config;
 // Import log4j class
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+/**
+ *
+ * @author Sam
+ */
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
@@ -25,4 +29,5 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
         return new Class[]{ApplicationContextConfig.class};
     }  
 
+    
 }

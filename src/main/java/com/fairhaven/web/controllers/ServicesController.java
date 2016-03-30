@@ -30,11 +30,21 @@ public class ServicesController {
         return mav;
     }
     
+<<<<<<< HEAD
+    /**
+     *
+     * @return
+     */
+    @RequestMapping(path = "/services.htm", method = RequestMethod.GET)
+    public ModelAndView news(){
+        return new ModelAndView("com.fairhaven.services");
+=======
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public ModelAndView servicesIndex(@PathVariable("id") Services service) {
         ModelAndView mav = new ModelAndView("com.fairhaven.services");
         mav.addObject("service", service);
         return mav;
+>>>>>>> login
     }
 
 }

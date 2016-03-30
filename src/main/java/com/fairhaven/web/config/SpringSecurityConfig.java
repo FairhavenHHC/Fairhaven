@@ -22,6 +22,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
+/**
+ *
+ * @author Sam
+ */
 @Configuration
 @EnableWebSecurity
 @PropertySource(value = "classpath:application.properties", ignoreResourceNotFound = false)
@@ -34,6 +38,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource(name = "md5PasswordEncoder")
     private Md5PasswordEncoder encoder;
 
+    /**
+     *
+     * @param auth
+     * @throws Exception
+     */
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
@@ -64,27 +73,36 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMeCookieName("remember-me-token")
                 .tokenRepository(persistentTokenRepository());
         http.logout()
-                .logoutUrl("/logout.htm")
-                .deleteCookies("JSESSIONID")
-                .invalidateHttpSession(true)
-                .clearAuthentication(true);
+                .logoutUrl("/logout.htm");
         http.csrf();
 
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean(name = "bcryptEncoder")
     public BCryptPasswordEncoder getBcryptPasswordEncoder() {
-        Integer strength = Integer.parseInt(env .getProperty("security.password.encryption_strength"));
+        Integer strength = Integer.parseInt(env.getProperty("security.password.encryption_strength"));
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(strength);
         return passwordEncoder;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean(name = "md5PasswordEncoder")
     public Md5PasswordEncoder getMd5PasswordEncoder() {
         Md5PasswordEncoder passwordEncoder = new Md5PasswordEncoder();
         return passwordEncoder;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean(name = "persistentTokenRepository")
     public PersistentTokenRepository persistentTokenRepository() {
         JdbcTokenRepositoryImpl tokenRepositoryImpl = new JdbcTokenRepositoryImpl();

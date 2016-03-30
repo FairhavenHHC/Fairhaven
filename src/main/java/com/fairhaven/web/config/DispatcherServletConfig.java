@@ -19,6 +19,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+<<<<<<< HEAD
+=======
+import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.core.Ordered;
+>>>>>>> c4c55a6de9ef3c9716c8d750a5b4d5d57a1445b2
 import org.springframework.core.env.Environment;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor;
@@ -65,6 +70,12 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
      public void configureViewResolvers(ViewResolverRegistry registry){
      registry.tiles();
      }*/
+
+    /**
+     *
+     * @return
+     */
+    
     @Bean
     public UrlBasedViewResolver getUrlBasedViewResolver() {
         UrlBasedViewResolver resolver = new UrlBasedViewResolver();
@@ -72,6 +83,10 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         return resolver;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean
     public TilesConfigurer getTilesConfigurer() {
         TilesConfigurer configurer = new TilesConfigurer();
@@ -79,6 +94,10 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         return configurer;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean
     public CookieLocaleResolver getLocalResolver() {
         CookieLocaleResolver cookieResolver = new CookieLocaleResolver();
@@ -105,14 +124,34 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+<<<<<<< HEAD
+        registry.addResourceHandler("/resources/**", "/members/resources/**")
+                .addResourceLocations("/Resources/");
+=======
         registry.addResourceHandler("/css/**")
                 .addResourceLocations("/Resources/CSS/");
         registry.addResourceHandler("/scripts/**")
                 .addResourceLocations("/Resources/Scripts/");
+>>>>>>> login
         registry.addResourceHandler("/images/**")
                 .addResourceLocations("/Resources/Images/");
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 
+<<<<<<< HEAD
+=======
+    @Override
+    public LocalValidatorFactoryBean getValidator() {
+        LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+        return validator;
+    }
+
+    /**
+     *
+     * @param sessionFactory
+     * @return
+     */
+>>>>>>> c4c55a6de9ef3c9716c8d750a5b4d5d57a1445b2
     @Autowired
     @Bean(name = "openSessionInViewInterceptor")
     public OpenSessionInViewInterceptor getOsvInterceptor(SessionFactory sessionFactory) {
@@ -121,6 +160,10 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         return osvInterceptorBean;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean(name = "localeChangeInterceptor")
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
@@ -128,11 +171,19 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         return localeChangeInterceptor;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean(name = "localeResolver")
     public LocaleResolver getLocaleResolver() {
         return new SessionLocaleResolver();
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean(name = "multipartResolver")
     public CommonsMultipartResolver commonsMultipartResolver() {
         CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
@@ -140,7 +191,15 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         commonsMultipartResolver.setMaxUploadSize(env.getProperty("upload.max_upload_size", Long.class));
         return commonsMultipartResolver;
     }
+<<<<<<< HEAD
 
+=======
+    
+    /**
+     *
+     * @return
+     */
+>>>>>>> c4c55a6de9ef3c9716c8d750a5b4d5d57a1445b2
     @Bean(name = "messageSource")
     public ReloadableResourceBundleMessageSource getMessageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
@@ -149,6 +208,7 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         return messageSource;
     }
 
+<<<<<<< HEAD
     @Bean(name = "validatorSource")
     public ReloadableResourceBundleMessageSource getValidatorMessageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
@@ -168,5 +228,19 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         formatterRegistry.addConverter(serviceConverter);
         formatterRegistry.addConverter(serviceToStringConverter);
     }
+=======
+    /**
+     *
+     * @return
+     */
+    @Bean(name ="validatorSource")
+    public ResourceBundleMessageSource getValidatorMessageSource() {
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setBasenames("/mesages/validation/validation_messages");
+        return messageSource;
+    }
+    
+    
+>>>>>>> c4c55a6de9ef3c9716c8d750a5b4d5d57a1445b2
 
 }

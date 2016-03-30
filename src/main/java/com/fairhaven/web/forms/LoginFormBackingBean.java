@@ -12,7 +12,7 @@ package com.fairhaven.web.forms;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * This class is used to back to login form at /login.htm binding the web layer to the view for processing
  * @author Sam
  */
 public class LoginFormBackingBean {
@@ -51,14 +51,14 @@ public class LoginFormBackingBean {
     }
 
     /**
-     * @return the rememberMe
+     * @return the cookie
      */
     public boolean isCookie() {
         return cookie;
     }
 
     /**
-     * @param rememberMe the rememberMe to set
+     * @param cookie the cookie to set
      */
     public void setCookie(boolean cookie) {
         this.cookie = cookie;
