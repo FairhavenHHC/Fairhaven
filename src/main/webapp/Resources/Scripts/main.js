@@ -82,12 +82,15 @@ $(document).ready(function () {
         $(".additional_services").slideToggle('slow', 'swing');
         $("i", this).toggleClass("fa-plus fa-minus");
     });
-    
+
     $(".collapsible-header").click(function (e) {
         e.preventDefault();
-         $("i", this).toggleClass("fa-chevron-right fa-chevron-down");
+        $("i", this).toggleClass("fa-chevron-right fa-chevron-down");
     });
-    
+
     $(".hidden_rows").hide();
+
+
+    $('.phone_us').mask('(000) 000-0000');
 });
 

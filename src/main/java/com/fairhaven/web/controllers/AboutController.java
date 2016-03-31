@@ -7,7 +7,10 @@ package com.fairhaven.web.controllers;
 
 // Import log4j class
 import com.fairhaven.db.dao.DAOFactory;
+import com.fairhaven.db.entities.Contact;
 import com.fairhaven.web.forms.MessageFormbackingBean;
+import java.util.HashMap;
+import java.util.Map;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 import org.apache.log4j.Logger;
@@ -41,20 +44,26 @@ public class AboutController {
             newMessage.setNewsletter(true);
             mav.addObject("message", newMessage);
         }
-        
+
+        Map<String, Contact> contacts = new HashMap<>();
+        for (Contact contact : this.daof.getContactDAO().findAll()) {
+            contacts.put(contact.getType().getName(), contact);
+        }
+        mav.addObject("contacts", contacts);
+        mav.addObject("locations", daof.getLocationDAO().findAll());
         return mav;
     }
 
     @RequestMapping(path = "/", method = RequestMethod.POST)
     public ModelAndView about(@ModelAttribute("message") @Valid MessageFormbackingBean message, BindingResult validationResults) {
-         ModelAndView mav = new ModelAndView("com.fairhaven.about");
+        ModelAndView mav = new ModelAndView("com.fairhaven.about");
 
         if (!validationResults.hasErrors()) {
             mav = this.about(null);
-        }else{
-            mav.addObject("message", message);
+        } else {
+            mav = this.about(message);
         }
-        
+
         return mav;
     }
 

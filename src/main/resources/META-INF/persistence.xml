@@ -7,6 +7,9 @@
     <class>com.fairhaven.db.entities.Services</class>
     <class>com.fairhaven.db.entities.Link</class>
     <class>com.fairhaven.db.entities.Faq</class>
+    <class>com.fairhaven.db.entities.Contact</class>
+    <class>com.fairhaven.db.entities.ContactType</class>
+    <class>com.fairhaven.db.entities.Location</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fairhaven?zeroDateTimeBehavior=convertToNull"/>

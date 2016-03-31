@@ -31,6 +31,8 @@ public class MessageFormbackingBean {
     private String email;
     @Length(min = 0, max = 10, message = "{field.length.max}")
     private String message;
+    @Pattern(regexp = "((\\(\\d{3}\\) ?)|(\\d{3}-))?\\d{3}-\\d{4}" ,message = "{form.message.phone.valid}")
+    private String phone;
     @NotNull(message = "{form.message.service.not_null}")
     private Services service;
     private boolean newsletter;
@@ -117,6 +119,20 @@ public class MessageFormbackingBean {
      */
     public void setNewsletter(boolean newsletter) {
         this.newsletter = newsletter;
+    }
+
+    /**
+     * @return the phone
+     */
+    public String getPhone() {
+        return phone;
+    }
+
+    /**
+     * @param phone the phone to set
+     */
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 }

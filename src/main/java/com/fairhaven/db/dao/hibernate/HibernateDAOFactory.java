@@ -9,9 +9,12 @@ package com.fairhaven.db.dao.hibernate;
 
 
 // Import log4j class
+import com.fairhaven.db.dao.ContactDAO;
+import com.fairhaven.db.dao.ContactTypeDAO;
 import com.fairhaven.db.dao.DAOFactory;
 import com.fairhaven.db.dao.FaqDAO;
 import com.fairhaven.db.dao.GroupsDAO;
+import com.fairhaven.db.dao.LocationDAO;
 import com.fairhaven.db.dao.ServicesDAO;
 import com.fairhaven.db.dao.UsersDAO;
 import javax.annotation.Resource;
@@ -36,6 +39,12 @@ public class HibernateDAOFactory implements DAOFactory {
     private UsersDAO usersDAO;
     @Resource
     private FaqDAO faqDAO;
+    @Resource
+    private ContactDAO contactDAO;
+    @Resource
+    private ContactTypeDAO contactTypeDAO;
+    @Resource
+    private LocationDAO locationDAO;
 
     @Override
     public UsersDAO getUsersDAO() {
@@ -55,6 +64,21 @@ public class HibernateDAOFactory implements DAOFactory {
     @Override
     public FaqDAO getFaqDAO() {
         return faqDAO;
+    }
+
+    @Override
+    public ContactDAO getContactDAO() {
+        return this.contactDAO;
+    }
+
+    @Override
+    public ContactTypeDAO getContactTypeDAO() {
+        return this.contactTypeDAO;
+    }
+
+    @Override
+    public LocationDAO getLocationDAO() {
+        return locationDAO;
     }
 
 }

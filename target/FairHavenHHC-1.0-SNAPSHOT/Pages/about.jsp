@@ -16,8 +16,7 @@
                     <fmt:message key="about.section.foundation.text2" />
                 </p>
             </div>
-            <div class="col s12 m6">
-
+            <div class="col s12 m4 offset-m4">
 
             </div>
         </div>
@@ -50,6 +49,12 @@
         <div class="row">
             <div class="col s12 m6">
                 <h3 class="thin">Send us a message</h3>
+                <p>
+                    <fmt:message key="form.heading.text" var="form_text">
+                        <fmt:param value="${contacts['Office phone'].value}" />
+                    </fmt:message>
+                    <c:out value="${form_text}" />
+                </p>
                 <form:form action="${context}/about/" method="post" commandName="message">
                     <div class="row">
                         <div class="input-field col s6">
@@ -79,7 +84,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
+                            <form:input path="phone" cssClass="phone_us"/>
+                            <form:label path="phone"><fmt:message key="form.message.phone.label" /></form:label>
+                            <form:errors path="phone" cssClass="error"/>
+                        </div>
+                        <div class="input-field col s6">
                             <fmt:message key="form.message.newsletter.label" var="newsletterMessage"/>
                             <form:checkbox path="newsletter" label="${newsletterMessage}"/>
                         </div>
@@ -98,8 +108,57 @@
                     </div> 
                 </form:form>
             </div>
-            <div class="col s12 m6">
-                <h3 class="thin right-align">Careers</h3>
+            <div class="col s12 m4 offset-m2">
+                <div class="row">
+                    <div class="col s12">
+                        <h3 class="thin"><fmt:message key="about.section.contact.heading" /></h3>
+                        <table class="table bordered">
+                            <tbody>
+                                <tr>
+                                    <td><i class="fa fa-phone" title="${contacts['Office phone'].type.name}"></i></td>
+                                    <td><strong><c:out value="${contacts['Office phone'].value}"/></strong></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-envelope-o" title="${contacts['General email'].type.name}"></i></td>
+                                    <td><strong><c:out value="${contacts['General email'].value}"/></strong></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-fax" title="${contacts['Fax'].type.name}"></i></td>
+                                    <td><strong><c:out value="${contacts['Fax'].value}"/></strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <c:choose>
+                            <c:when test="${!empty locations}">
+                                <h3 class="thin"><fmt:message key="about.section.locations.heading" /></h3>
+                                <table class="bordered">
+                                    <thead>
+                                        <tr>
+                                            <th><fmt:message key="about.table.locations.column.location" /></th>
+                                            <th><fmt:message key="about.table.locations.column.office" /></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach var="location" items="${locations}">
+                                            <tr>
+                                                <td><c:out value="${location.city}" /></td>
+                                                <td><c:out value="${location.name}" /></td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </c:when>
+                            <c:otherwise>
+                                <h5 class="thin"><fmt:message key="about.section.locations.empty" /></h5>
+                            </c:otherwise>
+                        </c:choose>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -6,7 +6,9 @@
 package com.fairhaven.web.controllers;
 
 // Import log4j class
+import com.fairhaven.db.dao.DAOFactory;
 import java.util.Locale;
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -23,11 +25,13 @@ public class IndexController {
 
     private static final Logger logger = Logger.getLogger(IndexController.class.getName());
     
-    
+    @Resource
+    private DAOFactory daof;
 
     @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
     public ModelAndView index(Locale locale, HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("com.fairhaven.index");
+        mav.addObject("services", daof.getServicesDAO().findAll());
         return mav;
     }
 
