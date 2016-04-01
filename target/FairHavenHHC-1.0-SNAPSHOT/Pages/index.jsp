@@ -125,7 +125,7 @@
     </div>
 </div>
 
-<div class="section green lighten-4 z-depth-1">
+<div class="section green lighten-5">
     <div class="row container">
         <div class="col s12 m12">
             <a href="${context}/services/">
