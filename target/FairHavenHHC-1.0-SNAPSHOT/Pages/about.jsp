@@ -108,7 +108,7 @@
                     </div> 
                 </form:form>
             </div>
-            <div class="col s12 m4 offset-m2">
+            <div class="col s12 m5 offset-m1">
                 <div class="row">
                     <div class="col s12">
                         <h3 class="thin"><fmt:message key="about.section.contact.heading" /></h3>
@@ -132,28 +132,33 @@
                 </div>
                 <div class="row">
                     <div class="col s12">
+                        <h3 class="thin"><fmt:message key="about.section.locations.heading" /></h3>
                         <c:choose>
                             <c:when test="${!empty locations}">
-                                <h3 class="thin"><fmt:message key="about.section.locations.heading" /></h3>
                                 <table class="bordered">
-                                    <thead>
-                                        <tr>
-                                            <th><fmt:message key="about.table.locations.column.location" /></th>
-                                            <th><fmt:message key="about.table.locations.column.office" /></th>
-                                        </tr>
-                                    </thead>
                                     <tbody>
                                         <c:forEach var="location" items="${locations}">
                                             <tr>
-                                                <td><c:out value="${location.city}" /></td>
-                                                <td><c:out value="${location.name}" /></td>
+                                                <td>
+                                                    <h5><c:out value="${location.name}" /></h5>
+                                                    <address>
+                                                        <c:out value="${location.street}" /><br>
+                                                        <c:out value="${location.city}" /><br>
+                                                        <c:out value="${location.country}" />, <c:out value="${location.zip}" />
+                                                    </address>
+                                                </td>
+                                                <td>
+                                                    <a href="#">
+                                                        <i class="fa fa-map-marker"></i> <fmt:message key="map.link.view" />
+                                                    </a>
+                                                </td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>
                                 </table>
                             </c:when>
                             <c:otherwise>
-                                <h5 class="thin"><fmt:message key="about.section.locations.empty" /></h5>
+                                <p class="thin center-align"><fmt:message key="about.section.locations.empty" /></p>
                             </c:otherwise>
                         </c:choose>
 

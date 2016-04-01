@@ -53,13 +53,15 @@
     </div>
 </div>
 
+
+
 <div class="section white">
     <div class="container">
         <div class="row">
             <div class="col s12 m6">
                 <a href="services/"><h3 class=""><i class="fa fa-puzzle-piece light-green-text"></i> Services</h3></a>
                 <p>
-                    <fmt:message key="home.section.mission" />
+                    <fmt:message key="home.section.services.text" />
                 </p>
                 <table class="striped bordered">
                     <thead>
@@ -119,6 +121,18 @@
             <div class="col s12 m6">
                 <p><image src="${context}/images/services-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff" /></p>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="section green lighten-4 z-depth-1">
+    <div class="row container">
+        <div class="col s12 m12">
+            <a href="${context}/services/">
+                <h1 class="center-align thin">
+                    <fmt:message key="home.section.call" />
+                </h1>
+            </a>
         </div>
     </div>
 </div>
