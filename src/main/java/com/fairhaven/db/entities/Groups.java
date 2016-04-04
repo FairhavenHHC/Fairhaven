@@ -67,48 +67,93 @@ public class Groups implements Serializable {
 
     private static final Logger logger = Logger.getLogger(Groups.class.getName());
 
+    /**
+     *
+     */
     public Groups() {
     }
 
+    /**
+     *
+     * @param id
+     */
     public Groups(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @param id
+     * @param name
+     * @param description
+     */
     public Groups(Integer id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     *
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlTransient
     public Collection<Users> getUsersCollection() {
         return usersCollection;
     }
 
+    /**
+     *
+     * @param usersCollection
+     */
     public void setUsersCollection(Collection<Users> usersCollection) {
         this.usersCollection = usersCollection;
     }

@@ -1,0 +1,10 @@
+
+<html>
+    <body>
+        <h3>Hi ${name}, welcome to the Fairhaven HHC!</h3>
+
+        <div>
+            Your email address is <a href="mailto:${email}">${email}</a>.
+        </div>
+    </body>
+</html>

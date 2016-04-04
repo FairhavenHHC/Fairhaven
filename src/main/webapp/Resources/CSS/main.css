@@ -87,3 +87,19 @@ footer li > a, .footer-copyright {
 
 .error {
   color: red; }
+
+address, dfn {
+  font-style: normal; }
+
+.dropdown-content {
+  min-width: 200px; }
+  .dropdown-content li > a, .dropdown-content li > span {
+    font-size: 1rem; }
+  .dropdown-content li > a > i {
+    height: inherit;
+    line-height: inherit; }
+
+a.dropdown-button i {
+  display: inline;
+  font-size: 1.2rem;
+  padding-left: 10px; }

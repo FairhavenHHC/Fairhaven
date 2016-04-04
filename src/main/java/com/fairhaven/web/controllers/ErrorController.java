@@ -22,6 +22,11 @@ public class ErrorController {
 
     private static final Logger logger = Logger.getLogger(ErrorController.class.getName());
 
+    /**
+     *
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/error.htm", method = RequestMethod.GET)
     public ModelAndView handleError(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("com.fairhaven.404");

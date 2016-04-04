@@ -6,10 +6,13 @@
 package com.fairhaven.web.config;
 
 // Import log4j class
+import java.io.IOException;
 import java.util.Properties;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 import org.apache.log4j.Logger;
+import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.exception.VelocityException;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -20,10 +23,12 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.ui.velocity.VelocityEngineFactoryBean;
 
 /**
  *
@@ -40,6 +45,10 @@ public class ApplicationContextConfig {
     @Resource
     private Environment env;
 
+    /**
+     *
+     * @return
+     */
     @Bean(name = "dataSource")
     public DataSource getDataSource() {
         DriverManagerDataSource datasource = new DriverManagerDataSource();
@@ -50,6 +59,11 @@ public class ApplicationContextConfig {
         return datasource;
     }
 
+    /**
+     *
+     * @param datasource
+     * @return
+     */
     @Bean(name = "sessionFactory")
     @Autowired
     public LocalSessionFactoryBean sessionFactory(DataSource datasource) {
@@ -74,6 +88,11 @@ public class ApplicationContextConfig {
         return sessionFactory;
     }
 
+    /**
+     *
+     * @param sessionFactory
+     * @return
+     */
     @Bean
     @Autowired
     public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
@@ -83,9 +102,41 @@ public class ApplicationContextConfig {
         return txManager;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
+    }
+
+    @Bean
+    public JavaMailSenderImpl mailSender() {
+
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+        mailSender.setHost(env.getProperty("mail.host"));
+        mailSender.setPort(env.getProperty("mail.port", Integer.class));
+        mailSender.setUsername(env.getProperty("mail.username"));
+        mailSender.setPassword(env.getProperty("mail.password"));
+
+        Properties javaMailProperties = new Properties();
+        javaMailProperties.setProperty("mail.smtp.auth", env.getProperty("mail.java.smtp.auth"));
+        javaMailProperties.setProperty("mail.smtp.starttls.enable", env.getProperty("mail.java.smtp.starttls.enable"));
+
+        mailSender.setJavaMailProperties(javaMailProperties);
+        return mailSender;
+    }
+
+    @Bean
+    public VelocityEngine velocityEngine() throws VelocityException, IOException {
+
+        VelocityEngineFactoryBean engine = new VelocityEngineFactoryBean();
+        Properties velocityProperties = new Properties();
+        velocityProperties.setProperty("resource.loader", "class");
+        velocityProperties.setProperty("class.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
+        engine.setVelocityProperties(velocityProperties);
+        return engine.createVelocityEngine();
     }
 
 }

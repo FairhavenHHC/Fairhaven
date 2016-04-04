@@ -1,59 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 
-<tiles-definitions>   
+<!-- LAYOUT TEMPLATE -->
+
+<tiles-definitions>
     <definition name="mainLayout" template="/Resources/Layout/main_layout.jsp">
         <put-attribute name="title"  value="Fairhaven | Home" />
         <put-attribute name="header" value="/Resources/Layout/header.jsp" />
         <put-attribute name="content" value=""/>
-        <put-attribute name="footer" value="/Resources/Layout/footer.jsp" />  
+        <put-attribute name="footer" value="/Resources/Layout/footer.jsp" />
     </definition>
+
+    <!-- HOME PAGE-->
 
     <definition name="com.fairhaven.index" extends="mainLayout">
         <put-attribute name="title"  value="Fairhaven | Home" />
         <put-attribute name="content"   value="/Pages/index.jsp" />
     </definition>
-    
-    
+
+    <!-- ABOUT PAGES-->
+
     <definition name="com.fairhaven.about" extends="mainLayout">
         <put-attribute name="title"  value="Fairhaven | About" />
         <put-attribute name="content"   value="/Pages/about.jsp" />
     </definition>
-    
+
+    <definition name="com.fairhaven.about.careers" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | Careers" />
+        <put-attribute name="content"   value="/Pages/careers.jsp" />
+    </definition>
+
+    <!-- SERVICES PAGES-->
+
     <definition name="com.fairhaven.services" extends="mainLayout">
         <put-attribute name="title"  value="Fairhaven | Services" />
         <put-attribute name="content"   value="/Pages/services.jsp" />
     </definition>
-    
+
+    <!-- LOCATION PAGES-->
+
     <definition name="com.fairhaven.locations" extends="mainLayout">
         <put-attribute name="title"  value="Fairhaven | Locations" />
         <put-attribute name="content"   value="/Pages/locations.jsp" />
     </definition>
-    
-    
-    
-    
+
+
+
     <!-- ADMIN PAGES-->
     <definition name="com.fairhaven.memebers.profile" extends="mainLayout">
         <put-attribute name="title"  value="Fairhaven | Member Profile" />
         <put-attribute name="content"   value="/Pages/Members/profile.jsp" />
     </definition>
-    
+
     <definition name="com.fairhaven.memebers.login" extends="mainLayout">
         <put-attribute name="title"  value="Fairhaven | Login" />
         <put-attribute name="content"   value="/Pages/login.jsp" />
     </definition>
-    
-    
+
+
     <!-- ERROR PAGES-->
-     <definition name="com.fairhaven.404" extends="mainLayout">
+    <definition name="com.fairhaven.404" extends="mainLayout">
         <put-attribute name="title"  value="Fairhaven | 404 Error" />
         <put-attribute name="content"   value="/Pages/Errors/404.jsp" />
     </definition>
-    
+
     <definition name="com.fairhaven500" extends="mainLayout">
         <put-attribute name="title"  value="Fairhaven | 500 Error" />
         <put-attribute name="content"   value="/Pages/Erros/500.jsp" />
     </definition>
-    
-</tiles-definitions>   
+
+</tiles-definitions>

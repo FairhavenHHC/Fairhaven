@@ -25,6 +25,11 @@ public class StringToServiceConverter implements Converter<String, Services> {
 
     private static final Logger logger = Logger.getLogger(StringToServiceConverter.class.getName());
 
+    /**
+     *
+     * @param serviceId
+     * @return
+     */
     @Override
     public Services convert(String serviceId) {
         logger.info("Convertrting " + serviceId + " to a Services object...");

@@ -28,6 +28,12 @@ public class IndexController {
     @Resource
     private DAOFactory daof;
 
+    /**
+     *
+     * @param locale
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
     public ModelAndView index(Locale locale, HttpServletRequest request) {
         ModelAndView mav = new ModelAndView("com.fairhaven.index");

@@ -28,6 +28,12 @@ public class LoginController {
 
     private static final Logger logger = Logger.getLogger(LoginController.class.getName());
 
+    /**
+     *
+     * @param error
+     * @param locale
+     * @return
+     */
     @RequestMapping(path = "/login.htm", method = RequestMethod.GET)
     public ModelAndView login(@RequestParam(name = "error", required = false) String error, Locale locale) {
         ModelAndView mav = new ModelAndView("com.fairhaven.memebers.login");
@@ -42,6 +48,14 @@ public class LoginController {
         return mav;
     }
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @param model
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
     public ModelAndView logout(HttpServletRequest request,
             HttpServletResponse response,

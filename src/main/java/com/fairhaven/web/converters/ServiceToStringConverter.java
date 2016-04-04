@@ -24,6 +24,11 @@ public class ServiceToStringConverter implements Converter<Services, String>{
 
     private static final Logger logger = Logger.getLogger(ServiceToStringConverter.class.getName());
 
+    /**
+     *
+     * @param service
+     * @return
+     */
     @Override
     public String convert(Services service) {
         

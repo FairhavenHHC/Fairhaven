@@ -7,8 +7,8 @@
 <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col s12 m4">
-                <h3 class="thin"><fmt:message key="about.section.foundation.heading" /></h3>
+            <div class="col s12 m6">
+                <h2 class="thin"><fmt:message key="about.section.foundation.heading" /></h2>
                 <p class="">
                     <fmt:message key="about.section.foundation.text1" />
                 </p>
@@ -48,7 +48,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m6">
-                <h3 class="thin">Send us a message</h3>
+                <h4 class="thin">Send us a message</h4>
                 <p>
                     <fmt:message key="form.heading.text" var="form_text">
                         <fmt:param value="${contacts['Office phone'].value}" />
@@ -111,7 +111,7 @@
             <div class="col s12 m5 offset-m1">
                 <div class="row">
                     <div class="col s12">
-                        <h3 class="thin"><fmt:message key="about.section.contact.heading" /></h3>
+                        <h4 class="thin"><fmt:message key="about.section.contact.heading" /></h4>
                         <table class="table bordered">
                             <tbody>
                                 <tr>
@@ -132,7 +132,7 @@
                 </div>
                 <div class="row">
                     <div class="col s12">
-                        <h3 class="thin"><fmt:message key="about.section.locations.heading" /></h3>
+                        <h4 class="thin"><fmt:message key="about.section.locations.heading" /></h4>
                         <c:choose>
                             <c:when test="${!empty locations}">
                                 <table class="bordered">

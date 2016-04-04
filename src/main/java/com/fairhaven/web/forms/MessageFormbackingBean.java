@@ -29,7 +29,7 @@ public class MessageFormbackingBean {
     @NotNull(message = "{form.message.email.not_null}")
     @Pattern(regexp = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$", message = "{form.message.email.valid}")
     private String email;
-    @Length(min = 0, max = 10, message = "{field.length.max}")
+    @Length(min = 0, max = 250, message = "{field.length.max}")
     private String message;
     @Pattern(regexp = "((\\(\\d{3}\\) ?)|(\\d{3}-))?\\d{3}-\\d{4}" ,message = "{form.message.phone.valid}")
     private String phone;

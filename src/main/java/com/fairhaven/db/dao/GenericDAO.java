@@ -17,22 +17,66 @@ import java.util.List;
  */
 public interface GenericDAO<T, ID extends Serializable> {
 
+    /**
+     *
+     * @param id
+     * @param lock
+     * @return
+     */
     public T findById(ID id, boolean lock);
 
+    /**
+     *
+     * @return
+     */
     public List<T> findAll();
 
+    /**
+     *
+     * @param pageSize
+     * @param firstResult
+     * @return
+     */
     public List<T> findAll(int pageSize, int firstResult);
 
+    /**
+     *
+     * @param exampleInstance
+     * @return
+     */
     public List<T> findByExample(T exampleInstance);
 
+    /**
+     *
+     * @param entity
+     * @return
+     */
     public T saveOrUpdate(T entity);
 
+    /**
+     *
+     * @param entity
+     */
     public void delete(T entity);
 
+    /**
+     *
+     * @param entities
+     * @return
+     */
     public Collection<T> deleteAll(Collection<T> entities);
 
+    /**
+     *
+     * @param entities
+     * @return
+     */
     public Collection<T> updateAll(Collection<T> entities);
 
+    /**
+     *
+     * @return
+     */
     public int count();
 
 }

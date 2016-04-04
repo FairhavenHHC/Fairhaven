@@ -3,10 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.fairhaven.db.dao.hibernate;
-
-
 
 // Import log4j class
 import com.fairhaven.db.dao.ContactDAO;
@@ -25,12 +22,11 @@ import org.springframework.stereotype.Component;
  *
  * @author Sam
  */
-
 @Component
 public class HibernateDAOFactory implements DAOFactory {
 
     private static final Logger logger = Logger.getLogger(HibernateDAOFactory.class.getName());
-    
+
     @Resource
     private ServicesDAO serviceDAO;
     @Resource
@@ -46,36 +42,65 @@ public class HibernateDAOFactory implements DAOFactory {
     @Resource
     private LocationDAO locationDAO;
 
+    /**
+     *
+     * @return
+     */
     @Override
     public UsersDAO getUsersDAO() {
         return this.usersDAO;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public GroupsDAO getGroupsDAO() {
-       return this.groupsDAO;
+        return this.groupsDAO;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public ServicesDAO getServicesDAO() {
         return this.serviceDAO;
     }
 
+    /**
+     * Return the FaqDAO object
+     *
+     * @return
+     */
     @Override
     public FaqDAO getFaqDAO() {
         return faqDAO;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public ContactDAO getContactDAO() {
         return this.contactDAO;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public ContactTypeDAO getContactTypeDAO() {
         return this.contactTypeDAO;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public LocationDAO getLocationDAO() {
         return locationDAO;

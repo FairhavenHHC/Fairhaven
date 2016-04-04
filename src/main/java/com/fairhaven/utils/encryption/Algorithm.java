@@ -14,8 +14,19 @@ import java.security.NoSuchAlgorithmException;
  */
 public enum Algorithm {
 
+    /**
+     *
+     */
     SHA1("SHA-1"),
+
+    /**
+     *
+     */
     SHA2("SHA-256"),
+
+    /**
+     *
+     */
     MD5("MD5");
 
     private final MessageDigest algorithm;
@@ -28,6 +39,10 @@ public enum Algorithm {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public MessageDigest getMessageDigester(){
         return this.algorithm;
     }

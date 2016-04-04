@@ -24,12 +24,21 @@ public class ServicesController {
 
     private static final Logger logger = Logger.getLogger(ServicesController.class.getName());
 
+    /**
+     *
+     * @return
+     */
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public ModelAndView servicesIndex() {
         ModelAndView mav = new ModelAndView("com.fairhaven.services");
         return mav;
     }
     
+    /**
+     *
+     * @param service
+     * @return
+     */
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public ModelAndView servicesIndex(@PathVariable("id") Services service) {
         ModelAndView mav = new ModelAndView("com.fairhaven.services");

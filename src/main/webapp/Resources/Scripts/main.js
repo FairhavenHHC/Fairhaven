@@ -7,7 +7,9 @@
 $(document).ready(function () {
 
     $(".dropdown-button").dropdown({
-        belowOrigin: true // Displays dropdown below the button
+        belowOrigin: true, // Displays dropdown below the button
+        constrain_width: true, // Does not change width of dropdown to that of the activator
+        alignment: 'right'
     });
 
     $('.parallax').parallax();

@@ -74,13 +74,28 @@ public class Services implements Serializable {
 
     private static final Logger logger = Logger.getLogger(Services.class.getName());
 
+    /**
+     *
+     */
     public Services() {
     }
 
+    /**
+     *
+     * @param id
+     */
     public Services(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @param id
+     * @param name
+     * @param description
+     * @param competitorOffered
+     * @param offered
+     */
     public Services(Integer id, String name, String description, boolean competitorOffered, boolean offered) {
         this.id = id;
         this.name = name;
@@ -89,58 +104,114 @@ public class Services implements Serializable {
         this.offered = offered;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     *
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getLowPrice() {
         return lowPrice;
     }
 
+    /**
+     *
+     * @param lowPrice
+     */
     public void setLowPrice(Double lowPrice) {
         this.lowPrice = lowPrice;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getHighPrice() {
         return highPrice;
     }
 
+    /**
+     *
+     * @param highPrice
+     */
     public void setHighPrice(Double highPrice) {
         this.highPrice = highPrice;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean getCompetitorOffered() {
         return competitorOffered;
     }
 
+    /**
+     *
+     * @param competitorOffered
+     */
     public void setCompetitorOffered(boolean competitorOffered) {
         this.competitorOffered = competitorOffered;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean getOffered() {
         return offered;
     }
 
+    /**
+     *
+     * @param offered
+     */
     public void setOffered(boolean offered) {
         this.offered = offered;
     }

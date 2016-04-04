@@ -41,6 +41,9 @@ public class GenericHibernateDAO<T, ID extends Serializable>
 
     private static final Logger logger = Logger.getLogger(GenericHibernateDAO.class.getName());
 
+    /**
+     *
+     */
     public GenericHibernateDAO() {
     }
 
@@ -93,6 +96,12 @@ public class GenericHibernateDAO<T, ID extends Serializable>
         return findByCriteria(0, RESULT_SIZE_MAX);
     }
 
+    /**
+     *
+     * @param firstResult
+     * @param pageSize
+     * @return
+     */
     @Override
     @Transactional
     public List<T> findAll(int firstResult, int pageSize) {
@@ -199,6 +208,11 @@ public class GenericHibernateDAO<T, ID extends Serializable>
         this.sessionFactory = sessionFactory;
     }
 
+    /**
+     *
+     * @param entities
+     * @return
+     */
     @Override
     @Transactional
     public Collection<T> deleteAll(Collection<T> entities) {
@@ -219,6 +233,10 @@ public class GenericHibernateDAO<T, ID extends Serializable>
         return entities;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     @Transactional
     public int count() {
@@ -226,6 +244,11 @@ public class GenericHibernateDAO<T, ID extends Serializable>
                 .createCriteria(this.getPersistentClass()));
     }
 
+    /**
+     *
+     * @param criteria
+     * @return
+     */
     @Transactional
     protected int count(Criteria criteria) {
         return ((Long) criteria

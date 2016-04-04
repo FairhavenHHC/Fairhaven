@@ -92,3 +92,34 @@ footer li>a, .footer-copyright{
     color: red;
 }
 
+
+address, dfn {
+    font-style: normal;
+}
+
+.dropdown-content {
+    min-width: 200px;
+
+    li {
+
+        & > a, & > span {
+            font-size: 1rem;
+        }
+
+        // Icon alignment override
+        & > a > i {
+            height: inherit;
+            line-height: inherit;
+        }
+    }
+}
+
+a.dropdown-button i{
+    display: inline;
+    font-size: 1.2rem;
+    padding-left: 10px;
+}
+
+#services-header-section{
+    
+}

@@ -58,7 +58,7 @@ public class LoginFormBackingBean {
     }
 
     /**
-     * @param rememberMe the rememberMe to set
+     * @param cookie
      */
     public void setCookie(boolean cookie) {
         this.cookie = cookie;

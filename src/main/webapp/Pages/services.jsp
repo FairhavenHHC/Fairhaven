@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
-<div class="section">
+<div class="section" id="services-header-section">
     <div class="container">
         <div class="row">
             <div class="col s12 m4 offset-m8">
@@ -21,37 +21,35 @@
     </div>
 </div>
 
-
-
 <div class="section">
     <div class="container">
         <div class="row">
             <div class="col m12 l4">
+                <p class="center-align">
+                    <img class="responsive-img" src="${context}/images/clipboard.png" alt="" />
+                </p>
                 <a href="#"><h4 class="thin"><i class="fa fa-check"></i> <fmt:message key="services.section.cards.heading2" /></h4></a>
                 <p>
                     <fmt:message key="services.section.cards.card2" />
                 </p>
-                <p class="center-align">
-                    <img class="responsive-img" src="" alt="" />
-                </p>
             </div>
             <div class="col m12 l4">
+                <p class="center-align">
+                    <img class="responsive-img" src="${context}/images/caller.png" alt="" />
+                </p>
                 <a href="#"><h4 class="thin"><i class="fa fa-clock-o"></i> <fmt:message key="services.section.cards.heading3" /></h4></a>
                 <p>
                     <fmt:message key="services.section.cards.card3" />
-                </p>
-                <p class="center-align">
-                    <img class="responsive-img" src="" alt="" />
-                </p>
+                </p>   
             </div>
             <div class="col m12 l4">
-                <a href="#"><h4 class="thin"><i class="fa fa-stethoscope"></i> <fmt:message key="services.section.cards.heading1" /></h4></a>
-                <p>
-                    <fmt:message key="services.section.cards.card1" />
-                </p>
                 <p class="center-align">
-                    <img class="responsive-img" src="" alt="" />
+                    <img class="responsive-img" src="${context}/images/nurse.png" alt="" />
                 </p>
+                <a href="#"><h4 class="thin center-align"><i class="fa fa-stethoscope"></i> <fmt:message key="services.section.cards.heading1" /></h4></a>
+                <p class="center-align">
+                    <fmt:message key="services.section.cards.card1" />
+                </p>    
             </div>
         </div>
         <div class="divider"></div>
@@ -62,7 +60,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m8">
-                <h3 class="thin"><fmt:message key="services.section.table.heading" /></h3>
+                <h4 class="thin"><fmt:message key="services.section.table.heading" /></h4>
                 <table class="striped bordered">
                     <thead>
                         <tr>

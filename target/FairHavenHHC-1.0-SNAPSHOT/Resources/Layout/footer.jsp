@@ -36,9 +36,14 @@
         <div class="col m2 s4">
             <h6 class="white-text">About us</h6>
             <ul>
-                <li><a href="#">Our story</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Find a location</a></li>
+                <li><a href="${context}/about/#our_story">Our story</a></li>
+                <li><a href="${context}/about/#contact">Contact us</a></li>
+                <li><a href="${context}/about/#location">Find a location</a></li>
+            </ul>
+
+            <h6 class="white-text">Join our team</h6>
+            <ul>
+                <li><a href="${context}/about/careers/">Careers</a></li>
             </ul>
         </div>
         <div class="col m2 s4">

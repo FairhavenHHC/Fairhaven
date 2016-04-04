@@ -58,47 +58,91 @@ public class Users implements Serializable {
 
     private static final Logger logger = Logger.getLogger(Users.class.getName());
 
+    /**
+     *
+     */
     public Users() {
     }
 
+    /**
+     *
+     * @param username
+     */
     public Users(String username) {
         this.username = username;
     }
 
+    /**
+     *
+     * @param username
+     * @param password
+     */
     public Users(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     *
+     * @param username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     */
     public Boolean getEnabled() {
         return enabled;
     }
 
+    /**
+     *
+     * @param enabled
+     */
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlTransient
     public Collection<Groups> getGroupsCollection() {
         return groupsCollection;
     }
 
+    /**
+     *
+     * @param groupsCollection
+     */
     public void setGroupsCollection(Collection<Groups> groupsCollection) {
         this.groupsCollection = groupsCollection;
     }

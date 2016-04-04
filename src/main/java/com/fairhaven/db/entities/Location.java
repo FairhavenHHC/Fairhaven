@@ -89,13 +89,29 @@ public class Location implements Serializable {
 
     private static final Logger logger = Logger.getLogger(Location.class.getName());
 
+    /**
+     *
+     */
     public Location() {
     }
 
+    /**
+     *
+     * @param id
+     */
     public Location(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @param id
+     * @param name
+     * @param city
+     * @param state
+     * @param country
+     * @param street
+     */
     public Location(Integer id, String name, String city, String state, String country, String street) {
         this.id = id;
         this.name = name;
@@ -105,67 +121,131 @@ public class Location implements Serializable {
         this.street = street;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCity() {
         return city;
     }
 
+    /**
+     *
+     * @param city
+     */
     public void setCity(String city) {
         this.city = city;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getState() {
         return state;
     }
 
+    /**
+     *
+     * @param state
+     */
     public void setState(String state) {
         this.state = state;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCountry() {
         return country;
     }
 
+    /**
+     *
+     * @param country
+     */
     public void setCountry(String country) {
         this.country = country;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getStreet() {
         return street;
     }
 
+    /**
+     *
+     * @param street
+     */
     public void setStreet(String street) {
         this.street = street;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getZip() {
         return zip;
     }
 
+    /**
+     *
+     * @param zip
+     */
     public void setZip(String zip) {
         this.zip = zip;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlTransient
     public Collection<Contact> getContactCollection() {
         return contactCollection;
     }
 
+    /**
+     *
+     * @param contactCollection
+     */
     public void setContactCollection(Collection<Contact> contactCollection) {
         this.contactCollection = contactCollection;
     }

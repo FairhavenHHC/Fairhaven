@@ -67,48 +67,93 @@ public class Faq implements Serializable {
 
     private static final Logger logger = Logger.getLogger(Faq.class.getName());
 
+    /**
+     *
+     */
     public Faq() {
     }
 
+    /**
+     *
+     * @param id
+     */
     public Faq(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @param id
+     * @param question
+     * @param answer
+     */
     public Faq(Integer id, String question, String answer) {
         this.id = id;
         this.question = question;
         this.answer = answer;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getQuestion() {
         return question;
     }
 
+    /**
+     *
+     * @param question
+     */
     public void setQuestion(String question) {
         this.question = question;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAnswer() {
         return answer;
     }
 
+    /**
+     *
+     * @param answer
+     */
     public void setAnswer(String answer) {
         this.answer = answer;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlTransient
     public Collection<Link> getLinkCollection() {
         return linkCollection;
     }
 
+    /**
+     *
+     * @param linkCollection
+     */
     public void setLinkCollection(Collection<Link> linkCollection) {
         this.linkCollection = linkCollection;
     }
