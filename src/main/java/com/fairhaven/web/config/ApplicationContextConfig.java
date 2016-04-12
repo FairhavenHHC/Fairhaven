@@ -82,6 +82,8 @@ public class ApplicationContextConfig {
                 setProperty("hibernate.connection.autocommit", env.getProperty("hibernate.connection.autocommit"));
                 setProperty("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
                 setProperty("hibernate.flushmode", env.getProperty("hibernate.flushmode"));
+                setProperty("hibernate.search.default.directory_provider", "filesystem");
+                setProperty("hibernate.search.default.indexBase", "/var/lucene/indexes");
             }
         });
 
@@ -111,6 +113,10 @@ public class ApplicationContextConfig {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean
     public JavaMailSenderImpl mailSender() {
 
@@ -128,6 +134,11 @@ public class ApplicationContextConfig {
         return mailSender;
     }
 
+    /**
+     *
+     * @return @throws VelocityException
+     * @throws IOException
+     */
     @Bean
     public VelocityEngine velocityEngine() throws VelocityException, IOException {
 

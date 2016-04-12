@@ -7,7 +7,7 @@
 <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col s12 m6">
+            <div class="col s12 m4">
                 <h2 class="thin"><fmt:message key="about.section.foundation.heading" /></h2>
                 <p class="">
                     <fmt:message key="about.section.foundation.text1" />
@@ -47,68 +47,25 @@
 <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col s12 m6">
-                <h4 class="thin">Send us a message</h4>
-                <p>
-                    <fmt:message key="form.heading.text" var="form_text">
-                        <fmt:param value="${contacts['Office phone'].value}" />
-                    </fmt:message>
-                    <c:out value="${form_text}" />
-                </p>
-                <form:form action="${context}/about/" method="post" commandName="message">
+            <div class="col s12 m8">
+                <h4 class="thin"><fmt:message key="about.section.staff.heading" /></h4>
+                <!--<c:forEach begin="1" end="3" step="1" varStatus="loopCounter">
                     <div class="row">
-                        <div class="input-field col s6">
-                            <form:input path="firstName" />
-                            <form:label path="firstName"><fmt:message key="form.message.first.label" /></form:label>
-                            <form:errors path="firstName" cssClass="error"/>
+                    <c:forEach begin="1" end="4" >
+                        <div class="col s6 m3">
+                            <p class="center-align">
+                                <image src="${context}/images/services-optimized.jpg" class="responsive-img z-depth-1" style="border: 3px solid #fff; max-width: 100px;" />
+                            </p>
+                            <p class="center-align">
+                                <strong>First Last</strong><br>
+                                <small>Job title</small>
+                            </p>
                         </div>
-                        <div class="input-field col s6">
-                            <form:input path="lastName" />
-                            <form:label path="lastName"><fmt:message key="form.message.last.label" /></form:label>
-                            <form:errors path="lastName" cssClass="error"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <form:input path="email" />
-                            <form:label path="email"><fmt:message key="form.message.email.label" /></form:label>
-                            <form:errors path="email" cssClass="error"/>
-                        </div>
-                        <div class="input-field col s6">
-                            <form:select path="service" >
-                                <fmt:message key="form.message.service.default" var="serviceDefault"/>
-                                <form:option label="${serviceDefault}" value=""/>
-                                <form:options items="${services}" itemValue="id" itemLabel="name" />
-                            </form:select>
-                            <form:errors path="service" cssClass="error"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <form:input path="phone" cssClass="phone_us"/>
-                            <form:label path="phone"><fmt:message key="form.message.phone.label" /></form:label>
-                            <form:errors path="phone" cssClass="error"/>
-                        </div>
-                        <div class="input-field col s6">
-                            <fmt:message key="form.message.newsletter.label" var="newsletterMessage"/>
-                            <form:checkbox path="newsletter" label="${newsletterMessage}"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <form:textarea path="message"  rows="10" cssClass="materialize-textarea" length="250" />
-                            <form:label path="message"><fmt:message key="form.message.message.label" /></form:label>
-                            <form:errors path="message" cssClass="error"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 right-align">
-                            <button class="btn" value="Submit" type="submit"><fmt:message key="form.button.submit" /></button>
-                        </div>
-                    </div> 
-                </form:form>
+                    </c:forEach>
+                </div>
+                </c:forEach>-->
             </div>
-            <div class="col s12 m5 offset-m1">
+            <div class="col s12 m4">
                 <div class="row">
                     <div class="col s12">
                         <h4 class="thin"><fmt:message key="about.section.contact.heading" /></h4>
@@ -148,7 +105,7 @@
                                                     </address>
                                                 </td>
                                                 <td>
-                                                    <a href="#">
+                                                    <a href="${context}/locations/?lat=${location.latitude}&long=${location.longitude}">
                                                         <i class="fa fa-map-marker"></i> <fmt:message key="map.link.view" />
                                                     </a>
                                                 </td>

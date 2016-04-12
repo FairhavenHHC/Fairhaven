@@ -31,7 +31,7 @@ public class MessageFormbackingBean {
     private String email;
     @Length(min = 0, max = 250, message = "{field.length.max}")
     private String message;
-    @Pattern(regexp = "((\\(\\d{3}\\) ?)|(\\d{3}-))?\\d{3}-\\d{4}" ,message = "{form.message.phone.valid}")
+    @Pattern(regexp = "((\\(\\d{3}\\) ?)|(\\d{3}-))?\\d{3}-\\d{4}", message = "{form.message.phone.valid}")
     private String phone;
     @NotNull(message = "{form.message.service.not_null}")
     private Services service;

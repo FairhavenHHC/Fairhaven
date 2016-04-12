@@ -5,34 +5,6 @@
 
 
 
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB-J2kGO22uvgC9Imz0V-DcC1S9FOSgrz0" ></script>
-<script type="text/javascript">
-    function initialize() {
-        var center = new google.maps.LatLng(33.7875783, -117.8787801);
-
-        var mapOptions = {
-            center: center,
-            zoom: 9,
-            minZoom: 4
-        };
-
-
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
-                mapOptions);
-
-        var marker = new google.maps.Marker({
-            position: center,
-            map: map,
-            title: 'Fairhaven HHC Offices'
-        });
-
-    }
-
-    google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-
-
-
 <div class="section header-image hide-on-med-and-down">
     <div class="row container">
         <div class="col s12 m12" >
@@ -125,17 +97,7 @@
     </div>
 </div>
 
-<div class="section green lighten-5">
-    <div class="row container">
-        <div class="col s12 m12">
-            <a href="${context}/services/">
-                <h1 class="center-align thin">
-                    <fmt:message key="home.section.call" />
-                </h1>
-            </a>
-        </div>
-    </div>
-</div>
+
 
 <div class="section">
     <div class="container">
@@ -155,9 +117,9 @@
             <div class="col s12 m6">
                 <div class="row">
                     <div class="col s12 m12">
-                        <a href="locations.htm"><h3 class=""><i class="fa fa-map-signs orange-text text-darken-3"></i> <fmt:message key="home.section.location.heading" /></h3></a>
+                        <a href="${context}/locations/"><h3 class=""><i class="fa fa-map-signs orange-text text-darken-3"></i> <fmt:message key="home.section.location.heading" /></h3></a>
                         <p>
-                            <fmt:message key="home.section.location.text" /> <a href="#"><i class="fa fa-map-marker"></i> <fmt:message key="home.section.location.link" /></a>
+                            <fmt:message key="home.section.location.text" /> <a href="${context}/locations/"><i class="fa fa-map-marker"></i> <fmt:message key="home.section.location.link" /></a>
                         </p>
                     </div>
                 </div>

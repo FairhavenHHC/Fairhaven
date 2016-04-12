@@ -3,10 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.fairhaven.db.entities;
-
-
 
 // Import log4j class
 import java.io.Serializable;
@@ -28,12 +25,15 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import org.apache.log4j.Logger;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 
 /**
  *
  * @author Sam
  */
 @Entity
+@Indexed
 @Table(name = "location")
 @XmlRootElement
 @NamedQueries({
@@ -44,7 +44,9 @@ import org.apache.log4j.Logger;
     @NamedQuery(name = "Location.findByState", query = "SELECT l FROM Location l WHERE l.state = :state"),
     @NamedQuery(name = "Location.findByCountry", query = "SELECT l FROM Location l WHERE l.country = :country"),
     @NamedQuery(name = "Location.findByStreet", query = "SELECT l FROM Location l WHERE l.street = :street"),
-    @NamedQuery(name = "Location.findByZip", query = "SELECT l FROM Location l WHERE l.zip = :zip")})
+    @NamedQuery(name = "Location.findByZip", query = "SELECT l FROM Location l WHERE l.zip = :zip"),
+    @NamedQuery(name = "Location.findByLatitude", query = "SELECT l FROM Location l WHERE l.latitude = :latitude"),
+    @NamedQuery(name = "Location.findByLongitude", query = "SELECT l FROM Location l WHERE l.longitude = :longitude")})
 public class Location implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -78,9 +80,17 @@ public class Location implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "street")
     private String street;
-    @Size(max = 5)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 5)
     @Column(name = "zip")
+    @Field
     private String zip;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Column(name = "latitude")
+    private Double latitude;
+    @Column(name = "longitude")
+    private Double longitude;
     @JoinTable(name = "contact_location", joinColumns = {
         @JoinColumn(name = "location_id", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "contact_id", referencedColumnName = "id")})
@@ -89,163 +99,100 @@ public class Location implements Serializable {
 
     private static final Logger logger = Logger.getLogger(Location.class.getName());
 
-    /**
-     *
-     */
     public Location() {
     }
 
-    /**
-     *
-     * @param id
-     */
     public Location(Integer id) {
         this.id = id;
     }
 
-    /**
-     *
-     * @param id
-     * @param name
-     * @param city
-     * @param state
-     * @param country
-     * @param street
-     */
-    public Location(Integer id, String name, String city, String state, String country, String street) {
+    public Location(Integer id, String name, String city, String state, String country, String street, String zip) {
         this.id = id;
         this.name = name;
         this.city = city;
         this.state = state;
         this.country = country;
         this.street = street;
+        this.zip = zip;
     }
 
-    /**
-     *
-     * @return
-     */
     public Integer getId() {
         return id;
     }
 
-    /**
-     *
-     * @param id
-     */
     public void setId(Integer id) {
         this.id = id;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     *
-     * @param name
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCity() {
         return city;
     }
 
-    /**
-     *
-     * @param city
-     */
     public void setCity(String city) {
         this.city = city;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getState() {
         return state;
     }
 
-    /**
-     *
-     * @param state
-     */
     public void setState(String state) {
         this.state = state;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCountry() {
         return country;
     }
 
-    /**
-     *
-     * @param country
-     */
     public void setCountry(String country) {
         this.country = country;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getStreet() {
         return street;
     }
 
-    /**
-     *
-     * @param street
-     */
     public void setStreet(String street) {
         this.street = street;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getZip() {
         return zip;
     }
 
-    /**
-     *
-     * @param zip
-     */
     public void setZip(String zip) {
         this.zip = zip;
     }
 
-    /**
-     *
-     * @return
-     */
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
     @XmlTransient
     public Collection<Contact> getContactCollection() {
         return contactCollection;
     }
 
-    /**
-     *
-     * @param contactCollection
-     */
     public void setContactCollection(Collection<Contact> contactCollection) {
         this.contactCollection = contactCollection;
     }

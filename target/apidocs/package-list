@@ -1,0 +1,11 @@
+com.fairhaven.db.dao
+com.fairhaven.db.dao.hibernate
+com.fairhaven.db.entities
+com.fairhaven.utils.encryption
+com.fairhaven.utils.mail
+com.fairhaven.web.config
+com.fairhaven.web.controllers
+com.fairhaven.web.converters
+com.fairhaven.web.exceptions
+com.fairhaven.web.forms
+com.fairhaven.web.interceptors

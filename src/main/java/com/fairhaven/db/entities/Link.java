@@ -62,93 +62,48 @@ public class Link implements Serializable {
 
     private static final Logger logger = Logger.getLogger(Link.class.getName());
 
-    /**
-     *
-     */
     public Link() {
     }
 
-    /**
-     *
-     * @param id
-     */
     public Link(Integer id) {
         this.id = id;
     }
 
-    /**
-     *
-     * @param id
-     * @param displayText
-     * @param url
-     */
     public Link(Integer id, String displayText, String url) {
         this.id = id;
         this.displayText = displayText;
         this.url = url;
     }
 
-    /**
-     *
-     * @return
-     */
     public Integer getId() {
         return id;
     }
 
-    /**
-     *
-     * @param id
-     */
     public void setId(Integer id) {
         this.id = id;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDisplayText() {
         return displayText;
     }
 
-    /**
-     *
-     * @param displayText
-     */
     public void setDisplayText(String displayText) {
         this.displayText = displayText;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getUrl() {
         return url;
     }
 
-    /**
-     *
-     * @param url
-     */
     public void setUrl(String url) {
         this.url = url;
     }
 
-    /**
-     *
-     * @return
-     */
     @XmlTransient
     public Collection<Faq> getFaqCollection() {
         return faqCollection;
     }
 
-    /**
-     *
-     * @param faqCollection
-     */
     public void setFaqCollection(Collection<Faq> faqCollection) {
         this.faqCollection = faqCollection;
     }

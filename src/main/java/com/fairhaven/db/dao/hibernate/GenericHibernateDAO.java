@@ -9,6 +9,7 @@ import com.fairhaven.db.dao.GenericDAO;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.Resource;
 import org.apache.log4j.Logger;
@@ -19,6 +20,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Projections;
+import org.hibernate.search.FullTextQuery;
+import org.hibernate.search.FullTextSession;
+import org.hibernate.search.Search;
+import org.hibernate.search.query.dsl.QueryBuilder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -273,5 +278,40 @@ public class GenericHibernateDAO<T, ID extends Serializable>
         criteria.setFirstResult(firstResult);
         criteria.setMaxResults(pageSize);
         return criteria.list();
+    }
+
+    @Override
+    @Transactional
+    public Collection<T> search(String search_string, String... fields) {
+
+        //Create collection to hold results
+        List<T> result = new LinkedList<>();
+
+        try {
+
+            FullTextSession fullTextSession = Search.getFullTextSession(this.getCurrentSession());
+            fullTextSession.createIndexer().startAndWait();
+
+            QueryBuilder qb = fullTextSession.getSearchFactory()
+                    .buildQueryBuilder().forEntity(this.getPersistentClass()).get();
+            org.apache.lucene.search.Query query = qb
+                    .keyword()
+                    .onFields(fields)
+                    .matching(search_string)
+                    .createQuery();
+
+            logger.info("Full text search for " + search_string + " on field: " + fields[0]);
+
+            // Wrap Lucene query in a org.hibernate.Query
+            FullTextQuery textQuery = fullTextSession.createFullTextQuery(query, this.getPersistentClass());
+            result = textQuery.list();
+
+        } catch (InterruptedException ex) {
+            logger.error("Unable to complete full text search: " + ex.getMessage());
+            logger.error(ex);
+        }
+
+        return result;
+
     }
 }

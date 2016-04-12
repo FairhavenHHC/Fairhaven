@@ -61,91 +61,47 @@ public class Contact implements Serializable {
 
     private static final Logger logger = Logger.getLogger(Contact.class.getName());
 
-    /**
-     *
-     */
     public Contact() {
     }
 
-    /**
-     *
-     * @param id
-     */
     public Contact(Integer id) {
         this.id = id;
     }
 
-    /**
-     *
-     * @param id
-     * @param value
-     */
     public Contact(Integer id, String value) {
         this.id = id;
         this.value = value;
     }
 
-    /**
-     *
-     * @return
-     */
     public Integer getId() {
         return id;
     }
 
-    /**
-     *
-     * @param id
-     */
     public void setId(Integer id) {
         this.id = id;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getValue() {
         return value;
     }
 
-    /**
-     *
-     * @param value
-     */
     public void setValue(String value) {
         this.value = value;
     }
 
-    /**
-     *
-     * @return
-     */
     @XmlTransient
     public Collection<Location> getLocationCollection() {
         return locationCollection;
     }
 
-    /**
-     *
-     * @param locationCollection
-     */
     public void setLocationCollection(Collection<Location> locationCollection) {
         this.locationCollection = locationCollection;
     }
 
-    /**
-     *
-     * @return
-     */
     public ContactType getType() {
         return type;
     }
 
-    /**
-     *
-     * @param type
-     */
     public void setType(ContactType type) {
         this.type = type;
     }

@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : main_layout
     Created on : Nov 12, 2014, 6:09:50 PM
     Author     : Sam
@@ -52,10 +52,12 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'/>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB-J2kGO22uvgC9Imz0V-DcC1S9FOSgrz0" ></script>
         <script type="text/javascript" src="${context}/scripts/materialize.min.js"></script>
         <script type="text/javascript" src="${context}/scripts/main.js"></script>
         <script type="text/javascript" src="${context}/scripts/jquery-mask-plugin-min.js"></script>
         <script type="text/javascript" src="${context}/scripts/input-mask.js"></script>
+        <script type="text/javascript" src="${context}/scripts/maps.js"></script>
 
     </body>
 </html>

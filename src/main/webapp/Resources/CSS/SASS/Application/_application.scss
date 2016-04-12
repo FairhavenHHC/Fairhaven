@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : Jul 26, 2015, 3:29:08 PM
     Author     : Sam
 */
@@ -114,12 +114,14 @@ address, dfn {
     }
 }
 
+a.collapsible-header i{
+    float: right;
+    font-size: 1rem;
+}
+
+
 a.dropdown-button i{
     display: inline;
     font-size: 1.2rem;
     padding-left: 10px;
-}
-
-#services-header-section{
-    
 }

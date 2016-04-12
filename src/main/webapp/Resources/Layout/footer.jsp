@@ -38,7 +38,7 @@
             <ul>
                 <li><a href="${context}/about/#our_story">Our story</a></li>
                 <li><a href="${context}/about/#contact">Contact us</a></li>
-                <li><a href="${context}/about/#location">Find a location</a></li>
+                <li><a href="${context}/locations/">Find a location</a></li>
             </ul>
 
             <h6 class="white-text">Join our team</h6>

@@ -79,4 +79,12 @@ public interface GenericDAO<T, ID extends Serializable> {
      */
     public int count();
 
+    /**
+     *
+     * @param search_string
+     * @param fields
+     * @return
+     */
+    public Collection<T> search(String search_string, String... fields);
+
 }

@@ -37,6 +37,11 @@
         <put-attribute name="content"   value="/Pages/services.jsp" />
     </definition>
 
+    <definition name="com.fairhaven.service" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | Service Details" />
+        <put-attribute name="content"   value="/Pages/service.jsp" />
+    </definition>
+
     <!-- LOCATION PAGES-->
 
     <definition name="com.fairhaven.locations" extends="mainLayout">
@@ -47,12 +52,12 @@
 
 
     <!-- ADMIN PAGES-->
-    <definition name="com.fairhaven.memebers.profile" extends="mainLayout">
-        <put-attribute name="title"  value="Fairhaven | Member Profile" />
-        <put-attribute name="content"   value="/Pages/Members/profile.jsp" />
+    <definition name="com.fairhaven.admin.dashboard" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | Site Administration" />
+        <put-attribute name="content"   value="/Pages/Administration/dashboard.jsp" />
     </definition>
 
-    <definition name="com.fairhaven.memebers.login" extends="mainLayout">
+    <definition name="com.fairhaven.admin.login" extends="mainLayout">
         <put-attribute name="title"  value="Fairhaven | Login" />
         <put-attribute name="content"   value="/Pages/login.jsp" />
     </definition>

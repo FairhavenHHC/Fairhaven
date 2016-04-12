@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -25,17 +25,17 @@ $(document).ready(function () {
     //Slider
     $('.slider').slider({full_width: true});
 
-    $('#selectAll').click(function (event) {  //on click 
+    $('#selectAll').click(function (event) {  //on click
         var select_class = $(this).attr('title');
         if (this.checked) { // check select status
             $('.selectable').each(function () { //loop through each checkbox
-                this.checked = true; //select all checkboxes with class "checkbox1"               
+                this.checked = true; //select all checkboxes with class "checkbox1"
             });
             $('#' + select_class).removeClass('disabled');
             $('#' + select_class).removeAttr('disabled');
         } else {
             $('.selectable').each(function () { //loop through each checkbox
-                this.checked = false; //deselect all checkboxes with class "checkbox1"                       
+                this.checked = false; //deselect all checkboxes with class "checkbox1"
             });
             //Finally disable the submit button
             $('#' + select_class).attr('disabled', 'disabled');
@@ -43,7 +43,7 @@ $(document).ready(function () {
         }
     });
 
-    $('.selectable').click(function (event) {  //on click 
+    $('.selectable').click(function (event) {  //on click
 
         //First thing to do, uncheck the select all checkbox
         $('#selectAll').attr('checked', false);
@@ -86,13 +86,11 @@ $(document).ready(function () {
     });
 
     $(".collapsible-header").click(function (e) {
-        e.preventDefault();
         $("i", this).toggleClass("fa-chevron-right fa-chevron-down");
     });
 
     $(".hidden_rows").hide();
 
 
-    $('.phone_us').mask('(000) 000-0000');
 });
 
