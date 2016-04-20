@@ -91,7 +91,7 @@
                 </table>
             </div>
             <div class="col s12 m12 l6">
-                <p class="center-align"><image src="${context}/images/services-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff" /></p>
+                <p class="center-align"><img src="${context}/images/services-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff" alt="Services image"/></p>
             </div>
         </div>
     </div>
@@ -102,17 +102,25 @@
 <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col s12 m6 l3">
-                <a href="/about"><h3 class=""><i class="fa fa-info light-blue-text"></i> <fmt:message key="home.section.about.heading" /></h3></a>
-                <p>
-                    <fmt:message key="home.section.about.text1" />
-                </p>
-                <blockquote>
-                    <fmt:message key="home.section.about.text2" />
-                </blockquote>
-            </div>
-            <div class="col s12 m6 l3">
-                <p class="center-align"><image src="${context}/images/about-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff;"/></p>
+            <div class="col s12 m12 l6">
+                <div class="row">
+                    <div class="s12">
+                        <a href="/about"><h3 class=""><i class="fa fa-info light-blue-text"></i> <fmt:message key="home.section.about.heading" /></h3></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m6 l6">
+                        <p>
+                            <fmt:message key="home.section.about.text1" />
+                        </p>
+                        <blockquote>
+                            <fmt:message key="home.section.about.text2" />
+                        </blockquote>
+                    </div>
+                    <div class="col s12 m6 l6">
+                        <p class="center-align"><img src="${context}/images/about-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff;" alt="About image"/></p>
+                    </div>
+                </div>
             </div>
             <div class="col s12 m12 l6">
                 <div class="row">

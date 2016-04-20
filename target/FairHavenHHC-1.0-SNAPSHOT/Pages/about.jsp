@@ -7,7 +7,7 @@
 <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col s12 m12 l4">
+            <div class="col s12 m12 l6">
                 <h2 class="thin"><fmt:message key="about.section.foundation.heading" /></h2>
                 <p class="">
                     <fmt:message key="about.section.foundation.text1" />
