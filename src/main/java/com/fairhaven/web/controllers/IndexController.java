@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -42,3 +43,45 @@ public class IndexController {
     }
 
 }
+=======
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.fairhaven.web.controllers;
+
+// Import log4j class
+import java.util.Locale;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+/**
+ *
+ * @author Sam
+ */
+@Controller
+public class IndexController {
+
+    private static final Logger logger = Logger.getLogger(IndexController.class.getName());
+    
+    
+
+    /**
+     *
+     * @param locale
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
+    public ModelAndView index(Locale locale, HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView("com.fairhaven.index");
+        return mav;
+    }
+
+}
+>>>>>>> 2bf9b035f0db61dbe80228b054532731c6f55b2d

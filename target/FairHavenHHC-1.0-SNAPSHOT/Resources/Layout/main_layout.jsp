@@ -23,8 +23,13 @@
 
         <title><tiles:getAsString name="title" /></title>
 
+<<<<<<< HEAD
+        <!-- Main CSS file to import dependencies -->
+        <link href="${context}/resources/CSS/base.css" rel="stylesheet">
+=======
         <!-- Bootstrap core CSS -->
         <link href="${context}/css/base.css" rel="stylesheet">
+>>>>>>> login
 
 
         <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -52,12 +57,25 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'/>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<<<<<<< HEAD
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB-J2kGO22uvgC9Imz0V-DcC1S9FOSgrz0" ></script>
+=======
+<<<<<<< HEAD
+        <script type="text/javascript" src="${context}/resources/Scripts/materialize.min.js"></script>
+        <script type="text/javascript" src="${context}/resources/Scripts/main.js"></script>
+        <script type="text/javascript" src="${context}/resources/Scripts/jquery-mask-plugin-min.js"></script>
+        <script type="text/javascript" src="${context}/resources/Scripts/input-mask.js"></script>
+=======
+>>>>>>> 2bf9b035f0db61dbe80228b054532731c6f55b2d
         <script type="text/javascript" src="${context}/scripts/materialize.min.js"></script>
         <script type="text/javascript" src="${context}/scripts/main.js"></script>
         <script type="text/javascript" src="${context}/scripts/jquery-mask-plugin-min.js"></script>
         <script type="text/javascript" src="${context}/scripts/input-mask.js"></script>
+<<<<<<< HEAD
         <script type="text/javascript" src="${context}/scripts/maps.js"></script>
+=======
+>>>>>>> login
+>>>>>>> 2bf9b035f0db61dbe80228b054532731c6f55b2d
 
     </body>
 </html>

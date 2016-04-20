@@ -30,8 +30,17 @@
 <div class="section white">
     <div class="container">
         <div class="row">
+<<<<<<< HEAD
             <div class="col s12 m12 l6">
                 <a href="${context}/services/"><h3 class=""><i class="fa fa-puzzle-piece light-green-text"></i> Services</h3></a>
+=======
+            <div class="col s12 m6">
+<<<<<<< HEAD
+                <a href="services.htm"><h3 class="grey-text text-darken-1"><i class="fa fa-puzzle-piece light-green-text"></i> Services</h3></a>
+=======
+                <a href="services/"><h3 class=""><i class="fa fa-puzzle-piece light-green-text"></i> Services</h3></a>
+>>>>>>> login
+>>>>>>> 2bf9b035f0db61dbe80228b054532731c6f55b2d
                 <p>
                     <fmt:message key="home.section.services.text" />
                 </p>
@@ -102,6 +111,7 @@
 <div class="section">
     <div class="container">
         <div class="row">
+<<<<<<< HEAD
             <div class="col s12 m12 l6">
                 <div class="row">
                     <div class="s12">
@@ -121,11 +131,44 @@
                         <p class="center-align"><img src="${context}/images/about-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff;" alt="About image"/></p>
                     </div>
                 </div>
+=======
+            <div class="col s12 m3">
+<<<<<<< HEAD
+                <a href="/about"><h3 class=""><i class="fa fa-info light-blue-text"></i> <fmt:message key="home.section.about.heading" /></h3></a>
+=======
+<<<<<<< HEAD
+                <a href="about.htm"><h3 class="grey-text text-darken-1"><i class="fa fa-info light-blue-text"></i> About us</h3></a>
+=======
+                <a href="about.htm"><h3 class=""><i class="fa fa-info light-blue-text"></i> <fmt:message key="home.section.about.heading" /></h3></a>
+>>>>>>> login
+>>>>>>> c4c55a6de9ef3c9716c8d750a5b4d5d57a1445b2
+                <p>
+                    <fmt:message key="home.section.about.text1" />
+                </p>
+                <blockquote>
+                    <fmt:message key="home.section.about.text2" />
+                </blockquote>
+            </div>
+            <div class="col s12 m3">
+<<<<<<< HEAD
+                <p><image src="images/about-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff;"/></p>
+=======
+                <p><image src="${context}/images/about-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff;"/></p>
+>>>>>>> login
+>>>>>>> 2bf9b035f0db61dbe80228b054532731c6f55b2d
             </div>
             <div class="col s12 m12 l6">
                 <div class="row">
                     <div class="col s12 m12">
+<<<<<<< HEAD
                         <a href="${context}/locations/"><h3 class=""><i class="fa fa-map-signs orange-text text-darken-3"></i> <fmt:message key="home.section.location.heading" /></h3></a>
+=======
+<<<<<<< HEAD
+                        <a href="locations.htm"><h3 class="grey-text text-darken-1"><i class="fa fa-map-signs orange-text text-darken-3"></i> We're just around the corner</h3></a>
+=======
+                        <a href="locations.htm"><h3 class=""><i class="fa fa-map-signs orange-text text-darken-3"></i> <fmt:message key="home.section.location.heading" /></h3></a>
+>>>>>>> login
+>>>>>>> 2bf9b035f0db61dbe80228b054532731c6f55b2d
                         <p>
                             <fmt:message key="home.section.location.text" /> <a href="${context}/locations/"><i class="fa fa-map-marker"></i> <fmt:message key="home.section.location.link" /></a>
                         </p>
