@@ -18,7 +18,7 @@
 <div class="section white bottom-div">
     <div class="container">
         <div class="row">
-            <div class="col s12 m6">
+            <div class="col s12 m12 l6">
                 <h3 class="thin">
                     <c:choose>
                         <c:when test="${search_results}">
@@ -74,17 +74,17 @@
                     </c:otherwise>
                 </c:choose>
             </div>
-            <div class="col s12 m5 offset-m1" id="zip_lookup">
+            <div class="col s12 m12 l5 offset-l1" id="zip_lookup">
                 <h3 class="thin"><fmt:message key="locations.section.zip.heading" /></h3>
                 <form:form action="${context}/locations/zip/#zip_lookup" method="post" commandName="zipBean">
                     <div class="row">
-                        <div class="input-field col s12 m6">
+                        <div class="input-field col s12 m6 l6">
                             <form:input path="zip" cssClass="zip_us"/>
                             <form:label path="zip">
                                 <fmt:message key="form.location.zip.label" />
                             </form:label>
                         </div>
-                        <div class="input-field col s12 m6 center-align">
+                        <div class="input-field col s12 m6 l6 center-align">
                             <button class="btn col s12" value="Submit" type="submit">
                                 <fmt:message key="form.button.submit" />
                             </button>

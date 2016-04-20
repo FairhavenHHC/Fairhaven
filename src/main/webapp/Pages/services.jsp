@@ -7,7 +7,7 @@
 <div class="section white" id="services-header-section">
     <div class="container">
         <div class="row">
-            <div class="col s12 m4 offset-m8">
+            <div class="col s12 m12 l4">
                 <h2 class="thin"><fmt:message key="services.section.main.heading" /></h2>
                 <p>
                     <fmt:message key="services.section.main.text1" />
@@ -23,31 +23,31 @@
 <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col s12 m4">
-                <a href="#"><h4 class="thin center-align"><i class="fa fa-check"></i> <fmt:message key="services.section.cards.heading2" /></h4></a>
+            <div class="col s12 m4 l4">
                 <p class="center-align">
-                    <img class="responsive-img" src="${context}/images/clipboard.png" alt="" />
+                    <img class="responsive-img" src="${context}/images/nurse.png" alt="" />
                 </p>
-                <p>
-                    <fmt:message key="services.section.cards.card2" />
+                <a href="#"><h4 class="thin center-align"><i class="fa fa-stethoscope"></i> <fmt:message key="services.section.cards.heading1" /></h4></a>
+                <p class="center-align">
+                    <fmt:message key="services.section.cards.card1" />
                 </p>
             </div>
-            <div class="col s12 m4">
-                <a href="#"><h4 class="thin center-align"><i class="fa fa-clock-o"></i> <fmt:message key="services.section.cards.heading3" /></h4></a>
+            <div class="col s12 m4 l4">
                 <p class="center-align">
                     <img class="responsive-img" src="${context}/images/caller.png" alt="" />
                 </p>
+                <a href="#"><h4 class="thin center-align"><i class="fa fa-clock-o"></i> <fmt:message key="services.section.cards.heading3" /></h4></a>
                 <p>
                     <fmt:message key="services.section.cards.card3" />
                 </p>
             </div>
-            <div class="col s12 m4">
-                <a href="#"><h4 class="thin center-align"><i class="fa fa-stethoscope"></i> <fmt:message key="services.section.cards.heading1" /></h4></a>
+            <div class="col s12 m4 l4">
                 <p class="center-align">
-                    <img class="responsive-img" src="${context}/images/nurse.png" alt="" />
+                    <img class="responsive-img" src="${context}/images/clipboard.png" alt="" />
                 </p>
-                <p class="center-align">
-                    <fmt:message key="services.section.cards.card1" />
+                <a href="#"><h4 class="thin center-align"><i class="fa fa-check"></i> <fmt:message key="services.section.cards.heading2" /></h4></a>
+                <p>
+                    <fmt:message key="services.section.cards.card2" />
                 </p>
             </div>
         </div>
@@ -57,7 +57,7 @@
 <div class="section white">
     <div class="container">
         <div class="row">
-            <div class="col s12 m6" id="services_list">
+            <div class="col s12 m12 l6" id="services_list">
                 <h4 class="thin"><fmt:message key="services.section.table.heading" /></h4>
                 <table class="striped">
                     <thead>
@@ -102,18 +102,16 @@
 <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col s12 m5" id="faq">
+            <div class="col s12 m12 l5" id="faq">
                 <h4 class="thin"><fmt:message key="about.section.faq.heading" /></h4>
                 <c:choose>
                     <c:when test="${!empty(faqs)}">
                         <ul class="collapsible z-depth-0" data-collapsible="expandable">
                             <c:forEach var="faq" items="${faqs}">
                                 <li>
-                                    <div class="collapsible-header"><i class="fa fa-chevron-right chevron-toggle"></i> <c:out value="${faq.question}" /></div>
+                                    <div class="collapsible-header truncate"><i class="fa fa-chevron-right chevron-toggle"></i> <c:out value="${faq.question}" /></div>
                                     <div class="collapsible-body white">
-                                        <p>
-                                            <c:out value="${faq.answer}" />
-                                        </p>
+                                        <p><c:out value="${faq.answer}" /></p>
                                     </div>
                                 </li>
                             </c:forEach>
@@ -126,7 +124,7 @@
                     </c:otherwise>
                 </c:choose>
             </div>
-            <div class="col s12 m6 offset-m1" id="contact_form">
+            <div class="col s12 m12 l6 offset-l1" id="contact_form">
                 <h4 class="thin"> <fmt:message key="form.message.heading" /></h4>
                 <p>
                     <fmt:message key="form.message.heading.text" var="form_text">
@@ -136,24 +134,24 @@
                 </p>
                 <form:form action="${context}/services/#contact_form" method="post" commandName="question">
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6">
                             <form:input path="firstName" />
                             <form:label path="firstName"><fmt:message key="form.message.first.label" /></form:label>
                             <form:errors path="firstName" cssClass="error"/>
                         </div>
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6">
                             <form:input path="lastName" />
                             <form:label path="lastName"><fmt:message key="form.message.last.label" /></form:label>
                             <form:errors path="lastName" cssClass="error"/>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6">
                             <form:input path="email" />
                             <form:label path="email"><fmt:message key="form.message.email.label" /></form:label>
                             <form:errors path="email" cssClass="error"/>
                         </div>
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6">
                             <form:select path="service" >
                                 <fmt:message key="form.message.service.default" var="serviceDefault"/>
                                 <form:option label="${serviceDefault}" value=""/>
@@ -163,12 +161,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6">
                             <form:input path="phone" cssClass="phone_us"/>
                             <form:label path="phone"><fmt:message key="form.message.phone.label" /></form:label>
                             <form:errors path="phone" cssClass="error"/>
                         </div>
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6">
                             <fmt:message key="form.message.newsletter.label" var="newsletterMessage"/>
                             <form:checkbox path="newsletter" label="${newsletterMessage}"/>
                         </div>

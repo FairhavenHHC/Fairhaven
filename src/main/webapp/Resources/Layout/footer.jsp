@@ -10,7 +10,7 @@
         <div class="col l2 hide-on-med-and-down">
             <h6><strong>FairHaven HHC &copy;</strong></h6>
         </div>
-        <div class="col m2 s4">
+        <div class="col m4 s4 l2">
             <h6 class="white-text">Our services</h6>
             <ul>
                 <c:choose>
@@ -33,7 +33,7 @@
                 </c:choose>
             </ul>
         </div>
-        <div class="col m2 s4">
+        <div class="col m4 s4 l2">
             <h6 class="white-text">About us</h6>
             <ul>
                 <li><a href="${context}/about/#our_story">Our story</a></li>
@@ -46,7 +46,7 @@
                 <li><a href="${context}/about/careers/">Careers</a></li>
             </ul>
         </div>
-        <div class="col m2 s4">
+        <div class="col m4 s4 l2">
             <h6 class="white-text">Connect</h6>
             <ul>
                 <li><a href="http://www.facebook.com/fairhavenhhc"><i class="fa fa-facebook fa-fw blue-text text-darken-4"></i> Facebook</a></li>
@@ -54,7 +54,7 @@
                 <li><a href="http://plus.google.com/"><i class="fa fa-google-plus fa-fw red-text"></i> Google Plus</a></li>
             </ul>
         </div>
-        <div class="col m4 s12">
+        <div class="col m12 s12 l4">
             <h6 class="black-text"><i class="fa fa-info blue-text"></i> <fmt:message key="footer.nondiscrimination.heading" /></h6>
             <small>
                 <fmt:message key="footer.nondiscrimination.text" />

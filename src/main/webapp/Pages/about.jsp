@@ -7,7 +7,7 @@
 <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col s12 m4">
+            <div class="col s12 m12 l4">
                 <h2 class="thin"><fmt:message key="about.section.foundation.heading" /></h2>
                 <p class="">
                     <fmt:message key="about.section.foundation.text1" />
@@ -47,7 +47,7 @@
 <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col s12 m8">
+            <div class="col s12 m12 l8">
                 <h4 class="thin"><fmt:message key="about.section.staff.heading" /></h4>
                 <!--<c:forEach begin="1" end="3" step="1" varStatus="loopCounter">
                     <div class="row">
@@ -65,7 +65,7 @@
                 </div>
                 </c:forEach>-->
             </div>
-            <div class="col s12 m4">
+            <div class="col s12 m12 l4">
                 <div class="row">
                     <div class="col s12">
                         <h4 class="thin"><fmt:message key="about.section.contact.heading" /></h4>

@@ -30,8 +30,8 @@
 <div class="section white">
     <div class="container">
         <div class="row">
-            <div class="col s12 m6">
-                <a href="services/"><h3 class=""><i class="fa fa-puzzle-piece light-green-text"></i> Services</h3></a>
+            <div class="col s12 m12 l6">
+                <a href="${context}/services/"><h3 class=""><i class="fa fa-puzzle-piece light-green-text"></i> Services</h3></a>
                 <p>
                     <fmt:message key="home.section.services.text" />
                 </p>
@@ -90,8 +90,8 @@
                     </tfoot>
                 </table>
             </div>
-            <div class="col s12 m6">
-                <p><image src="${context}/images/services-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff" /></p>
+            <div class="col s12 m12 l6">
+                <p class="center-align"><image src="${context}/images/services-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff" /></p>
             </div>
         </div>
     </div>
@@ -102,7 +102,7 @@
 <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col s12 m3">
+            <div class="col s12 m6 l3">
                 <a href="/about"><h3 class=""><i class="fa fa-info light-blue-text"></i> <fmt:message key="home.section.about.heading" /></h3></a>
                 <p>
                     <fmt:message key="home.section.about.text1" />
@@ -111,10 +111,10 @@
                     <fmt:message key="home.section.about.text2" />
                 </blockquote>
             </div>
-            <div class="col s12 m3">
-                <p><image src="${context}/images/about-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff;"/></p>
+            <div class="col s12 m6 l3">
+                <p class="center-align"><image src="${context}/images/about-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff;"/></p>
             </div>
-            <div class="col s12 m6">
+            <div class="col s12 m12 l6">
                 <div class="row">
                     <div class="col s12 m12">
                         <a href="${context}/locations/"><h3 class=""><i class="fa fa-map-signs orange-text text-darken-3"></i> <fmt:message key="home.section.location.heading" /></h3></a>
@@ -138,10 +138,10 @@
 
 <div class="section white bottom-div">
     <div class="row container">
-        <div class="col s12 m6">
+        <div class="col s12 m12 l6">
             <h2 class="thin"><fmt:message key="home.section.goal.heading" /></h2>
         </div>
-        <div class="col s12 m6">
+        <div class="col s12 m12 l6">
             <p>
                 <fmt:message key="home.section.goal.text" />
             </p>

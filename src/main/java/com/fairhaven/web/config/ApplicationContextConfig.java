@@ -83,7 +83,7 @@ public class ApplicationContextConfig {
                 setProperty("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
                 setProperty("hibernate.flushmode", env.getProperty("hibernate.flushmode"));
                 setProperty("hibernate.search.default.directory_provider", "filesystem");
-                setProperty("hibernate.search.default.indexBase", "/var/lucene/indexes");
+                setProperty("hibernate.search.default.indexBase", "/tmp/lucene/indexes");
             }
         });
 
