@@ -7,6 +7,8 @@ package com.fairhaven.web.config;
 
 // Import log4j class
 import com.fairhaven.web.converters.ServiceToStringConverter;
+import com.fairhaven.web.converters.StringToDateTimeConverter;
+import com.fairhaven.web.converters.StringToLocationConverter;
 import com.fairhaven.web.converters.StringToServiceConverter;
 import com.fairhaven.web.interceptors.LoggingInterceptor;
 import com.fairhaven.web.interceptors.SessionVariablesInterceptor;
@@ -58,6 +60,10 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
     private StringToServiceConverter serviceConverter;
     @Resource
     private ServiceToStringConverter serviceToStringConverter;
+    @Resource
+    private StringToDateTimeConverter stringToDateTimeConverter;
+    @Resource
+    private StringToLocationConverter stringToLocationConverter;
 
     @Resource
     private Environment env;
@@ -207,6 +213,8 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
     public void addFormatters(FormatterRegistry formatterRegistry) {
         formatterRegistry.addConverter(serviceConverter);
         formatterRegistry.addConverter(serviceToStringConverter);
+        formatterRegistry.addConverter(stringToDateTimeConverter);
+        formatterRegistry.addConverter(stringToLocationConverter);
     }
 
 }

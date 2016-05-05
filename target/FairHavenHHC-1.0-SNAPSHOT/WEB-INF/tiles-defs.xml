@@ -44,9 +44,9 @@
 
     <!-- LOCATION PAGES-->
 
-    <definition name="com.fairhaven.locations" extends="mainLayout">
-        <put-attribute name="title"  value="Fairhaven | Locations" />
-        <put-attribute name="content"   value="/Pages/locations.jsp" />
+    <definition name="com.fairhaven.contact" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | Contact us" />
+        <put-attribute name="content"   value="/Pages/contact.jsp" />
     </definition>
 
 

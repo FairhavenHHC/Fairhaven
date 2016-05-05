@@ -58,6 +58,7 @@
         <script type="text/javascript" src="${context}/scripts/jquery-mask-plugin-min.js"></script>
         <script type="text/javascript" src="${context}/scripts/input-mask.js"></script>
         <script type="text/javascript" src="${context}/scripts/maps.js"></script>
-
+        <script type="text/javascript" src="${context}/scripts/jquery.timepicker.min.js"></script>
+        <script type="text/javascript" src="${context}/scripts/picker.time.js"></script>
     </body>
 </html>

@@ -52,4 +52,10 @@ public interface DAOFactory {
      * @return
      */
     public LocationDAO getLocationDAO();
+
+    /**
+     *
+     * @return
+     */
+    public AppointmentDAO getAppointmentDAO();
 }

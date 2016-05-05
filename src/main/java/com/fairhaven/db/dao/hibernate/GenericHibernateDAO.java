@@ -40,6 +40,7 @@ public class GenericHibernateDAO<T, ID extends Serializable>
     private Class<T> persistentClass;
     private final int BATCH_SIZE = 20;
     private final int RESULT_SIZE_MAX = 10000;
+    private Session currentSession;
 
     @Resource
     private SessionFactory sessionFactory;
@@ -57,7 +58,11 @@ public class GenericHibernateDAO<T, ID extends Serializable>
      * @return
      */
     public Session getCurrentSession() {
-        return this.getSessionFactory().getCurrentSession();
+
+        if (this.currentSession == null || !this.currentSession.isOpen()) {
+            this.currentSession = this.getSessionFactory().getCurrentSession();
+        }
+        return this.currentSession;
     }
 
     /**

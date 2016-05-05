@@ -10,6 +10,7 @@ package com.fairhaven.db.entities;
 
 // Import log4j class
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,10 +19,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import org.apache.log4j.Logger;
 
 /**
@@ -41,6 +44,9 @@ import org.apache.log4j.Logger;
     @NamedQuery(name = "Services.findByCompetitorOffered", query = "SELECT s FROM Services s WHERE s.competitorOffered = :competitorOffered"),
     @NamedQuery(name = "Services.findByOffered", query = "SELECT s FROM Services s WHERE s.offered = :offered")})
 public class Services implements Serializable {
+
+    @OneToMany(mappedBy = "service")
+    private Collection<Appointment> appointmentCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -168,6 +174,15 @@ public class Services implements Serializable {
     @Override
     public String toString() {
         return "com.fairhaven.db.entities.Services[ id=" + id + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Appointment> getAppointmentCollection() {
+        return appointmentCollection;
+    }
+
+    public void setAppointmentCollection(Collection<Appointment> appointmentCollection) {
+        this.appointmentCollection = appointmentCollection;
     }
 
 }

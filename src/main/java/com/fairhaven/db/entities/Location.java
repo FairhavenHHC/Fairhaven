@@ -8,7 +8,9 @@ package com.fairhaven.db.entities;
 // Import log4j class
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +21,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -48,6 +53,20 @@ import org.hibernate.search.annotations.Indexed;
     @NamedQuery(name = "Location.findByLatitude", query = "SELECT l FROM Location l WHERE l.latitude = :latitude"),
     @NamedQuery(name = "Location.findByLongitude", query = "SELECT l FROM Location l WHERE l.longitude = :longitude")})
 public class Location implements Serializable {
+
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "open")
+    @Temporal(TemporalType.TIME)
+    private Date open;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "close")
+    @Temporal(TemporalType.TIME)
+    private Date close;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "location")
+    private Collection<Appointment> appointmentCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -220,6 +239,31 @@ public class Location implements Serializable {
     @Override
     public String toString() {
         return "com.fairhaven.db.entities.Location[ id=" + id + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Appointment> getAppointmentCollection() {
+        return appointmentCollection;
+    }
+
+    public void setAppointmentCollection(Collection<Appointment> appointmentCollection) {
+        this.appointmentCollection = appointmentCollection;
+    }
+
+    public Date getOpen() {
+        return open;
+    }
+
+    public void setOpen(Date open) {
+        this.open = open;
+    }
+
+    public Date getClose() {
+        return close;
+    }
+
+    public void setClose(Date close) {
+        this.close = close;
     }
 
 }

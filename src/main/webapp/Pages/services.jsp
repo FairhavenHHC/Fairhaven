@@ -8,7 +8,7 @@
 <div class="section white" id="services-header-section">
     <div class="container">
         <div class="row">
-            <div class="col s12 m12 l4">
+            <div class="col s12 m12 l6">
                 <h2 class="thin"><fmt:message key="services.section.main.heading" /></h2>
                 <p>
                     <fmt:message key="services.section.main.text1" />
@@ -26,27 +26,27 @@
         <div class="row">
             <div class="col s12 m4 l4">
                 <p class="center-align">
-                    <img class="responsive-img" src="${context}/images/nurse.png" alt="" />
+                    <img class="responsive-img z-depth-1 bordered" src="${context}/images/nurse.png" alt="" />
                 </p>
-                <a href="#"><h4 class="thin center-align"><i class="fa fa-stethoscope"></i> <fmt:message key="services.section.cards.heading1" /></h4></a>
-                <p class="center-align">
+                <a href="#"><h4 class="thin"><i class="fa fa-stethoscope"></i> <fmt:message key="services.section.cards.heading1" /></h4></a>
+                <p>
                     <fmt:message key="services.section.cards.card1" />
                 </p>
             </div>
             <div class="col s12 m4 l4">
                 <p class="center-align">
-                    <img class="responsive-img" src="${context}/images/caller.png" alt="" />
+                    <img class="responsive-img z-depth-1 bordered"  src="${context}/images/caller.png" alt="" />
                 </p>
-                <a href="#"><h4 class="thin center-align"><i class="fa fa-clock-o"></i> <fmt:message key="services.section.cards.heading3" /></h4></a>
+                <a href="#"><h4 class="thin"><i class="fa fa-clock-o"></i> <fmt:message key="services.section.cards.heading3" /></h4></a>
                 <p>
                     <fmt:message key="services.section.cards.card3" />
                 </p>
             </div>
             <div class="col s12 m4 l4">
                 <p class="center-align">
-                    <img class="responsive-img" src="${context}/images/clipboard.png" alt="" />
+                    <img class="responsive-img z-depth-1 bordered" src="${context}/images/clipboard.png" alt="" />
                 </p>
-                <a href="#"><h4 class="thin center-align"><i class="fa fa-check"></i> <fmt:message key="services.section.cards.heading2" /></h4></a>
+                <a href="#"><h4 class="thin"><i class="fa fa-check"></i> <fmt:message key="services.section.cards.heading2" /></h4></a>
                 <p>
                     <fmt:message key="services.section.cards.card2" />
                 </p>
@@ -95,7 +95,9 @@
                     </tfoot>
                 </table>
             </div>
+            <div class="col s12 m12 l6">
 
+            </div>
         </div>
     </div>
 </div>
@@ -103,7 +105,10 @@
 <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col s12 m12 l5" id="faq">
+            <div class="col s12 m12 l6 center-align valign">
+                <img class="responsive-img z-depth-1 bordered" src="${context}/images/faq.jpg" alt="Faq Image" />
+            </div>
+            <div class="col s12 m12 l6" id="faq">
                 <h4 class="thin"><fmt:message key="about.section.faq.heading" /></h4>
                 <c:choose>
                     <c:when test="${!empty(faqs)}">
@@ -125,69 +130,13 @@
                     </c:otherwise>
                 </c:choose>
             </div>
-            <div class="col s12 m12 l6 offset-l1" id="contact_form">
-                <h4 class="thin"> <fmt:message key="form.message.heading" /></h4>
-                <p>
-                    <fmt:message key="form.message.heading.text" var="form_text">
-                        <fmt:param value="${contacts['Office phone'].value}" />
-                    </fmt:message>
-                    <c:out value="${form_text}" />
-                </p>
-                <form:form action="${context}/services/#contact_form" method="post" commandName="question">
-                    <div class="row">
-                        <div class="input-field col s12 m6">
-                            <form:input path="firstName" />
-                            <form:label path="firstName"><fmt:message key="form.message.first.label" /></form:label>
-                            <form:errors path="firstName" cssClass="error"/>
-                        </div>
-                        <div class="input-field col s12 m6">
-                            <form:input path="lastName" />
-                            <form:label path="lastName"><fmt:message key="form.message.last.label" /></form:label>
-                            <form:errors path="lastName" cssClass="error"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m6">
-                            <form:input path="email" />
-                            <form:label path="email"><fmt:message key="form.message.email.label" /></form:label>
-                            <form:errors path="email" cssClass="error"/>
-                        </div>
-                        <div class="input-field col s12 m6">
-                            <form:select path="service" >
-                                <fmt:message key="form.message.service.default" var="serviceDefault"/>
-                                <form:option label="${serviceDefault}" value=""/>
-                                <form:options items="${services}" itemValue="id" itemLabel="name" />
-                            </form:select>
-                            <form:errors path="service" cssClass="error"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m6">
-                            <form:input path="phone" cssClass="phone_us"/>
-                            <form:label path="phone"><fmt:message key="form.message.phone.label" /></form:label>
-                            <form:errors path="phone" cssClass="error"/>
-                        </div>
-                        <div class="input-field col s12 m6">
-                            <fmt:message key="form.message.newsletter.label" var="newsletterMessage"/>
-                            <form:checkbox path="newsletter" label="${newsletterMessage}"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <form:textarea path="message"  rows="10" cssClass="materialize-textarea" length="250" />
-                            <form:label path="message"><fmt:message key="form.message.message.label" /></form:label>
-                            <form:errors path="message" cssClass="error"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 right-align">
-                            <button class="btn" value="Submit" type="submit"><fmt:message key="form.button.submit" /></button>
-                        </div>
-                    </div>
-                </form:form>
-            </div>
         </div>
     </div>
+<<<<<<< HEAD
+</div>
+
+
+=======
 </div>
 =======
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -247,3 +196,4 @@
 </div>
 >>>>>>> c4c55a6de9ef3c9716c8d750a5b4d5d57a1445b2
 >>>>>>> 2bf9b035f0db61dbe80228b054532731c6f55b2d
+>>>>>>> master
