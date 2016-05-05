@@ -1,31 +1,5 @@
-<<<<<<< HEAD
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\dao\ContactTypeDAO.java
-=======
-<<<<<<< HEAD
->>>>>>> 2bf9b035f0db61dbe80228b054532731c6f55b2d
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\dao\FaqDAO.java
-=======
-<<<<<<< HEAD
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\utils\encryption\GenericEncrypter.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\config\SecurityWebAppInitializer.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\entities\Groups.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\config\WebInitializer.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\forms\LoginFormBackingBean.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\entities\Users.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\controllers\AboutController.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\utils\encryption\Algorithm.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\utils\encryption\Encoding.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\config\SpringSecurityConfig.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\controllers\LocationController.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\controllers\MembersController.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\config\ApplicationContextConfig.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\controllers\NewsController.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\config\DispatcherServletConfig.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\controllers\LoginController.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\interceptors\LoggingInterceptor.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\controllers\IndexController.java
-=======
->>>>>>> c4c55a6de9ef3c9716c8d750a5b4d5d57a1445b2
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\entities\Groups.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\forms\LoginFormBackingBean.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\dao\hibernate\GenericHibernateDAO.java
@@ -35,6 +9,7 @@ D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\entities\Faq.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\utils\encryption\Encoding.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\utils\mail\GenericEmailTemplate.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\dao\hibernate\HibernateFaqDAO.java
+D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\controllers\LocationController.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\exceptions\ServiceNotFoundException.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\config\DispatcherServletConfig.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\utils\mail\GenericMailer.java
@@ -56,7 +31,6 @@ D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\controllers\Cont
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\dao\hibernate\HibernateAppointmentDAO.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\exceptions\GlobalControllerExceptionHandler.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\dao\DAOFactory.java
->>>>>>> login
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\controllers\ServicesController.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\utils\encryption\Encrypter.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\dao\ContactDAO.java
