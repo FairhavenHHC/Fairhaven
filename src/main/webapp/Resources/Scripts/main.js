@@ -91,6 +91,18 @@ $(document).ready(function () {
 
     $(".hidden_rows").hide();
 
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+
+    $('.timepicker').pickatime({
+        min: [8, 30],
+        max: [16, 30]
+    });
+
+    $('.apt_time').mask('00:00');
+
 
 });
 

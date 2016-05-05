@@ -6,10 +6,7 @@
 
 
 <div class="section header-image hide-on-med-and-down">
-    <div class="row container">
-        <div class="col s12 m12" >
-
-        </div>
+    <div class="col s12 m12 l6 offset-l4" >
     </div>
 </div>
 
@@ -48,7 +45,7 @@
                             <c:choose>
                                 <c:when test="${service.offered && counter.count <= 4}">
                                     <tr>
-                                        <td><c:out value="${service.name}" /></td>
+                                        <td><a href="${context}/services/${service.id}"><c:out value="${service.name}" /></a></td>
                                         <td class="center-align"><i class="fa fa-check green-text"></i></td>
                                         <td class="center-align">
                                             <c:choose>
@@ -65,7 +62,7 @@
                                 <c:otherwise>
                                     <c:if test="${service.offered}">
                                         <tr class="hidden_rows additional_services">
-                                            <td><c:out value="${service.name}" /></td>
+                                            <td><a href="${context}/services/${service.id}"><c:out value="${service.name}" /></a></td>
                                             <td class="center-align"><i class="fa fa-check green-text"></i></td>
                                             <td class="center-align">
                                                 <c:choose>
@@ -127,8 +124,27 @@
                     <div class="col s12 m12">
                         <a href="${context}/locations/"><h3 class=""><i class="fa fa-map-signs orange-text text-darken-3"></i> <fmt:message key="home.section.location.heading" /></h3></a>
                         <p>
-                            <fmt:message key="home.section.location.text" /> <a href="${context}/locations/"><i class="fa fa-map-marker"></i> <fmt:message key="home.section.location.link" /></a>
+                            <fmt:message key="home.section.location.text" /> <a href="${context}/contact/"><i class="fa fa-map-marker"></i> <fmt:message key="home.section.location.link" /></a>
                         </p>
+                        <table class="table bordered">
+                            <tbody>
+                                <tr>
+                                    <td><i class="fa fa-phone" title="${contacts['Office phone'].type.name}"></i></td>
+                                    <td><strong><c:out value="${contacts['Office phone'].value}"/></strong></td>
+                                    <td><c:out value="${contacts['Office phone'].type.name}"/></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-envelope-o" title="${contacts['General email'].type.name}"></i></td>
+                                    <td><strong><c:out value="${contacts['General email'].value}"/></strong></td>
+                                    <td><c:out value="${contacts['General email'].type.name}"/></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-fax" title="${contacts['Fax'].type.name}"></i></td>
+                                    <td><strong><c:out value="${contacts['Fax'].value}"/></strong></td>
+                                    <td><c:out value="${contacts['Fax'].type.name}"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="row">

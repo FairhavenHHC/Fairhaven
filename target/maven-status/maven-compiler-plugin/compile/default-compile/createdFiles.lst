@@ -1,3 +1,6 @@
+com\fairhaven\db\dao\AppointmentDAO.class
+com\fairhaven\web\forms\AppointmentFormBackingBean.class
+com\fairhaven\web\converters\StringToDateTimeConverter.class
 com\fairhaven\db\entities\Groups.class
 com\fairhaven\web\converters\StringToServiceConverter.class
 com\fairhaven\db\dao\hibernate\HibernateContactDAO.class
@@ -22,6 +25,7 @@ com\fairhaven\db\dao\hibernate\HibernateUsersDAO.class
 com\fairhaven\db\dao\hibernate\HibernateDAOFactory.class
 com\fairhaven\web\forms\LoginFormBackingBean.class
 com\fairhaven\db\dao\hibernate\HibernateLocationDAO.class
+com\fairhaven\db\dao\hibernate\HibernateAppointmentDAO.class
 com\fairhaven\db\entities\ContactType.class
 com\fairhaven\utils\mail\GenericEmailTemplate.class
 com\fairhaven\web\config\ApplicationContextConfig.class
@@ -31,6 +35,7 @@ com\fairhaven\utils\mail\VelocityEmailTemplate.class
 com\fairhaven\web\config\WebInitializer.class
 com\fairhaven\web\controllers\LoginController.class
 com\fairhaven\web\interceptors\LoggingInterceptor.class
+com\fairhaven\web\converters\StringToLocationConverter.class
 com\fairhaven\db\entities\Link_.class
 com\fairhaven\utils\mail\GenericMailer.class
 com\fairhaven\db\entities\Users.class
@@ -41,11 +46,12 @@ com\fairhaven\db\entities\Groups_.class
 com\fairhaven\db\dao\hibernate\HibernateFaqDAO.class
 com\fairhaven\web\converters\ServiceToStringConverter.class
 com\fairhaven\utils\encryption\Encoding.class
-com\fairhaven\web\controllers\LocationController.class
 com\fairhaven\db\dao\UsersDAO.class
 com\fairhaven\db\entities\ContactType_.class
 com\fairhaven\web\forms\LocationZipFormbackingBean.class
+com\fairhaven\web\controllers\ContactController.class
 com\fairhaven\db\dao\LocationDAO.class
+com\fairhaven\db\entities\Appointment.class
 com\fairhaven\db\dao\hibernate\HibernateContactTypeDAO.class
 com\fairhaven\web\exceptions\GlobalControllerExceptionHandler.class
 com\fairhaven\utils\encryption\GenericEncrypter.class
@@ -55,6 +61,7 @@ com\fairhaven\db\entities\Contact_.class
 com\fairhaven\db\dao\ContactDAO.class
 com\fairhaven\web\config\DispatcherServletConfig.class
 com\fairhaven\utils\encryption\Encrypter.class
+com\fairhaven\db\entities\Appointment_.class
 com\fairhaven\web\controllers\ServicesController.class
 com\fairhaven\web\config\SpringSecurityConfig.class
 com\fairhaven\web\controllers\AdministrationController.class

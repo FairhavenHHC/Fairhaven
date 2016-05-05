@@ -18,7 +18,7 @@
                 <!-- Dropdown Structure -->
                 <ul id='about_dropdown' class='dropdown-content' >
                     <li><a href="${context}/about/"><fmt:message key="header.menu.item.about.story" /></a></li>
-                    <li><a href="${context}/locations/"><fmt:message key="header.menu.item.about.locations" /></a></li>
+                    <li><a href="${context}/contact/"><fmt:message key="header.menu.item.about.contact" /></a></li>
                     <li class="divider"></li>
                     <li><a href="${context}/about/careers/"><fmt:message key="header.menu.item.about.careers" /></a></li>
                 </ul>

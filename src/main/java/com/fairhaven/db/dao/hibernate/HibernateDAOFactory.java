@@ -6,6 +6,7 @@
 package com.fairhaven.db.dao.hibernate;
 
 // Import log4j class
+import com.fairhaven.db.dao.AppointmentDAO;
 import com.fairhaven.db.dao.ContactDAO;
 import com.fairhaven.db.dao.ContactTypeDAO;
 import com.fairhaven.db.dao.DAOFactory;
@@ -41,6 +42,8 @@ public class HibernateDAOFactory implements DAOFactory {
     private ContactTypeDAO contactTypeDAO;
     @Resource
     private LocationDAO locationDAO;
+    @Resource
+    private AppointmentDAO appointmentDAO;
 
     /**
      *
@@ -104,6 +107,15 @@ public class HibernateDAOFactory implements DAOFactory {
     @Override
     public LocationDAO getLocationDAO() {
         return locationDAO;
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public AppointmentDAO getAppointmentDAO() {
+        return appointmentDAO;
     }
 
 }
