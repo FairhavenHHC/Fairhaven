@@ -3,10 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.fairhaven.web.forms;
-
-
 
 // Import log4j class
 import org.apache.log4j.Logger;
@@ -18,7 +15,7 @@ import org.apache.log4j.Logger;
 public class LoginFormBackingBean {
 
     private static final Logger logger = Logger.getLogger(LoginFormBackingBean.class.getName());
-    
+
     private String username, password, csrf;
     private boolean cookie;
 

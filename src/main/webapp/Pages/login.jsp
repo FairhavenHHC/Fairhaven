@@ -12,8 +12,8 @@
             <div class="row">
                 <div class="col m12 s12">
                     <div class="error">
-                        <p class="center-align red-text">
-                            <strong><i class="fa fa-exclamation"></i> <fmt:message key="login.error"/></strong>
+                        <p class="center-align red-text ">
+                            <strong><fmt:message key="login.error"/></strong>
                         </p>
                     </div>
                 </div>
@@ -43,6 +43,13 @@
                         </form:button>
                     </div>
                 </form:form>
+            </div>
+        </div>
+                
+        <div class="row">
+            <div class="col m4 offset-m4">
+                 <div class="divider"></div> 
+                <p class="right-align"><a href="${context}/reset.htm">Forgot your password?</a></p>
             </div>
         </div>
     </div>

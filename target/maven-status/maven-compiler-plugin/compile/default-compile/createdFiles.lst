@@ -7,12 +7,27 @@ com\fairhaven\db\dao\hibernate\HibernateContactDAO.class
 com\fairhaven\db\dao\hibernate\HibernateGroupsDAO.class
 com\fairhaven\db\entities\Link.class
 com\fairhaven\web\controllers\IndexController.class
+<<<<<<< HEAD
 com\fairhaven\utils\mail\Mailer.class
 com\fairhaven\db\dao\FaqDAO.class
 com\fairhaven\db\dao\GenericDAO.class
 com\fairhaven\db\entities\Location_.class
 com\fairhaven\db\entities\Contact.class
 com\fairhaven\db\entities\Location.class
+=======
+<<<<<<< HEAD
+com\fairhaven\db\dao\GenericDAO.class
+=======
+com\fairhaven\web\controllers\LocationController.class
+com\fairhaven\web\controllers\MembersController.class
+<<<<<<< HEAD
+=======
+com\fairhaven\db\dao\GenericDAO.class
+com\fairhaven\db\dao\UsersDAO.class
+>>>>>>> login
+com\fairhaven\web\controllers\NewsController.class
+>>>>>>> c4c55a6de9ef3c9716c8d750a5b4d5d57a1445b2
+>>>>>>> 2bf9b035f0db61dbe80228b054532731c6f55b2d
 com\fairhaven\db\dao\hibernate\HibernateServicesDAO.class
 com\fairhaven\db\entities\Services.class
 com\fairhaven\db\entities\Services_.class
