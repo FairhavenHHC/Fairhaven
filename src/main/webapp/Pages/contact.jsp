@@ -166,11 +166,14 @@
                                 </fmt:message>
                                 <h4 class="thin"><c:out value="${appointment_success_heading}" /></h4>
                                 <p>
-                                    <c:out value="${appointment_success_text1}" />
+                                    <c:out value="${appointment_success_text1}" escapeXml="false"/>
                                 </p>
                                 <h4 class="thin"><fmt:message key="appointment.success.subheading" /></h4>
                                 <p>
-                                    <fmt:message key="appointment.success.text2" />
+                                    <fmt:message key="appointment.success.text2" var="follow_up_text">
+                                        <fmt:param value="${contacts['General email'].value}" />
+                                    </fmt:message>
+                                    <c:out value="${follow_up_text}" escapeXml="false" />
                                 </p>
                                 <table class="table bordered">
                                     <tbody>
