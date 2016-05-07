@@ -9,6 +9,7 @@ D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\entities\Faq.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\utils\encryption\Encoding.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\utils\mail\GenericEmailTemplate.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\dao\hibernate\HibernateFaqDAO.java
+D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\controllers\LocationController.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\exceptions\ServiceNotFoundException.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\config\DispatcherServletConfig.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\utils\mail\GenericMailer.java
@@ -47,7 +48,6 @@ D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\dao\hibernate\Hib
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\interceptors\SessionVariablesInterceptor.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\config\SecurityWebAppInitializer.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\config\WebInitializer.java
-D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\forms\AppointmentFormBackingBean.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\config\SpringSecurityConfig.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\web\converters\StringToServiceConverter.java
 D:\Documents\Projects\Fairhaven\src\main\java\com\fairhaven\db\dao\hibernate\HibernateGroupsDAO.java

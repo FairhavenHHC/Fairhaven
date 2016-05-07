@@ -21,6 +21,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor;
@@ -123,12 +124,21 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**", "/members/resources/**")
+                .addResourceLocations("/Resources/");
         registry.addResourceHandler("/css/**")
                 .addResourceLocations("/Resources/CSS/");
         registry.addResourceHandler("/scripts/**")
                 .addResourceLocations("/Resources/Scripts/");
         registry.addResourceHandler("/images/**")
                 .addResourceLocations("/Resources/Images/");
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+    }
+
+    @Override
+    public LocalValidatorFactoryBean getValidator() {
+        LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+        return validator;
     }
 
     /**
@@ -197,13 +207,6 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasenames("classpath:messages/validation/validation_messages");
         return messageSource;
-    }
-
-    @Override
-    public LocalValidatorFactoryBean getValidator() {
-        LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
-        validator.setValidationMessageSource(this.getValidatorMessageSource());
-        return validator;
     }
 
     @Override
