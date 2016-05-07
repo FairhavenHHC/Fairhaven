@@ -5,7 +5,6 @@ com\fairhaven\web\converters\StringToServiceConverter.class
 com\fairhaven\db\dao\hibernate\HibernateContactDAO.class
 com\fairhaven\db\dao\hibernate\HibernateGroupsDAO.class
 com\fairhaven\db\entities\Link.class
-com\fairhaven\web\controllers\IndexController.class
 com\fairhaven\utils\mail\Mailer.class
 com\fairhaven\db\dao\FaqDAO.class
 com\fairhaven\db\dao\GenericDAO.class
@@ -45,6 +44,7 @@ com\fairhaven\db\entities\Groups_.class
 com\fairhaven\db\dao\hibernate\HibernateFaqDAO.class
 com\fairhaven\web\converters\ServiceToStringConverter.class
 com\fairhaven\utils\encryption\Encoding.class
+com\fairhaven\web\controllers\LocationController.class
 com\fairhaven\db\dao\UsersDAO.class
 com\fairhaven\db\entities\ContactType_.class
 com\fairhaven\web\forms\LocationZipFormbackingBean.class
