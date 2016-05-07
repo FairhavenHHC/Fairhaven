@@ -5,6 +5,7 @@ com\fairhaven\web\converters\StringToServiceConverter.class
 com\fairhaven\db\dao\hibernate\HibernateContactDAO.class
 com\fairhaven\db\dao\hibernate\HibernateGroupsDAO.class
 com\fairhaven\db\entities\Link.class
+com\fairhaven\web\controllers\IndexController.class
 com\fairhaven\utils\mail\Mailer.class
 com\fairhaven\db\dao\FaqDAO.class
 com\fairhaven\db\dao\GenericDAO.class
