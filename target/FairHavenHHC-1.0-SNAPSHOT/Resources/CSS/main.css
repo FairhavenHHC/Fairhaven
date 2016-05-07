@@ -113,3 +113,12 @@ a.dropdown-button i {
 
 img.bordered {
   border: 5px solid #fff; }
+
+p.intro:first-letter {
+  font-size: 56px;
+  float: left;
+  color: #D4D4C7;
+  line-height: 35px;
+  padding-top: 3px;
+  padding-right: 3px;
+  font-family: Times, serif, Georgia; }

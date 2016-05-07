@@ -57,8 +57,12 @@
 <div class="section white">
     <div class="container">
         <div class="row">
-            <div class="col s12 m12 l6" id="services_list">
+            <div class="col s12 m12 l12">
                 <h4 class="thin"><fmt:message key="services.section.table.heading" /></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 l6" id="services_list">
                 <table class="striped">
                     <thead>
                         <tr>
@@ -71,7 +75,7 @@
                         <c:forEach items="${services}" var="service" varStatus="counter">
                             <c:if test="${service.offered}">
                                 <tr>
-                                    <td><c:out value="${service.name}" /></td>
+                                    <td><a href="${context}/services/${service.id}"><c:out value="${service.name}" /></a></td>
                                     <td class="center-align"><i class="fa fa-check green-text"></i></td>
                                     <td class="center-align">
                                         <c:choose>
@@ -89,13 +93,15 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td class="right-align" colspan="3"></td>
+                            <td class="right-align" colspan="3"><!--<small><fmt:message key="services.table.footer" /></small>--></td>
                         </tr>
                     </tfoot>
                 </table>
             </div>
             <div class="col s12 m12 l6">
-
+                <p class="center-align">
+                    <img class="responsive-img bordered z-depth-1" src="${context}/images/nurse-contract-optimized.jpg" />
+                </p>
             </div>
         </div>
     </div>

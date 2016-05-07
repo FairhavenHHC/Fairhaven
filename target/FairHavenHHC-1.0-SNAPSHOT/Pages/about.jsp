@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col s12 m12 l6">
                 <h2 class="thin"><fmt:message key="about.section.foundation.heading" /></h2>
-                <p class="">
+                <p>
                     <fmt:message key="about.section.foundation.text1" />
                 </p>
                 <p>

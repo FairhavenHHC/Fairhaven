@@ -44,7 +44,7 @@ public class StringToDateTimeConverter implements Converter<String, Date> {
             return date;
         } catch (ParseException ex) {
             logger.error("Failed to convert " + source + " to Date object", ex);
-            throw new RuntimeException("Failed to convert " + source + " to Date object", ex);
+            throw new RuntimeException("Please enter a valid date");
         }
     }
 

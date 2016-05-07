@@ -113,6 +113,7 @@
                         <blockquote>
                             <fmt:message key="home.section.about.text2" />
                         </blockquote>
+                        <a href="${context}/contact/#appointment" class="btn col s12"><fmt:message key="button.appointment.setup" /></a>
                     </div>
                     <div class="col s12 m6 l6">
                         <p class="center-align"><img src="${context}/images/about-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff;" alt="About image"/></p>
@@ -122,7 +123,7 @@
             <div class="col s12 m12 l6">
                 <div class="row">
                     <div class="col s12 m12">
-                        <a href="${context}/locations/"><h3 class=""><i class="fa fa-map-signs orange-text text-darken-3"></i> <fmt:message key="home.section.location.heading" /></h3></a>
+                        <a href="${context}/contact/"><h3 class=""><i class="fa fa-map-signs orange-text text-darken-3"></i> <fmt:message key="home.section.location.heading" /></h3></a>
                         <p>
                             <fmt:message key="home.section.location.text" /> <a href="${context}/contact/"><i class="fa fa-map-marker"></i> <fmt:message key="home.section.location.link" /></a>
                         </p>

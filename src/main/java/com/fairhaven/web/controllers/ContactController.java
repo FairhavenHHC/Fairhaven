@@ -133,7 +133,7 @@ public class ContactController {
         if (validationResults.hasErrors()) {
             mav.addObject("appointment_success", false);
         } else {
-            daof.getAppointmentDAO().saveOrUpdate(appointment);
+            mav.addObject("saved_appointment", daof.getAppointmentDAO().saveOrUpdate(appointment));
             mav.addObject("appointment_success", true);
         }
 

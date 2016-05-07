@@ -1,5 +1,4 @@
 com\fairhaven\db\dao\AppointmentDAO.class
-com\fairhaven\web\forms\AppointmentFormBackingBean.class
 com\fairhaven\web\converters\StringToDateTimeConverter.class
 com\fairhaven\db\entities\Groups.class
 com\fairhaven\web\converters\StringToServiceConverter.class

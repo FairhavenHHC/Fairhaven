@@ -155,13 +155,42 @@
                     <div id="appointment" class="col s12 m12 l12">
                         <c:choose>
                             <c:when test="${appointment_success}">
-                                <fmt:message key="contact.section.contacts.appointment.success" var="appointment_success_text">
+                                <fmt:message key="contact.section.contacts.appointment.success" var="appointment_success_text1">
                                     <fmt:formatDate type="date" pattern="MMMM dd yyyy" value="${appointment.appointmentDate}" var="date"/>
                                     <fmt:formatDate type="time" pattern="hh:mm a" value="${appointment.appointmentTime}" var="time"/>
-                                    <fmt:param value="${date} ${time}" />
+                                    <fmt:param value="${time}, ${date}" />
                                     <fmt:param value="${appointment.location.name}" />
                                 </fmt:message>
-                                <h4 class="center-align thin"><c:out value="${appointment_success_text}" /></h4>
+                                <fmt:message key="appointment.success.heading" var="appointment_success_heading">
+                                    <fmt:param value="${saved_appointment.firstName}" />
+                                </fmt:message>
+                                <h4 class="thin"><c:out value="${appointment_success_heading}" /></h4>
+                                <p>
+                                    <c:out value="${appointment_success_text1}" />
+                                </p>
+                                <h4 class="thin"><fmt:message key="appointment.success.subheading" /></h4>
+                                <p>
+                                    <fmt:message key="appointment.success.text2" />
+                                </p>
+                                <table class="table bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="fa fa-phone" title="${contacts['Office phone'].type.name}"></i></td>
+                                            <td><strong><c:out value="${contacts['Office phone'].value}"/></strong></td>
+                                            <td><c:out value="${contacts['Office phone'].type.name}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-envelope-o" title="${contacts['General email'].type.name}"></i></td>
+                                            <td><strong><c:out value="${contacts['General email'].value}"/></strong></td>
+                                            <td><c:out value="${contacts['General email'].type.name}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-fax" title="${contacts['Fax'].type.name}"></i></td>
+                                            <td><strong><c:out value="${contacts['Fax'].value}"/></strong></td>
+                                            <td><c:out value="${contacts['Fax'].type.name}"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </c:when>
                             <c:otherwise>
                                 <form:form action="${context}/contact/appointment/#appointment" method="post" commandName="appointment">
@@ -237,6 +266,7 @@
                                                 <form:option label="${locationDefault}" value=""/>
                                                 <form:options items="${locations}" itemValue="id" itemLabel="name" />
                                             </form:select>
+                                            <form:errors path="location" cssClass="error"/>
                                         </div>
                                     </div>
                                     <div class="row">
