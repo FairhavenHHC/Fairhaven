@@ -18,51 +18,6 @@
                         <div id="map-canvas" class="z-depth-1" style="min-height: 500px; border: 5px solid #fff;"></div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col s12 m12 l12">
-                        <c:choose>
-                            <c:when test="${!empty locations}">
-                                <table class="striped">
-                                    <thead>
-                                    <th><fmt:message key="about.table.locations.column.office" /></th>
-                                    <th colspan="2"><fmt:message key="about.table.locations.column.address" /></th>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach var="location" items="${locations}">
-                                            <tr>
-                                                <td>
-                                                    <strong><c:out value="${location.name}" /></strong><br/>
-                                                    <fmt:formatDate value="${location.open}" timeStyle="short" type="time" /> - <fmt:formatDate value="${location.close}" timeStyle="short" type="time"/>                                         </td>
-                                                <td>
-                                                    <address>
-                                                        <c:out value="${location.street}" /><br>
-                                                        <c:out value="${location.city}" /><br>
-                                                        <c:out value="${location.country}" />, <c:out value="${location.zip}" />
-                                                    </address>
-                                                </td>
-                                                <td>
-                                                    <a href="${context}/locatoins?lat=${location.latitude}&long=${location.longitude}" class="marker">
-                                                        <i class="fa fa-map-marker"></i> <fmt:message key="map.link.view" />
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                    <c:if test="${search_results}">
-                                        <tfoot>
-                                            <tr>
-                                                <td colspan="3" class="right-align"><strong><a href="${context}/locations/"><fmt:message key="contact.section.offices.view_all" /></a></strong></td>
-                                            </tr>
-                                        </tfoot>
-                                    </c:if>
-                                </table>
-                            </c:when>
-                            <c:otherwise>
-                                <p class="thin center-align"><fmt:message key="locatinos.section.offices.empty" /></p>
-                            </c:otherwise>
-                        </c:choose>
-                    </div>
-                </div>
             </div>
             <div class="col s12 m12 l6">
                 <div class="row">
@@ -76,81 +31,156 @@
                 </div>
                 <div class="row">
                     <div id="call" class="col s12 m12 l12">
-                        <h4 class="thin"><fmt:message key="form.contact.call.heading" /></h4>
-                        <table class="table bordered">
-                            <tbody>
-                                <tr>
-                                    <td><i class="fa fa-phone" title="${contacts['Office phone'].type.name}"></i></td>
-                                    <td><strong><c:out value="${contacts['Office phone'].value}"/></strong></td>
-                                    <td><c:out value="${contacts['Office phone'].type.name}"/></td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa fa-envelope-o" title="${contacts['General email'].type.name}"></i></td>
-                                    <td><strong><c:out value="${contacts['General email'].value}"/></strong></td>
-                                    <td><c:out value="${contacts['General email'].type.name}"/></td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa fa-fax" title="${contacts['Fax'].type.name}"></i></td>
-                                    <td><strong><c:out value="${contacts['Fax'].value}"/></strong></td>
-                                    <td><c:out value="${contacts['Fax'].type.name}"/></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <h4 class="thin"><fmt:message key="form.contact.call.heading" /></h4>
+                                <table class="table bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="fa fa-phone" title="${contacts['Office phone'].type.name}"></i></td>
+                                            <td><strong><c:out value="${contacts['Office phone'].value}"/></strong></td>
+                                            <td><c:out value="${contacts['Office phone'].type.name}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-envelope-o" title="${contacts['General email'].type.name}"></i></td>
+                                            <td><strong><c:out value="${contacts['General email'].value}"/></strong></td>
+                                            <td><c:out value="${contacts['General email'].type.name}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-envelope-o" title="${contacts['General email'].type.name}"></i></td>
+                                            <td><strong><c:out value="${contacts['Appointments'].value}"/></strong></td>
+                                            <td><c:out value="${contacts['Appointments'].type.name}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-fax" title="${contacts['Fax'].type.name}"></i></td>
+                                            <td><strong><c:out value="${contacts['Fax'].value}"/></strong></td>
+                                            <td><c:out value="${contacts['Fax'].type.name}"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <c:choose>
+                                    <c:when test="${!empty locations}">
+                                        <h4 class="thin"><fmt:message key="about.section.locations.heading" /></h4>
+                                        <table class="striped">
+                                            <thead>
+                                            <th><fmt:message key="about.table.locations.column.office" /></th>
+                                            <th colspan="2"><fmt:message key="about.table.locations.column.address" /></th>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach var="location" items="${locations}">
+                                                    <tr>
+                                                        <td>
+                                                            <strong><c:out value="${location.name}" /></strong><br/>
+                                                            <fmt:formatDate value="${location.open}" timeStyle="short" type="time" /> - <fmt:formatDate value="${location.close}" timeStyle="short" type="time"/>                                         </td>
+                                                        <td>
+                                                            <address>
+                                                                <c:out value="${location.street}" /><br>
+                                                                <c:out value="${location.city}" /><br>
+                                                                <c:out value="${location.country}" />, <c:out value="${location.zip}" />
+                                                            </address>
+                                                        </td>
+                                                        <td>
+                                                            <a href="${context}/locatoins?lat=${location.latitude}&long=${location.longitude}" class="marker">
+                                                                <i class="fa fa-map-marker"></i> <fmt:message key="map.link.view" />
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                            <c:if test="${search_results}">
+                                                <tfoot>
+                                                    <tr>
+                                                        <td colspan="3" class="right-align"><strong><a href="${context}/locations/"><fmt:message key="contact.section.offices.view_all" /></a></strong></td>
+                                                    </tr>
+                                                </tfoot>
+                                            </c:if>
+                                        </table>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <p class="thin center-align"><fmt:message key="locatinos.section.offices.empty" /></p>
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
+                        </div>
                     </div>
                     <div id="click" class="col s12 m12 l12">
-                        <h4 class="thin"><fmt:message key="form.message.heading.text" /></h4>
-                        <form:form action="${context}/contact/#click" method="post" commandName="question">
-                            <div class="row">
-                                <div class="input-field col s12 m6">
-                                    <form:input path="firstName" />
-                                    <form:label path="firstName"><fmt:message key="form.message.first.label" /></form:label>
-                                    <form:errors path="firstName" cssClass="error"/>
-                                </div>
-                                <div class="input-field col s12 m6">
-                                    <form:input path="lastName" />
-                                    <form:label path="lastName"><fmt:message key="form.message.last.label" /></form:label>
-                                    <form:errors path="lastName" cssClass="error"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12 m6">
-                                    <form:input path="email" />
-                                    <form:label path="email"><fmt:message key="form.message.email.label" /></form:label>
-                                    <form:errors path="email" cssClass="error"/>
-                                </div>
-                                <div class="input-field col s12 m6">
-                                    <form:select path="service" >
-                                        <fmt:message key="form.message.service.default" var="serviceDefault"/>
-                                        <form:option label="${serviceDefault}" value=""/>
-                                        <form:options items="${services}" itemValue="id" itemLabel="name" />
-                                    </form:select>
-                                    <form:errors path="service" cssClass="error"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12 m6">
-                                    <form:input path="phone" cssClass="phone_us"/>
-                                    <form:label path="phone"><fmt:message key="form.message.phone.label" /></form:label>
-                                    <form:errors path="phone" cssClass="error"/>
-                                </div>
-                                <div class="input-field col s12 m6">
-                                    <fmt:message key="form.message.newsletter.label" var="newsletterMessage"/>
-                                    <form:checkbox path="newsletter" label="${newsletterMessage}"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <form:textarea path="message"  rows="10" cssClass="materialize-textarea" length="250" />
-                                    <form:label path="message"><fmt:message key="form.message.message.label" /></form:label>
-                                    <form:errors path="message" cssClass="error"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12 right-align">
-                                    <button class="btn" value="Submit" type="submit"><fmt:message key="form.button.send" /></button>
-                                </div>
-                            </div>
-                        </form:form>
+                        <c:choose>
+                            <c:when test="${email_scuccess}">
+                                <fmt:message key="contact.section.message.success.heading" var="message_success_heading">
+                                    <fmt:param value="${question.firstName}" />
+                                </fmt:message>
+                                <fmt:message key="contact.section.message.success.text1" var="message_success_text1">
+                                    <fmt:param value="${question.email}" />
+                                </fmt:message>
+                                <h4 class="thin"><c:out value="${message_success_heading}" /></h4>
+                                <p>
+                                    <c:out value="${message_success_text1}" escapeXml="false"/>
+                                </p>
+                                <p class="center-align">
+                                    <a href="${context}/services/" class="btn"><fmt:message key="contact.section.message.success.button"/></a>
+                                </p>
+                            </c:when>
+                            <c:otherwise>
+                                <h4 class="thin"><fmt:message key="form.message.heading.text" /></h4>
+                                <form:form action="${context}/contact/#click" method="post" commandName="question">
+                                    <div class="row">
+                                        <div class="input-field col s12 m6">
+                                            <form:input path="firstName" />
+                                            <form:label path="firstName"><fmt:message key="form.message.first.label" /></form:label>
+                                            <form:errors path="firstName" cssClass="error"/>
+                                        </div>
+                                        <div class="input-field col s12 m6">
+                                            <form:input path="lastName" />
+                                            <form:label path="lastName"><fmt:message key="form.message.last.label" /></form:label>
+                                            <form:errors path="lastName" cssClass="error"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12 m6">
+                                            <form:input path="email" />
+                                            <form:label path="email"><fmt:message key="form.message.email.label" /></form:label>
+                                            <form:errors path="email" cssClass="error"/>
+                                        </div>
+                                        <div class="input-field col s12 m6">
+                                            <form:select path="service" >
+                                                <fmt:message key="form.message.service.default" var="serviceDefault"/>
+                                                <form:option label="${serviceDefault}" value=""/>
+                                                <form:options items="${services}" itemValue="id" itemLabel="name" />
+                                            </form:select>
+                                            <form:errors path="service" cssClass="error"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12 m6">
+                                            <form:input path="phone" cssClass="phone_us"/>
+                                            <form:label path="phone"><fmt:message key="form.message.phone.label" /></form:label>
+                                            <form:errors path="phone" cssClass="error"/>
+                                        </div>
+                                        <div class="input-field col s12 m6">
+                                            <fmt:message key="form.message.newsletter.label" var="newsletterMessage"/>
+                                            <form:checkbox path="newsletter" label="${newsletterMessage}"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <form:textarea path="message"  rows="10" cssClass="materialize-textarea" length="250" />
+                                            <form:label path="message"><fmt:message key="form.message.message.label" /></form:label>
+                                            <form:errors path="message" cssClass="error"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12 right-align">
+                                            <button class="btn" value="Submit" type="submit"><fmt:message key="form.button.send" /></button>
+                                        </div>
+                                    </div>
+                                </form:form>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                     <div id="appointment" class="col s12 m12 l12">
                         <c:choose>
@@ -171,7 +201,7 @@
                                 <h4 class="thin"><fmt:message key="appointment.success.subheading" /></h4>
                                 <p>
                                     <fmt:message key="appointment.success.text2" var="follow_up_text">
-                                        <fmt:param value="${contacts['General email'].value}" />
+                                        <fmt:param value="${contacts['Appointments'].value}" />
                                     </fmt:message>
                                     <c:out value="${follow_up_text}" escapeXml="false" />
                                 </p>
@@ -184,8 +214,8 @@
                                         </tr>
                                         <tr>
                                             <td><i class="fa fa-envelope-o" title="${contacts['General email'].type.name}"></i></td>
-                                            <td><strong><c:out value="${contacts['General email'].value}"/></strong></td>
-                                            <td><c:out value="${contacts['General email'].type.name}"/></td>
+                                            <td><strong><c:out value="${contacts['Appointments'].value}"/></strong></td>
+                                            <td><c:out value="${contacts['Appointments'].type.name}"/></td>
                                         </tr>
                                         <tr>
                                             <td><i class="fa fa-fax" title="${contacts['Fax'].type.name}"></i></td>

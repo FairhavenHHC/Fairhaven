@@ -138,6 +138,7 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
     @Override
     public LocalValidatorFactoryBean getValidator() {
         LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+        validator.setValidationMessageSource(this.getValidatorMessageSource());
         return validator;
     }
 

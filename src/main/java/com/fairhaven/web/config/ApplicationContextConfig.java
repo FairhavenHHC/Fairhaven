@@ -6,9 +6,13 @@
 package com.fairhaven.web.config;
 
 // Import log4j class
+import com.fairhaven.utils.mail.GenericEmailTemplate;
+import com.fairhaven.utils.mail.VelocityEmailTemplate;
 import java.io.IOException;
 import java.util.Properties;
 import javax.annotation.Resource;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import javax.sql.DataSource;
 import org.apache.log4j.Logger;
 import org.apache.velocity.app.VelocityEngine;
@@ -140,14 +144,31 @@ public class ApplicationContextConfig {
      * @throws IOException
      */
     @Bean
-    public VelocityEngine velocityEngine() throws VelocityException, IOException {
+    public VelocityEngine getVelocityEngine() throws VelocityException, IOException {
 
         VelocityEngineFactoryBean engine = new VelocityEngineFactoryBean();
         Properties velocityProperties = new Properties();
         velocityProperties.setProperty("resource.loader", "class");
         velocityProperties.setProperty("class.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
         engine.setVelocityProperties(velocityProperties);
+
         return engine.createVelocityEngine();
+    }
+
+    @Bean(name = "message_velocity_email_template")
+    public GenericEmailTemplate getMessageEmailTemplate() throws AddressException, VelocityException, IOException {
+        GenericEmailTemplate template = new VelocityEmailTemplate(this.getVelocityEngine(), env.getProperty("mail.velocity.template.question"),
+                env.getProperty("mail.velocity.encoding"));
+        template.addTo(new InternetAddress(env.getProperty("mail.message.email")));
+        return template;
+    }
+
+    @Bean(name = "appointment_velocity_email_template")
+    public GenericEmailTemplate getAppointmentEmailTemplate() throws AddressException, VelocityException, IOException {
+        GenericEmailTemplate template = new VelocityEmailTemplate(this.getVelocityEngine(), env.getProperty("mail.velocity.template.appointment"),
+                env.getProperty("mail.velocity.encoding"));
+        template.setFrom(new InternetAddress(env.getProperty("mail.appointment.email")));
+        return template;
     }
 
 }

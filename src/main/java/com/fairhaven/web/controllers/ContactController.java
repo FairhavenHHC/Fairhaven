@@ -14,6 +14,7 @@ import com.fairhaven.utils.mail.GenericEmailTemplate;
 import com.fairhaven.utils.mail.Mailer;
 import com.fairhaven.web.forms.LocationZipFormbackingBean;
 import com.fairhaven.web.forms.MessageFormbackingBean;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -36,14 +38,17 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping(path = "/contact")
+@SessionAttributes({"contacts"})
 public class ContactController {
 
     private static final Logger logger = Logger.getLogger(ContactController.class.getName());
 
     @Resource
     private Mailer mailer;
-    @Resource
-    private GenericEmailTemplate velocityEmailTemplate;
+    @Resource(name = "message_velocity_email_template")
+    private GenericEmailTemplate messageVelocityEmailTemplate;
+    @Resource(name = "appointment_velocity_email_template")
+    private GenericEmailTemplate appointmentVelocityEmailTemplate;
     @Resource
     private Environment env;
     @Resource
@@ -109,20 +114,18 @@ public class ContactController {
     @RequestMapping(path = "/", method = RequestMethod.POST)
     public ModelAndView sendMessage(@ModelAttribute("question") @Valid MessageFormbackingBean question, BindingResult validationResults) throws Exception {
 
-        ModelAndView mav;
+        ModelAndView mav = this.contactIndex();
 
         if (!validationResults.hasErrors()) {
-            velocityEmailTemplate.setFrom(new InternetAddress(question.getEmail()));
-            velocityEmailTemplate.addTo(new InternetAddress(env.getProperty("mail.username")));
-            velocityEmailTemplate.setSubject("This is just a test email");
-            velocityEmailTemplate.getModel().put("user", question);
-            mailer.sendMail(velocityEmailTemplate, true);
-            mav = this.contactIndex();
+            messageVelocityEmailTemplate.setFrom(new InternetAddress(question.getEmail()));
+            messageVelocityEmailTemplate.setSubject("Qeustion from " + question.getFirstName() + " about " + question.getService().getName());
+            messageVelocityEmailTemplate.getModel().put("user", question);
+            messageVelocityEmailTemplate.getModel().put("contact_phone", ((Map<String, Contact>) mav.getModel().get("contacts")).get("Office phone").getValue());
+            mailer.sendMail(messageVelocityEmailTemplate, true);
             mav.addObject("email_scuccess", true);
-        } else {
-            mav = this.contactIndex();
-            mav.addObject("question", question);
         }
+
+        mav.addObject("question", question);
         return mav;
     }
 
@@ -133,8 +136,17 @@ public class ContactController {
         if (validationResults.hasErrors()) {
             mav.addObject("appointment_success", false);
         } else {
-            mav.addObject("saved_appointment", daof.getAppointmentDAO().saveOrUpdate(appointment));
+            appointmentVelocityEmailTemplate.addTo(new InternetAddress(appointment.getEmail()));
+            appointmentVelocityEmailTemplate.setSubject(appointment.getFirstName() + " , your appointment to discuss " + appointment.getService().getName() + " has been scheduled");
+            appointmentVelocityEmailTemplate.getModel().put("appointment", appointment);
+            appointmentVelocityEmailTemplate.getModel().put("contact_phone", ((Map<String, Contact>) mav.getModel().get("contacts")).get("Office phone").getValue());
+            appointmentVelocityEmailTemplate.getModel().put("appointment_time", new SimpleDateFormat("hh:mm a").format(appointment.getAppointmentTime()));
+            appointmentVelocityEmailTemplate.getModel().put("appointment_date", new SimpleDateFormat("MMMM dd yyyy").format(appointment.getAppointmentDate()));
+            appointmentVelocityEmailTemplate.getModel().put("email", ((Map<String, Contact>) mav.getModel().get("contacts")).get("Appointments").getValue());
+            appointmentVelocityEmailTemplate.getModel().put("location", appointment.getLocation().getName());
+            mailer.sendMail(appointmentVelocityEmailTemplate, true);
             mav.addObject("appointment_success", true);
+            mav.addObject("saved_appointment", daof.getAppointmentDAO().saveOrUpdate(appointment));
         }
 
         mav.addObject(appointment);

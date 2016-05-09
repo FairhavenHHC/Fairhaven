@@ -580,7 +580,7 @@
                 <tr>
                     <td style="width: 560px">
                         <div class="header__logo emb-logo-margin-box" style="Margin-top:16px;Margin-bottom:32px;">
-                            <div align="center" id="emb-email-header" style="font-size:24px !important;line-height:32px !important;" class="logo-center">Hello ${user.firstName}</div>
+                            <div align="center" id="emb-email-header" style="font-size:24px !important;line-height:32px !important;" class="logo-center"></div>
                         </div>
                     </td>
                 </tr>
@@ -590,12 +590,12 @@
                 <tr>
                     <td style="width: 600px" class="column">
 
-                        <div class="column__padding--inline"><h1>Thanks for reaching out ${user.firstName}</h1>
+                        <div class="column__padding--inline"><h1>Hello ${user.firstName}</h1>
                             <p>
                                 We got your message and a representative will be
                                 reaching out to you shortly. If your question is
                                 urgent in nature, feel free to call us at
-                                (560)204-3456. Thanks.
+                                ${contact_phone}. Thanks.
                             </p>
                         </div><div class="column__padding--inline">
                             <div class="btn">

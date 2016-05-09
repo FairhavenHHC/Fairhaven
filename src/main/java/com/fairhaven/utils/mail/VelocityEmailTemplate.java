@@ -6,39 +6,37 @@
 package com.fairhaven.utils.mail;
 
 // Import log4j class
-import javax.annotation.Resource;
 import org.apache.log4j.Logger;
 import org.apache.velocity.app.VelocityEngine;
-import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Component;
 import org.springframework.ui.velocity.VelocityEngineUtils;
 
 /**
  *
  * @author Sam
  */
-@Component
 public class VelocityEmailTemplate extends GenericEmailTemplate {
 
     private static final Logger logger = Logger.getLogger(VelocityEmailTemplate.class.getName());
 
-    @Resource
-    private VelocityEngine velocityEngine;
-    @Resource
-    private Environment env;
+    private final VelocityEngine velocityEngine;
+    private final String encoding, templateLocation;
 
     /**
      *
      */
-    public VelocityEmailTemplate() {
+    public VelocityEmailTemplate(VelocityEngine velocityEngine, String templateLocation, String encoding) {
         super();
+        this.encoding = encoding;
+        this.templateLocation = templateLocation;
+        this.velocityEngine = velocityEngine;
     }
 
+    @Override
     public String getMessage() {
         return VelocityEngineUtils
                 .mergeTemplateIntoString(velocityEngine,
-                        env.getProperty("mail.velocity.template.question"),
-                        env.getProperty("mail.velocity.encoding"),
+                        this.templateLocation,
+                        this.encoding,
                         this.getModel());
     }
 }

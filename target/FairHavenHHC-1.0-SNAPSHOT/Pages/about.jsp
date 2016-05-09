@@ -48,22 +48,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l8">
-                <h4 class="thin"><fmt:message key="about.section.staff.heading" /></h4>
-                <!--<c:forEach begin="1" end="3" step="1" varStatus="loopCounter">
-                    <div class="row">
-                    <c:forEach begin="1" end="4" >
-                        <div class="col s6 m3">
-                            <p class="center-align">
-                                <image src="${context}/images/services-optimized.jpg" class="responsive-img z-depth-1" style="border: 3px solid #fff; max-width: 100px;" />
-                            </p>
-                            <p class="center-align">
-                                <strong>First Last</strong><br>
-                                <small>Job title</small>
-                            </p>
-                        </div>
-                    </c:forEach>
-                </div>
-                </c:forEach>-->
+
             </div>
             <div class="col s12 m12 l4">
                 <div class="row">
@@ -105,7 +90,7 @@
                                                     </address>
                                                 </td>
                                                 <td>
-                                                    <a href="${context}/locations/?lat=${location.latitude}&long=${location.longitude}">
+                                                    <a href="${context}/contact/?lat=${location.latitude}&long=${location.longitude}">
                                                         <i class="fa fa-map-marker"></i> <fmt:message key="map.link.view" />
                                                     </a>
                                                 </td>

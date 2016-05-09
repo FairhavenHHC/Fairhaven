@@ -37,7 +37,7 @@
                         <tr>
                             <th><fmt:message key="home.table.services.heading" /></th>
                             <th class="center-align">Fairhaven</th>
-                            <th class="center-align"><fmt:message key="home.table.services.column.others" /></th>
+                            <!--<th class="center-align"><fmt:message key="home.table.services.column.others" /></th>-->
                         </tr>
                     </thead>
                     <tbody>
@@ -47,7 +47,24 @@
                                     <tr>
                                         <td><a href="${context}/services/${service.id}"><c:out value="${service.name}" /></a></td>
                                         <td class="center-align"><i class="fa fa-check green-text"></i></td>
-                                        <td class="center-align">
+                                        <!--<td class="center-align">
+                                        <c:choose>
+                                            <c:when test="${service.competitorOffered}">
+                                                <i class="fa fa-check green-text"></i>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <i class="fa fa-times red-text"></i>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </td>-->
+                                    </tr>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:if test="${service.offered}">
+                                        <tr class="hidden_rows additional_services">
+                                            <td><a href="${context}/services/${service.id}"><c:out value="${service.name}" /></a></td>
+                                            <td class="center-align"><i class="fa fa-check green-text"></i></td>
+                                            <!--<td class="center-align">
                                             <c:choose>
                                                 <c:when test="${service.competitorOffered}">
                                                     <i class="fa fa-check green-text"></i>
@@ -56,24 +73,7 @@
                                                     <i class="fa fa-times red-text"></i>
                                                 </c:otherwise>
                                             </c:choose>
-                                        </td>
-                                    </tr>
-                                </c:when>
-                                <c:otherwise>
-                                    <c:if test="${service.offered}">
-                                        <tr class="hidden_rows additional_services">
-                                            <td><a href="${context}/services/${service.id}"><c:out value="${service.name}" /></a></td>
-                                            <td class="center-align"><i class="fa fa-check green-text"></i></td>
-                                            <td class="center-align">
-                                                <c:choose>
-                                                    <c:when test="${service.competitorOffered}">
-                                                        <i class="fa fa-check green-text"></i>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <i class="fa fa-times red-text"></i>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </td>
+                                        </td>-->
                                         </tr>
                                     </c:if>
                                 </c:otherwise>
