@@ -7,6 +7,7 @@ package com.fairhaven.web.config;
 
 // Import log4j class
 import com.fairhaven.web.converters.ServiceToStringConverter;
+import com.fairhaven.web.converters.StringToAppointmentConverter;
 import com.fairhaven.web.converters.StringToDateTimeConverter;
 import com.fairhaven.web.converters.StringToLocationConverter;
 import com.fairhaven.web.converters.StringToServiceConverter;
@@ -64,6 +65,8 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
     private StringToDateTimeConverter stringToDateTimeConverter;
     @Resource
     private StringToLocationConverter stringToLocationConverter;
+    @Resource
+    private StringToAppointmentConverter stringToAppointmentConverter;
 
     @Resource
     private Environment env;
@@ -110,21 +113,29 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         super.addInterceptors(registry);
         registry.addWebRequestInterceptor(loggingInterceptor)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/resources/**");;
+                .excludePathPatterns("/resources/**")
+                .excludePathPatterns("/images/**")
+                .excludePathPatterns("/scripts/**");
         registry.addWebRequestInterceptor(osvInterceptor)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/resources/**");
+                .excludePathPatterns("/resources/**")
+                .excludePathPatterns("/images/**")
+                .excludePathPatterns("/scripts/**");
         registry.addInterceptor(sessionVariablesInterceptor)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/resources/**");
+                .excludePathPatterns("/resources/**")
+                .excludePathPatterns("/images/**")
+                .excludePathPatterns("/scripts/**");
         registry.addInterceptor(this.localeChangeInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/resources/**");
+                .excludePathPatterns("/resources/**")
+                .excludePathPatterns("/images/**")
+                .excludePathPatterns("/scripts/**");
     }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**", "/members/resources/**")
+        registry.addResourceHandler("/resources/**", "/admin/resources/**")
                 .addResourceLocations("/Resources/");
         registry.addResourceHandler("/css/**")
                 .addResourceLocations("/Resources/CSS/");
@@ -216,6 +227,7 @@ public class DispatcherServletConfig extends WebMvcConfigurerAdapter {
         formatterRegistry.addConverter(serviceToStringConverter);
         formatterRegistry.addConverter(stringToDateTimeConverter);
         formatterRegistry.addConverter(stringToLocationConverter);
+        formatterRegistry.addConverter(stringToAppointmentConverter);
     }
 
 }

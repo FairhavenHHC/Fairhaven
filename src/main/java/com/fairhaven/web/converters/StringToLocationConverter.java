@@ -30,10 +30,10 @@ public class StringToLocationConverter implements Converter<String, Location> {
 
         Location location;
 
-        if (source != null) {
+        if (source != null && !source.isEmpty()) {
             location = daof.getLocationDAO().findById(Integer.parseInt(source), false);
         } else {
-            throw new RuntimeException("Error converting " + source + " to a location");
+            location = null;
         }
 
         return location;

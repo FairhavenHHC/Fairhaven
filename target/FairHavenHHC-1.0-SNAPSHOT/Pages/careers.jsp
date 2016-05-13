@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
-                <h2 class="thin"><fmt:message key="careers.section.main.heading" /></h2>
+                <h1 class="thin"><fmt:message key="careers.section.main.heading" /></h1>
             </div>
         </div>
     </div>

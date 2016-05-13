@@ -24,6 +24,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -169,6 +170,11 @@ public class ApplicationContextConfig {
                 env.getProperty("mail.velocity.encoding"));
         template.setFrom(new InternetAddress(env.getProperty("mail.appointment.email")));
         return template;
+    }
+
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer getPropertySourcesPlaceholderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
     }
 
 }

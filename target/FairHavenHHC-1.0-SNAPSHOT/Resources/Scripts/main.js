@@ -83,6 +83,7 @@ $(document).ready(function () {
         e.preventDefault();
         $(".additional_services").slideToggle('slow', 'swing');
         $("i", this).toggleClass("fa-plus fa-minus");
+        //$("i", this).toggleClass("green-text red-text");
     });
 
     $(".collapsible-header").click(function (e) {

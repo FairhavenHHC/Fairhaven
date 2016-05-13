@@ -37,9 +37,9 @@ $(document).ready(function ($) {
     }
 
     var latitude = extractParam(window.location.href, "lat");
-    var logitude = extractParam(window.location.href, "long");
+    var longitude = extractParam(window.location.href, "long");
 
-    if (latitude !== undefined && logitude !== undefined) {
+    if (latitude && longitude) {
         setMarker(window.location.href);
     }
 

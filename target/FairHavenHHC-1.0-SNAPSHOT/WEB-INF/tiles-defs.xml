@@ -62,6 +62,12 @@
         <put-attribute name="content"   value="/Pages/login.jsp" />
     </definition>
 
+    <definition name="com.fairhaven.admin.appointments" extends="mainLayout">
+        <put-attribute name="title"  value="Fairhaven | Appointments" />
+        <put-attribute name="content"   value="/Pages/Administration/appointments.jsp" />
+    </definition>
+
+
 
     <!-- ERROR PAGES-->
     <definition name="com.fairhaven.404" extends="mainLayout">

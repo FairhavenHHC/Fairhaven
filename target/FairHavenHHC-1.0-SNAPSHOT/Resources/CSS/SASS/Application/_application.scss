@@ -11,7 +11,7 @@ and open the template in the editor.
 
 body {
     display: flex;
-    min-height: 100vh;
+    min-height: 120vh;
     flex-direction: column;
     background-color: $background-color;
     background: url(../images/cream_dust.png) repeat 0 0;
@@ -19,10 +19,6 @@ body {
 
 main {
     flex: 1 0 auto;
-}
-
-.brand-logo{
-
 }
 
 input:-webkit-autofill {
@@ -35,7 +31,7 @@ input:focus -webkit-autofil {
 
 .header-image{
     background: url(../images/main-optimized.jpg) no-repeat 45% 25%;
-    min-height: 500px;
+    min-height: 400px;
 }
 
 .text-capitalize{
@@ -46,7 +42,6 @@ input:focus -webkit-autofil {
     text-transform: uppercase;
     font-weight: bold;
 }
-
 
 .header-section{
     min-height: 450px;
@@ -75,6 +70,10 @@ footer li>a, .footer-copyright{
 
 .top{
     border-top: none;
+}
+
+nav .brand-logo img{
+    max-height: 60px;
 }
 
 .dropzone-form {
@@ -130,7 +129,7 @@ a.dropdown-button i{
     background-color: transparent;
 }
 
-img.bordered{
+img.bordered, .map-div{
     border: 5px solid #fff;
 }
 

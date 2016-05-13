@@ -8,17 +8,10 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
-                <h2 class="thin"><fmt:message key="about.section.contact.heading" /></h2>
+                <h1 class="thin"><fmt:message key="about.section.contact.heading" /></h1>
             </div>
         </div>
         <div class="row">
-            <div class="col s12 m12 l6">
-                <div class="row">
-                    <div class="col s12 m12 l12">
-                        <div id="map-canvas" class="z-depth-1" style="min-height: 500px; border: 5px solid #fff;"></div>
-                    </div>
-                </div>
-            </div>
             <div class="col s12 m12 l6">
                 <div class="row">
                     <div class="col s12 m12 l12">
@@ -43,12 +36,12 @@
                                         </tr>
                                         <tr>
                                             <td><i class="fa fa-envelope-o" title="${contacts['General email'].type.name}"></i></td>
-                                            <td><strong><c:out value="${contacts['General email'].value}"/></strong></td>
+                                            <td><strong><a href="mailto:${contacts['General email'].value}"><c:out value="${contacts['General email'].value}"/></a></strong></td>
                                             <td><c:out value="${contacts['General email'].type.name}"/></td>
                                         </tr>
                                         <tr>
                                             <td><i class="fa fa-envelope-o" title="${contacts['General email'].type.name}"></i></td>
-                                            <td><strong><c:out value="${contacts['Appointments'].value}"/></strong></td>
+                                            <td><strong><a href="mailto:${contacts['Appointments'].value}"><c:out value="${contacts['Appointments'].value}"/></a></strong></td>
                                             <td><c:out value="${contacts['Appointments'].type.name}"/></td>
                                         </tr>
                                         <tr>
@@ -85,7 +78,7 @@
                                                             </address>
                                                         </td>
                                                         <td>
-                                                            <a href="${context}/locatoins?lat=${location.latitude}&long=${location.longitude}" class="marker">
+                                                            <a href="${context}/contact/?lat=${location.latitude}&long=${location.longitude}" class="marker">
                                                                 <i class="fa fa-map-marker"></i> <fmt:message key="map.link.view" />
                                                             </a>
                                                         </td>
@@ -95,7 +88,7 @@
                                             <c:if test="${search_results}">
                                                 <tfoot>
                                                     <tr>
-                                                        <td colspan="3" class="right-align"><strong><a href="${context}/locations/"><fmt:message key="contact.section.offices.view_all" /></a></strong></td>
+                                                        <td colspan="3" class="right-align"><strong><a href="${context}/contact/"><fmt:message key="contact.section.offices.view_all" /></a></strong></td>
                                                     </tr>
                                                 </tfoot>
                                             </c:if>
@@ -310,6 +303,13 @@
                                 </form:form>
                             </c:otherwise>
                         </c:choose>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m12 l6">
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div id="map-canvas" class="z-depth-1 map-div" style="min-height: 60%;"></div>
                     </div>
                 </div>
             </div>

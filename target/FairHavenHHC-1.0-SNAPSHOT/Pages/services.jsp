@@ -8,12 +8,20 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l6">
-                <h2 class="thin"><fmt:message key="services.section.main.heading" /></h2>
+                <h1 class="thin"><fmt:message key="services.section.main.heading" /></h1>
                 <p>
                     <fmt:message key="services.section.main.text1" />
                 </p>
                 <p>
                     <fmt:message key="services.section.main.text2" />
+                </p>
+                <blockquote>
+                    <h4 class="thin"><fmt:message key="services.section.main.blockquote" /></h4>
+                </blockquote>
+            </div>
+            <div class="col l6 hide-on-med-and-down">
+                <p class="center-align">
+                    <img src="${context}/images/logo-circle-text-alt.png" class="responsive-img" style="max-height: 300px;"/>
                 </p>
             </div>
         </div>
@@ -38,7 +46,10 @@
                 </p>
                 <a href="#"><h4 class="thin"><i class="fa fa-clock-o"></i> <fmt:message key="services.section.cards.heading3" /></h4></a>
                 <p>
-                    <fmt:message key="services.section.cards.card3" />
+                    <fmt:message key="services.section.cards.card3" var="phone_support">
+                        <fmt:param value="${contacts['Office phone'].value}"/>
+                    </fmt:message>
+                    <c:out value="${phone_support}"/>
                 </p>
             </div>
             <div class="col s12 m4 l4">
@@ -58,35 +69,29 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
-                <h4 class="thin"><fmt:message key="services.section.table.heading" /></h4>
+                <h2 class="thin"><fmt:message key="services.section.table.heading" /></h2>
             </div>
         </div>
         <div class="row">
             <div class="col s12 m12 l6" id="services_list">
-                <table class="striped">
+                <table class="striped bordered">
                     <thead>
                         <tr>
                             <th><fmt:message key="home.table.services.heading" /></th>
-                            <th class="center-align">Fairhaven</th>
-                            <th class="center-align"><fmt:message key="home.table.services.column.others" /></th>
+                            <th class="center-align">Offered?</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach items="${services}" var="service" varStatus="counter">
                             <c:if test="${service.offered}">
                                 <tr>
-                                    <td><a href="${context}/services/${service.id}"><c:out value="${service.name}" /></a></td>
-                                    <td class="center-align"><i class="fa fa-check green-text"></i></td>
-                                    <td class="center-align">
-                                        <c:choose>
-                                            <c:when test="${service.competitorOffered}">
-                                                <i class="fa fa-check green-text"></i>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <i class="fa fa-times red-text"></i>
-                                            </c:otherwise>
-                                        </c:choose>
+                                    <td>
+                                        <strong><a href="${context}/services/${service.id}"><c:out value="${service.name}" /></a></strong>
+                                        <p>
+                                            <c:out value="${service.description}" />
+                                        </p>
                                     </td>
+                                    <td class="center-align"><i class="fa fa-check green-text"></i></td>
                                 </tr>
                             </c:if>
                         </c:forEach>
@@ -102,7 +107,45 @@
                 <p class="center-align">
                     <img class="responsive-img bordered z-depth-1" src="${context}/images/nurse-contract-optimized.jpg" />
                 </p>
+                <h5><fmt:message key="services.howto.care.heading" /></h5>
+                <p>
+                    <fmt:message key="services.howto.care.text1"/>
+                </p>
+                <p>
+                    <fmt:message key="services.howto.care.text2"/>
+                </p>
+                <p>
+                    <fmt:message key="services.howto.care.text3"/>
+                </p>
+                <div class="divider"></div>
+                <h5><fmt:message key="services.benefits.care.heading" /></h5>
+                <p>
+                    <fmt:message key="services.benfits.care.text1"/>
+                </p>
+                <p>
+                    <fmt:message key="services.benefits.care.text2"/>
+                </p>
+                <p>
+                    <fmt:message key="services.benefits.care.text3"/>
+                </p>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="section light-green lighten-2">
+    <div class="row">
+        <div class="col s12 m12 l12 center-align">
+            <fmt:message key="services.callout.phone" var="phone_support">
+                <fmt:param value="${contacts['Office phone'].value}"/>
+            </fmt:message>
+            <h1><c:out value="${phone_support}"/></h1>
+            <p>
+                <strong><fmt:message key="contact.hours.text" /></strong>
+            </p>
+            <p>
+                <a class="btn red-btn" href="${context}/contact/#appointment"><fmt:message key="services.callout.appointment" /></a>
+            </p>
         </div>
     </div>
 </div>
