@@ -147,6 +147,7 @@ public class ApplicationContextConfig {
     @Bean
     public VelocityEngine getVelocityEngine() throws VelocityException, IOException {
 
+        //Test
         VelocityEngineFactoryBean engine = new VelocityEngineFactoryBean();
         Properties velocityProperties = new Properties();
         velocityProperties.setProperty("resource.loader", "class");
