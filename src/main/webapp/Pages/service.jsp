@@ -11,13 +11,16 @@
 
 <div class="section">
     <div class="row container">
-        <div class="col s12 m12 l12">
+        <div class="col s12 m12 l6">
             <h1 class="thin">
                 <c:out value="${service.name}" />
             </h1>
             <p>
                 <c:out value="${service.description}" />
             </p>
+        </div>
+        <div class="col s12 m12 l6">
+
         </div>
     </div>
 </div>

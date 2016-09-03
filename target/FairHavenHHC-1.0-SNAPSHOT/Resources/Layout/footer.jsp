@@ -8,10 +8,10 @@
 <div id="footer" class="container">
     <div class="row">
         <div class="col l2 hide-on-med-and-down">
-            <h6><strong>FairHaven HHC &copy;</strong></h6>
+            <h6><strong><c:out value="${application_name}" />&copy;</strong></h6>
         </div>
         <div class="col m4 s4 l2">
-            <h6 class="white-text">Our services</h6>
+            <h6 class="white-text"><fmt:message key="footer.menu.heading.services" /></h6>
             <ul>
                 <c:choose>
                     <c:when test="${!empty(services) && fn:length(services)> 0}">
@@ -34,20 +34,21 @@
             </ul>
         </div>
         <div class="col m4 s4 l2">
-            <h6 class="white-text">About us</h6>
+            <h6 class="white-text"><fmt:message key="footer.menu.heading.about" /></h6>
             <ul>
-                <li><a href="${context}/about/#our_story">Our story</a></li>
-                <li><a href="${context}/about/#contact">Contact us</a></li>
-                <li><a href="${context}/locations/">Find a location</a></li>
+                <li><a href="${context}/about/#our_story"><fmt:message key="footer.menu.item.story" /></a></li>
+                <li><a href="${context}/about/#contact"><fmt:message key="footer.menu.item.contact" /></a></li>
+                <li><a href="${context}/contact/"><fmt:message key="footer.menu.item.location" /></a></li>
+                <li><a href="${context}/admin/"><fmt:message key="footer.menu.item.admin" /></a></li>
             </ul>
 
-            <h6 class="white-text">Join our team</h6>
+            <h6 class="white-text"><fmt:message key="footer.menu.heading.team" /></h6>
             <ul>
-                <li><a href="${context}/about/careers/">Careers</a></li>
+                <li><a href="${context}/about/careers/"><fmt:message key="footer.menu.item.careers" /></a></li>
             </ul>
         </div>
         <div class="col m4 s4 l2">
-            <h6 class="white-text">Connect</h6>
+            <h6 class="white-text"><fmt:message key="footer.menu.heading.connect" /></h6>
             <ul>
                 <li><a href="http://www.facebook.com/fairhavenhhc"><i class="fa fa-facebook fa-fw blue-text text-darken-4"></i> Facebook</a></li>
                 <li><a href="http://www.twitter.com/fairhavenhhc"><i class="fa fa-twitter fa-fw light-blue-text"></i> Twitter</a></li>
@@ -66,7 +67,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <h6 class="center-align black-text"><strong>FairHaven HHC &copy;</strong></h6>
+                <h6 class="center-align black-text"><strong><c:out value="${application_name}" />&copy;</strong></h6>
             </div>
         </div>
     </div>

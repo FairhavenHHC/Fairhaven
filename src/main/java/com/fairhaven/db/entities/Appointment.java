@@ -43,66 +43,61 @@ import org.apache.log4j.Logger;
     @NamedQuery(name = "Appointment.findByPhone", query = "SELECT a FROM Appointment a WHERE a.phone = :phone"),
     @NamedQuery(name = "Appointment.findByBestCallTime", query = "SELECT a FROM Appointment a WHERE a.bestCallTime = :bestCallTime"),
     @NamedQuery(name = "Appointment.findByAppointmentDate", query = "SELECT a FROM Appointment a WHERE a.appointmentDate = :appointmentDate"),
-    @NamedQuery(name = "Appointment.findByAppointmentTime", query = "SELECT a FROM Appointment a WHERE a.appointmentTime = :appointmentTime"),
-    @NamedQuery(name = "Appointment.findByComments", query = "SELECT a FROM Appointment a WHERE a.comments = :comments")})
+    @NamedQuery(name = "Appointment.findByAppointmentTime", query = "SELECT a FROM Appointment a WHERE a.appointmentTime = :appointmentTime")})
 public class Appointment implements Serializable {
 
-    @JoinColumn(name = "service", referencedColumnName = "id")
-    @ManyToOne
-    private Services service;
-
-    @JoinColumn(name = "location", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Location location;
-
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @NotNull(message = "{form.message.first_name_name.not_null}")
+    @Size(min = 1, max = 255, message = "{field.length}")
     @Column(name = "first_name")
     private String firstName;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @NotNull(message = "{form.message.last_name_name.not_null}")
+    @Size(min = 1, max = 255, message = "{field.length}")
     @Column(name = "last_name")
     private String lastName;
-    @Pattern(regexp = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message = "Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Pattern(regexp = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message = "{form.message.email.valid}")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @NotNull(message = "{form.message.email.not_null}")
+    @Size(min = 1, max = 255, message = "{field.length}")
     @Column(name = "email")
     private String email;
-    @Pattern(regexp = "^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message = "Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
+    @Pattern(regexp = "^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message = "{form.message.phone.valid}")//if the field contains phone or fax number consider using this annotation to enforce field validation
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 14)
+    @NotNull(message = "{form.message.phone.not_null}")
+    @Size(min = 1, max = 14, message = "{field.length}")
     @Column(name = "phone")
     private String phone;
     @Basic(optional = false)
-    @NotNull
+    @NotNull(message = "{form.message.bestCallTime.not_null}")
     @Size(min = 1, max = 45)
     @Column(name = "best_call_time")
     private String bestCallTime;
     @Basic(optional = false)
-    @NotNull
+    @NotNull(message = "{form.message.appointmentDate.not_null}")
     @Column(name = "appointment_date")
     @Temporal(TemporalType.DATE)
     private Date appointmentDate;
     @Basic(optional = false)
-    @NotNull
+    @NotNull(message = "{form.message.appointmentTime.not_null}")
     @Column(name = "appointment_time")
     @Temporal(TemporalType.TIME)
     private Date appointmentTime;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 1000)
-    @Column(name = "comments")
-    private String comments;
+    @NotNull(message = "{form.message.service.not_null}")
+    @JoinColumn(name = "service", referencedColumnName = "id")
+    @ManyToOne
+    private Services service;
+    @NotNull(message = "{form.message.location.not_null}")
+    @JoinColumn(name = "location", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Location location;
 
     private static final Logger logger = Logger.getLogger(Appointment.class.getName());
 
@@ -122,7 +117,6 @@ public class Appointment implements Serializable {
         this.bestCallTime = bestCallTime;
         this.appointmentDate = appointmentDate;
         this.appointmentTime = appointmentTime;
-        this.comments = comments;
     }
 
     public Integer getId() {
@@ -187,14 +181,6 @@ public class Appointment implements Serializable {
 
     public void setAppointmentTime(Date appointmentTime) {
         this.appointmentTime = appointmentTime;
-    }
-
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
     }
 
     @Override

@@ -21,8 +21,8 @@
         </c:if>
 
         <div class="row">
-            <div class="col m4 offset-m4">
-                <h3 class="thin center-align text-capitalize"><fmt:message key="login.subheading" /></h3>
+            <div class="col s12 m8 l4 offset-m2 offset-l4">
+                <h1 class="thin center-align"><fmt:message key="login.subheading" /></h1>
                 <form:form method="POST" action="${context_path}/security_check" role="form" commandName="login" autocomplete="off">
                     <form:hidden path="csrf" />
                     <div class="input-field col s12">
@@ -39,16 +39,16 @@
                     </div>
                     <div class="input-field col s6 right-align">
                         <form:button type="submit" class="btn btn-primary">
-                            <fmt:message key="login.button.submit" />  
+                            <fmt:message key="login.button.submit" />
                         </form:button>
                     </div>
                 </form:form>
             </div>
         </div>
-                
+
         <div class="row">
-            <div class="col m4 offset-m4">
-                 <div class="divider"></div> 
+            <div class="col s12 m8 l4 offset-m2 offset-l4">
+                <div class="divider"></div>
                 <p class="right-align"><a href="${context}/reset.htm">Forgot your password?</a></p>
             </div>
         </div>

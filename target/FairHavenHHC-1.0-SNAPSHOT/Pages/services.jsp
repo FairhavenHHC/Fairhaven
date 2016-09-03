@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -9,12 +8,20 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l6">
-                <h2 class="thin"><fmt:message key="services.section.main.heading" /></h2>
+                <h1 class="thin"><fmt:message key="services.section.main.heading" /></h1>
                 <p>
                     <fmt:message key="services.section.main.text1" />
                 </p>
                 <p>
                     <fmt:message key="services.section.main.text2" />
+                </p>
+                <blockquote>
+                    <h4 class="thin"><fmt:message key="services.section.main.blockquote" /></h4>
+                </blockquote>
+            </div>
+            <div class="col l6 hide-on-med-and-down">
+                <p class="center-align">
+                    <img src="${context}/images/logo-circle-text-alt.png" class="responsive-img" style="max-height: 300px;"/>
                 </p>
             </div>
         </div>
@@ -39,7 +46,10 @@
                 </p>
                 <a href="#"><h4 class="thin"><i class="fa fa-clock-o"></i> <fmt:message key="services.section.cards.heading3" /></h4></a>
                 <p>
-                    <fmt:message key="services.section.cards.card3" />
+                    <fmt:message key="services.section.cards.card3" var="phone_support">
+                        <fmt:param value="${contacts['Office phone'].value}"/>
+                    </fmt:message>
+                    <c:out value="${phone_support}"/>
                 </p>
             </div>
             <div class="col s12 m4 l4">
@@ -58,46 +68,84 @@
 <div class="section white">
     <div class="container">
         <div class="row">
+            <div class="col s12 m12 l12">
+                <h2 class="thin"><fmt:message key="services.section.table.heading" /></h2>
+            </div>
+        </div>
+        <div class="row">
             <div class="col s12 m12 l6" id="services_list">
-                <h4 class="thin"><fmt:message key="services.section.table.heading" /></h4>
-                <table class="striped">
+                <table class="striped bordered">
                     <thead>
                         <tr>
                             <th><fmt:message key="home.table.services.heading" /></th>
-                            <th class="center-align">Fairhaven</th>
-                            <th class="center-align"><fmt:message key="home.table.services.column.others" /></th>
+                            <th class="center-align">Offered?</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach items="${services}" var="service" varStatus="counter">
                             <c:if test="${service.offered}">
                                 <tr>
-                                    <td><c:out value="${service.name}" /></td>
-                                    <td class="center-align"><i class="fa fa-check green-text"></i></td>
-                                    <td class="center-align">
-                                        <c:choose>
-                                            <c:when test="${service.competitorOffered}">
-                                                <i class="fa fa-check green-text"></i>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <i class="fa fa-times red-text"></i>
-                                            </c:otherwise>
-                                        </c:choose>
+                                    <td>
+                                        <strong><a href="${context}/services/${service.id}"><c:out value="${service.name}" /></a></strong>
+                                        <p>
+                                            <c:out value="${service.description}" />
+                                        </p>
                                     </td>
+                                    <td class="center-align"><i class="fa fa-check green-text"></i></td>
                                 </tr>
                             </c:if>
                         </c:forEach>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td class="right-align" colspan="3"></td>
+                            <td class="right-align" colspan="3"><!--<small><fmt:message key="services.table.footer" /></small>--></td>
                         </tr>
                     </tfoot>
                 </table>
             </div>
             <div class="col s12 m12 l6">
-
+                <p class="center-align">
+                    <img class="responsive-img bordered z-depth-1" src="${context}/images/nurse-contract-optimized.jpg" />
+                </p>
+                <h5><fmt:message key="services.howto.care.heading" /></h5>
+                <p>
+                    <fmt:message key="services.howto.care.text1"/>
+                </p>
+                <p>
+                    <fmt:message key="services.howto.care.text2"/>
+                </p>
+                <p>
+                    <fmt:message key="services.howto.care.text3"/>
+                </p>
+                <div class="divider"></div>
+                <h5><fmt:message key="services.benefits.care.heading" /></h5>
+                <p>
+                    <fmt:message key="services.benfits.care.text1"/>
+                </p>
+                <p>
+                    <fmt:message key="services.benefits.care.text2"/>
+                </p>
+                <p>
+                    <fmt:message key="services.benefits.care.text3"/>
+                </p>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="section light-green lighten-2">
+    <div class="row">
+        <div class="col s12 m12 l12 center-align">
+            <fmt:message key="services.callout.phone" var="phone_support">
+                <fmt:param value="${contacts['Office phone'].value}"/>
+            </fmt:message>
+            <h1><c:out value="${phone_support}"/></h1>
+            <p>
+                <strong><fmt:message key="contact.hours.text" /></strong>
+            </p>
+            <p>
+                <a class="btn red-btn" href="${context}/contact/#appointment"><fmt:message key="services.callout.appointment" /></a>
+            </p>
         </div>
     </div>
 </div>
@@ -132,68 +180,4 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
 </div>
-
-
-=======
-</div>
-=======
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<<<<<<< HEAD
-=======
-
-<div class="section white row valign-wrapper" style="min-height: 400px;">
-    <div class="col m3 s12">
-        <h5 class="center-align valign text-capitalize">Skilled home nursing (RN/LVN)</h5>
-        <p class="center-align">
-            Improving the quality of life for those we serve through delivery of clinical excellence, 
-            extraordinary service and compassionate care.
-        </p>
-    </div>
-    <div class="col m9 s12">
-        
-    </div>
-</div>
-<div class="section row valign-wrapper" style="min-height: 400px;">
-    <div class="col m9 s12">
-        
-    </div>
-    <div class="col m3 s12">
-        <h5 class="center-align valign text-capitalize">Home health aide</h5>
-        <p class="center-align">
-            Improving the quality of life for those we serve through delivery of clinical excellence, 
-            extraordinary service and compassionate care.
-        </p>
-    </div>
-</div>
-<div class="section light-green row lighten-4 valign-wrapper" style="min-height: 400px;">
-   <div class="col m3 s12">
-        <h5 class="center-align valign text-capitalize">Home care services/companionship</h5>
-        <p class="center-align">
-            Improving the quality of life for those we serve through delivery of clinical excellence, 
-            extraordinary service and compassionate care.
-        </p>
-    </div>
-    <div class="col m9 s12">
-        
-    </div>
-</div>
-<div class="section row valign-wrapper" style="min-height: 400px;">
-    <div class="col m9 s12">
-        
-    </div>
-    <div class="col m3 s12">
-        <h5 class="center-align valign text-capitalize">Medical social work</h5>
-        <p class="center-align grey-text">
-            Improving the quality of life for those we serve through delivery of clinical excellence, 
-            extraordinary service and compassionate care.
-        </p>
-    </div>
-</div>
->>>>>>> c4c55a6de9ef3c9716c8d750a5b4d5d57a1445b2
->>>>>>> 2bf9b035f0db61dbe80228b054532731c6f55b2d
->>>>>>> master

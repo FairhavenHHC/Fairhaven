@@ -64,6 +64,6 @@ public class LoginController {
         request.logout();
         rememberMeCookie.setMaxAge(0);
         response.addCookie(rememberMeCookie);
-        return new ModelAndView("redirect:/administration/");
+        return new ModelAndView("redirect:/admin/");
     }
 }

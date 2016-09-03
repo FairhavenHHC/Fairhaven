@@ -7,11 +7,7 @@ package com.fairhaven.web.controllers;
 
 // Import log4j class
 import com.fairhaven.db.dao.DAOFactory;
-import com.fairhaven.db.entities.Contact;
 import com.fairhaven.db.entities.Services;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import javax.annotation.Resource;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -42,7 +38,6 @@ public class ServicesController {
         ModelAndView mav = new ModelAndView("com.fairhaven.services");
 
         mav.addObject("faqs", this.daof.getFaqDAO().findAll());
-        mav.addObject("services", this.daof.getServicesDAO().findAll());
         return mav;
     }
 
@@ -54,14 +49,8 @@ public class ServicesController {
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public ModelAndView service(@PathVariable("id") Services service) {
         ModelAndView mav = new ModelAndView("com.fairhaven.service");
-        Map<String, Contact> contacts = new HashMap<>();
-        Collection<Contact> contact_list = this.daof.getContactDAO().findAll();
-        for (Contact contact : contact_list) {
-            contacts.put(contact.getType().getName(), contact);
-        }
-        mav.addObject("contacts", contacts);
+
         mav.addObject("service", service);
         return mav;
     }
-
 }

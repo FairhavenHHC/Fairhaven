@@ -1,17 +1,18 @@
 com\fairhaven\db\dao\AppointmentDAO.class
-com\fairhaven\web\forms\AppointmentFormBackingBean.class
 com\fairhaven\web\converters\StringToDateTimeConverter.class
 com\fairhaven\db\entities\Groups.class
 com\fairhaven\web\converters\StringToServiceConverter.class
 com\fairhaven\db\dao\hibernate\HibernateContactDAO.class
 com\fairhaven\db\dao\hibernate\HibernateGroupsDAO.class
 com\fairhaven\db\entities\Link.class
+com\fairhaven\web\controllers\IndexController.class
 com\fairhaven\utils\mail\Mailer.class
 com\fairhaven\db\dao\FaqDAO.class
 com\fairhaven\db\dao\GenericDAO.class
 com\fairhaven\db\entities\Location_.class
 com\fairhaven\db\entities\Contact.class
 com\fairhaven\db\entities\Location.class
+com\fairhaven\web\controllers\AdminController.class
 com\fairhaven\db\dao\hibernate\HibernateServicesDAO.class
 com\fairhaven\db\entities\Services.class
 com\fairhaven\db\entities\Services_.class
@@ -25,6 +26,7 @@ com\fairhaven\db\dao\hibernate\HibernateDAOFactory.class
 com\fairhaven\web\forms\LoginFormBackingBean.class
 com\fairhaven\db\dao\hibernate\HibernateLocationDAO.class
 com\fairhaven\db\dao\hibernate\HibernateAppointmentDAO.class
+com\fairhaven\web\converters\StringToAppointmentConverter.class
 com\fairhaven\db\entities\ContactType.class
 com\fairhaven\utils\mail\GenericEmailTemplate.class
 com\fairhaven\web\config\ApplicationContextConfig.class
@@ -64,7 +66,6 @@ com\fairhaven\utils\encryption\Encrypter.class
 com\fairhaven\db\entities\Appointment_.class
 com\fairhaven\web\controllers\ServicesController.class
 com\fairhaven\web\config\SpringSecurityConfig.class
-com\fairhaven\web\controllers\AdministrationController.class
 com\fairhaven\db\entities\Users_.class
 com\fairhaven\web\config\ApplicationContextConfig$1.class
 com\fairhaven\web\controllers\ErrorController.class

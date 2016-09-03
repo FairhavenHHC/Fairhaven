@@ -14,8 +14,8 @@ import com.fairhaven.utils.mail.GenericEmailTemplate;
 import com.fairhaven.utils.mail.Mailer;
 import com.fairhaven.web.forms.LocationZipFormbackingBean;
 import com.fairhaven.web.forms.MessageFormbackingBean;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Resource;
 import javax.mail.internet.InternetAddress;
@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -36,14 +37,17 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping(path = "/contact")
+@SessionAttributes({"contacts"})
 public class ContactController {
 
     private static final Logger logger = Logger.getLogger(ContactController.class.getName());
 
     @Resource
     private Mailer mailer;
-    @Resource
-    private GenericEmailTemplate velocityEmailTemplate;
+    @Resource(name = "message_velocity_email_template")
+    private GenericEmailTemplate messageVelocityEmailTemplate;
+    @Resource(name = "appointment_velocity_email_template")
+    private GenericEmailTemplate appointmentVelocityEmailTemplate;
     @Resource
     private Environment env;
     @Resource
@@ -58,18 +62,10 @@ public class ContactController {
         Collection<Location> locations = this.daof.getLocationDAO().findAll();
         ModelAndView mav = new ModelAndView("com.fairhaven.contact");
 
-        Map<String, Contact> contacts = new HashMap<>();
-        Collection<Contact> contact_list = this.daof.getContactDAO().findAll();
-        for (Contact contact : contact_list) {
-            contacts.put(contact.getType().getName(), contact);
-        }
-        mav.addObject("contacts", contacts);
-
         MessageFormbackingBean newQuestion = new MessageFormbackingBean();
         newQuestion.setNewsletter(true);
         mav.addObject("locations", locations);
         mav.addObject("zipBean", new LocationZipFormbackingBean());
-        mav.addObject("services", this.daof.getServicesDAO().findAll());
         mav.addObject("question", newQuestion);
         mav.addObject("appointment", new Appointment());
         return mav;
@@ -107,34 +103,46 @@ public class ContactController {
      * @throws java.lang.Exception
      */
     @RequestMapping(path = "/", method = RequestMethod.POST)
-    public ModelAndView sendMessage(@ModelAttribute("question") @Valid MessageFormbackingBean question, BindingResult validationResults) throws Exception {
+    public ModelAndView sendMessage(@ModelAttribute("contacts") Map<String, Contact> contacts,
+            @ModelAttribute("question") @Valid MessageFormbackingBean question,
+            BindingResult validationResults) throws Exception {
 
-        ModelAndView mav;
+        ModelAndView mav = this.contactIndex();
 
         if (!validationResults.hasErrors()) {
-            velocityEmailTemplate.setFrom(new InternetAddress(question.getEmail()));
-            velocityEmailTemplate.addTo(new InternetAddress(env.getProperty("mail.username")));
-            velocityEmailTemplate.setSubject("This is just a test email");
-            velocityEmailTemplate.getModel().put("user", question);
-            mailer.sendMail(velocityEmailTemplate, true);
-            mav = this.contactIndex();
+            messageVelocityEmailTemplate.setFrom(new InternetAddress(question.getEmail()));
+            messageVelocityEmailTemplate.setSubject("Qeustion from " + question.getFirstName() + " about " + question.getService().getName());
+            messageVelocityEmailTemplate.getModel().put("user", question);
+            messageVelocityEmailTemplate.getModel().put("contact_phone", contacts.get("Office phone").getValue());
+            mailer.sendMail(messageVelocityEmailTemplate, true);
             mav.addObject("email_scuccess", true);
-        } else {
-            mav = this.contactIndex();
-            mav.addObject("question", question);
         }
+
+        mav.addObject("question", question);
         return mav;
     }
 
     @RequestMapping(path = "/appointment", method = RequestMethod.POST)
-    public ModelAndView saveAppointment(@ModelAttribute("appointment") @Valid Appointment appointment, BindingResult validationResults) throws Exception {
+    public ModelAndView saveAppointment(@ModelAttribute("contacts") Map<String, Contact> contacts,
+            @ModelAttribute("appointment") @Valid Appointment appointment,
+            BindingResult validationResults) throws Exception {
+
         ModelAndView mav = this.contactIndex();
 
         if (validationResults.hasErrors()) {
             mav.addObject("appointment_success", false);
         } else {
-            daof.getAppointmentDAO().saveOrUpdate(appointment);
+            appointmentVelocityEmailTemplate.addTo(new InternetAddress(appointment.getEmail()));
+            appointmentVelocityEmailTemplate.setSubject(appointment.getFirstName() + " , your appointment to discuss " + appointment.getService().getName() + " has been scheduled");
+            appointmentVelocityEmailTemplate.getModel().put("appointment", appointment);
+            appointmentVelocityEmailTemplate.getModel().put("contact_phone", contacts.get("Office phone").getValue());
+            appointmentVelocityEmailTemplate.getModel().put("appointment_time", new SimpleDateFormat("hh:mm a").format(appointment.getAppointmentTime()));
+            appointmentVelocityEmailTemplate.getModel().put("appointment_date", new SimpleDateFormat("MMMM dd yyyy").format(appointment.getAppointmentDate()));
+            appointmentVelocityEmailTemplate.getModel().put("email", contacts.get("Appointments").getValue());
+            appointmentVelocityEmailTemplate.getModel().put("location", appointment.getLocation().getName());
+            mailer.sendMail(appointmentVelocityEmailTemplate, true);
             mav.addObject("appointment_success", true);
+            mav.addObject("saved_appointment", daof.getAppointmentDAO().saveOrUpdate(appointment));
         }
 
         mav.addObject(appointment);

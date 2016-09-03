@@ -1,26 +1,52 @@
-<<<<<<< HEAD
-<%-- 
-    Document   : admin
-    Created on : Jan 24, 2016, 4:04:51 PM
-    Author     : Sam
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-=======
-<%-- 
-    Document   : admin
-    Created on : Jan 24, 2016, 4:04:51 PM
-    Author     : Sam
---%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <h1 class="thin">
+                    <fmt:message key="admin.dashboard.index.heading" />
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 l6">
+                <p>
+                    <fmt:message key="admin.dashboard.index.text1" var="app_text">
+                        <fmt:param value="${application_name}" />
+                    </fmt:message>
+                    <c:out value="${app_text}" />
+                </p>
+            </div>
+            <div class="col s12 m12 l6">
+                <h3 class="thin"><fmt:message key="admin.dashboard.summary.heading" /></h3>
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th><fmt:message key="admin.dashboard.summary.table.column.item" /></th>
+                            <th><fmt:message key="admin.dashboard.summary.table.column.status" /></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="${context}/admin/appointments/"><fmt:message key="admin.dashboard.summary.table.appointment.label" /></a>
+                            </td>
+                            <td>
+                                <strong><a href="${context}/admin/appointments/"><c:out value="${fn:length(appointments)}" /></a></strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-<p><image src="${context}/images/services-optimized.jpg" class="responsive-img z-depth-1" style="border: 5px solid #fff" /></p>
->>>>>>> c4c55a6de9ef3c9716c8d750a5b4d5d57a1445b2
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
