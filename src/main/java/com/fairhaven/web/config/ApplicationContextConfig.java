@@ -147,7 +147,7 @@ public class ApplicationContextConfig {
     @Bean
     public VelocityEngine getVelocityEngine() throws VelocityException, IOException {
 
-        //Testing Jenkins 5
+        //Testing Jenkins 6
         VelocityEngineFactoryBean engine = new VelocityEngineFactoryBean();
         Properties velocityProperties = new Properties();
         velocityProperties.setProperty("resource.loader", "class");
